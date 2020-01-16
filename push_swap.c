@@ -19,21 +19,26 @@
 	{
 		 
 	}
-}
+} */
 
-void	sa_sb(int *a, int i)
+void	sa_sb(t_stack *a, int i)
 {
-	int c;
+	t_stack *c;
+	t_stack *save;
 
 	if (i > 1)
 	{
-		c = a[0];
-		a[0] = a[1];
-		a[1] = c;
+		c = a;
+		a = a->next;
+		c->next = a->next;
+		c->pred = a;
+		a->pred = NULL;
+		a->next->pred = c;
+		a->next = c;
 	}
 }
 
-void	ss(int *a, int *b, int i, int c)
+/*void	ss(int *a, int *b, int i, int c)
 {
 	sa_sb(a, i);
 	sa_sb(b, c);
@@ -41,10 +46,10 @@ void	ss(int *a, int *b, int i, int c)
 */
 void	print_stack(t_stack *a)
 {
-	while (a->pred != NULL)
+	while (a->next != NULL)
 	{
 		printf("*a = %d\n", a->value);
-		a = a->pred;
+		a = a->next;
 	}
 }
 
@@ -67,6 +72,7 @@ int		main(int ac, char **av)
 	t_stack *a;
 	t_stack *pred;
 	t_stack *b;
+	t_stack *start;
 
 	a = (t_stack*)malloc(sizeof(t_stack));
 	b = (t_stack*)malloc(sizeof(t_stack));
@@ -77,17 +83,22 @@ int		main(int ac, char **av)
 		while (av[i + 1])
 		{
 			a->value = ft_atoi(av[i + 1]);
-			printf("a:val: %d\n", a->value);
 			a->num = i;
+			if (i == 0)
+				start = a;
 			pred = a;
 			a = (t_stack *)malloc(sizeof(t_stack));
+			pred->next = a;
 			a->pred = pred;
 			i++;
 		}
 		av[i] = 0;
 	}
-	//sa_sb(a, ac);
+	print_stack(start);
+	sa_sb(start, ac);
+	start = start->pred; // нужно делать после sa/sb
 	//c = len_b(b);
-	print_stack(a);	
+	printf("\n");
+	print_stack(start);	
 	return (0);
 }

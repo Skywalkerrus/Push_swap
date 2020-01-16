@@ -11,4 +11,4 @@
 # **************************************************************************** #
 
 all:
-	gcc -Wall -Wextra -Werror -o push_swap push_swap.c libft/libft.a
+	gcc -o push_swap push_swap.c libft/libft.a
