@@ -13,13 +13,25 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-/*void	pa(int *a, int *b, int i)
+void	pa(t_stack *a,	t_stack *b)
 {
-	if (a[0] != NULL)
+	t_stack 	*new_elem;
+
+	if (a->num > 0)
 	{
-		 
+		new_elem = (t_stack *)malloc(sizeof(t_stack));
+		a->num++;
+		a->pred = new_elem;
+		new_elem->pred = NULL;
+		new_elem->next = a;
+		new_elem->value = b->value;
 	}
-} */
+	else if (a->num == 0)
+	{
+		a->value = b->value;
+		a->num++;
+	}
+}
 
 void	sa_sb(t_stack *a, int i)
 {
@@ -46,11 +58,18 @@ void	sa_sb(t_stack *a, int i)
 */
 void	print_stack(t_stack *a)
 {
+	if (a->next == NULL)
+	{
+		printf("stack one el: %d\n", a->value);
+		printf("\n");
+		return;
+	}
 	while (a->next != NULL)
 	{
-		printf("*a = %d\n", a->value);
+		printf("stack: %d\n", a->value);
 		a = a->next;
 	}
+	printf("\n");
 }
 
 /*int		len_b(int *b)
@@ -95,10 +114,13 @@ int		main(int ac, char **av)
 		av[i] = 0;
 	}
 	print_stack(start);
-	sa_sb(start, ac);
-	start = start->pred; // нужно делать после sa/sb
-	//c = len_b(b);
-	printf("\n");
-	print_stack(start);	
+	//sa_sb(start, ac);
+	pa(b, start);
+	pa(b, start);
+	//b = b->pred;
+	//print_stack(b);
+	//start = start->pred; // нужно делать после sa/sb
+	//print_stack(start);
+	print_stack(b);	
 	return (0);
 }
