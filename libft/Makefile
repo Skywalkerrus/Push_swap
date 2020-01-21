@@ -6,7 +6,7 @@
 #    By: bantario <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 18:34:54 by bantario          #+#    #+#              #
-#    Updated: 2019/11/28 19:00:40 by bantario         ###   ########.fr        #
+#    Updated: 2020/01/21 14:37:00 by bantario         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	@gcc -I $(HEAD) -c $(SRC)
+	@gcc $(FLAGS) -I $(HEAD) -c $(SRC)
 	@ar rc $(NAME) $(OFF)
 	@ranlib $(NAME)
 clean:
