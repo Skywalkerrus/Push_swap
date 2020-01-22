@@ -6,17 +6,12 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:48:53 by bantario          #+#    #+#             */
-/*   Updated: 2020/01/21 20:02:15 by bantario         ###   ########.fr       */
+/*   Updated: 2020/01/22 20:09:53 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
-/*void	pa(t_stack *a,	t_stack *b)
-{
-
-} */
 
 t_stack		*sa_sb(t_stack *a)
 {
@@ -38,7 +33,6 @@ void	ss(t_stack *a, t_stack *b)
 	sa_sb(b);
 }
 
-
 void	print_stack(t_stack *a)
 {
 	if (a->next == NULL)
@@ -52,17 +46,23 @@ void	print_stack(t_stack *a)
 		printf("stack: %d\n", a->value);
 		if (a->next == NULL)
 			break;
-		//printf("stack: %d\n", a->value);
 		a = a->next;
 	}
-	printf("\n\n");
+	printf("\n");
 }
+
+/*t_stack		*pa(t_stack *a, t_stack *b)
+{
+	
+} */
 
 t_stack		*pb(t_stack *a, t_stack *b)
 {
 	t_stack *c;
-
-	c = a->next;
+	if (a->next != NULL)
+		c = a->next;
+	else
+		c = (t_stack*)malloc(sizeof(t_stack));
 	if (b->value > 0)
 	{
 		a->next = b;
@@ -97,18 +97,23 @@ int		main(int ac, char **av)
 		while (av[i + 1])
 		{
 			a->value = ft_atoi(av[i + 1]);
-			printf("a->VALUE: %D\n", a->value);
 			a->num = i;
 			if (i == 0)
 				start = a;
 			ne = (t_stack *)malloc(sizeof(t_stack));
-			a->next = ne;
-			a = a->next;
+			if (av[i + 2] == NULL)
+				a->next = NULL;
+			else 
+			{
+				a->next = ne;
+				a = a->next;
+			}
 			ne->next = NULL;
 			i++;
+			if (av[i] == NULL)
+				free(ne);
 		}	
 		av[i] = 0;
-
 		ft_putstr("stack a.\n");
 		print_stack(start);
 
@@ -118,13 +123,24 @@ int		main(int ac, char **av)
 		start = pb(start, b);
 		b = start->pred;
 
-		printf("b->value: %d\n, b->next->value: %d\n", b->value, b->next->value);
+		start = pb(start, b);
+		b = start->pred; // zdes problema
+
 		ft_putstr("stack b.\n");
 		print_stack(b);
 
+		//ft_putstr("stack a.\n");
+		//print_stack(start);
+
+	/*	start = pa(start, b);
+		b = start->pred;
+		
+		start = pa(start, b);
+		b = start->pred; */
 		ft_putstr("stack a.\n");
-		printf("b->value: %d\n, b->next->value: %d\n", start->value, start->next->value);
-		print_stack(start);
+		print_stack(a);
+		ft_putstr("stack b.\n");
+		print_stack(b);
 	}
 	return (0);
 }
