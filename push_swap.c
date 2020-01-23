@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:48:53 by bantario          #+#    #+#             */
-/*   Updated: 2020/01/23 19:56:18 by bantario         ###   ########.fr       */
+/*   Updated: 2020/01/23 20:05:06 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,16 @@ t_stack		*ra_rb(t_stack *a)
 	return (two);
 }
 
+t_stack		*rr(t_stack *a, t_stack *b)
+{
+	t_stack *c;
+
+
+	c = ra_rb(a);
+	c->pred = ra_rb(b);
+	return (c);
+}
+
 int		main(int ac, char **av)
 {
 	int c;
@@ -166,13 +176,13 @@ int		main(int ac, char **av)
 		ft_putstr("stack a.\n");
 		print_stack(start); // 1 2 3
 
-	/*	start = pb(start, b);
+		start = pb(start, b);
 		b = start->pred; // a-> 2 3		b->1
 
 		start = pb(start, b);
 		b = start->pred; // a-> 3		b->2 1
 
-		start = pb(start, b);
+	/*	start = pb(start, b);
 		b = start->pred; // a -> NULL	b -> 3 2 1
 
 		ft_putstr("stack b.\n");
@@ -202,13 +212,22 @@ int		main(int ac, char **av)
 		start = start->pred; // a -> 3 2 1  b-> empty
 
 		ft_putstr("stack a.\n");
-		print_stack(start);
+		print_stack(start); */
 		ft_putstr("stack b.\n");
 		print_stack(b);
-*/
+
 		start = ra_rb(start);
 		ft_putstr("stack a.\n");
 		print_stack(start);
+
+		start = rr(start, b);
+		b = start->pred;
+
+		ft_putstr("stack a.\n");
+		print_stack(start);
+
+		ft_putstr("stack b.\n");
+		print_stack(b);
 
 	}
 	return (0);
