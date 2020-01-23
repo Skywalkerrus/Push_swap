@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:48:53 by bantario          #+#    #+#             */
-/*   Updated: 2020/01/22 20:09:53 by bantario         ###   ########.fr       */
+/*   Updated: 2020/01/23 17:37:07 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ void	ss(t_stack *a, t_stack *b)
 
 void	print_stack(t_stack *a)
 {
+	if (a->value == -1)
+	{
+		ft_putstr("stack is empty\n");
+		return;
+	}
 	if (a->next == NULL)
 	{
 		printf("stack one el: %d\n", a->value);
@@ -44,25 +49,44 @@ void	print_stack(t_stack *a)
 	while (a != NULL)
 	{
 		printf("stack: %d\n", a->value);
-		if (a->next == NULL)
-			break;
 		a = a->next;
 	}
 	printf("\n");
 }
 
-/*t_stack		*pa(t_stack *a, t_stack *b)
+t_stack		*pa(t_stack *a, t_stack *b)
 {
+	t_stack *c;
 	
-} */
+	c = b->next;
+	if (a->value == -1)
+	{
+		printf("!!!\n");
+		b->next = NULL;
+		a = b;
+		c->pred = a;
+	}
+	else if (a->value > 0)
+	{
+		printf("))))\n");
+		c->pred = b;
+		b->next = a;
+		printf("b->value:%d, a->value: %d\n", b->value, a->value);
+	}
+	return (c);
+}
 
 t_stack		*pb(t_stack *a, t_stack *b)
 {
 	t_stack *c;
+
 	if (a->next != NULL)
 		c = a->next;
 	else
+	{
 		c = (t_stack*)malloc(sizeof(t_stack));
+		c->value = -1;
+	}
 	if (b->value > 0)
 	{
 		a->next = b;
@@ -115,30 +139,37 @@ int		main(int ac, char **av)
 		}	
 		av[i] = 0;
 		ft_putstr("stack a.\n");
+		print_stack(start); // 1 2 3
+
+		start = pb(start, b);
+		b = start->pred; // a-> 2 3		b->1
+
+		start = pb(start, b);
+		b = start->pred; // a-> 3		b->2 1
+
+		start = pb(start, b);
+		b = start->pred; // a -> NULL	b -> 3 2 1
+
+		ft_putstr("stack b.\n");
+		print_stack(b); 
+
+		ft_putstr("stack a.\n");
 		print_stack(start);
 
-		start = pb(start, b);
-		b = start->pred;
-
-		start = pb(start, b);
-		b = start->pred;
-
-		start = pb(start, b);
-		b = start->pred; // zdes problema
+		b = pa(start, b);
+		start = start->pred;// a -> 3		b -> 2 1 
+		
+		ft_putstr("stack a.\n");
+		print_stack(start);
 
 		ft_putstr("stack b.\n");
 		print_stack(b);
 
-		//ft_putstr("stack a.\n");
-		//print_stack(start);
+		b = pa(start, b);
+		start = start->pred;  // a -> 3 2	b -> 1
 
-	/*	start = pa(start, b);
-		b = start->pred;
-		
-		start = pa(start, b);
-		b = start->pred; */
 		ft_putstr("stack a.\n");
-		print_stack(a);
+		print_stack(start);
 		ft_putstr("stack b.\n");
 		print_stack(b);
 	}
