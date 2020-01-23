@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:48:53 by bantario          #+#    #+#             */
-/*   Updated: 2020/01/23 17:37:07 by bantario         ###   ########.fr       */
+/*   Updated: 2020/01/23 19:56:18 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,14 @@ void	print_stack(t_stack *a)
 t_stack		*pa(t_stack *a, t_stack *b)
 {
 	t_stack *c;
-	
-	c = b->next;
+
+	if (b->next != NULL)
+		c = b->next;
+	else
+	{
+		c = (t_stack*)malloc(sizeof(t_stack));
+		c->value = -1;
+	}
 	if (a->value == -1)
 	{
 		printf("!!!\n");
@@ -71,7 +77,6 @@ t_stack		*pa(t_stack *a, t_stack *b)
 		printf("))))\n");
 		c->pred = b;
 		b->next = a;
-		printf("b->value:%d, a->value: %d\n", b->value, a->value);
 	}
 	return (c);
 }
@@ -100,6 +105,26 @@ t_stack		*pb(t_stack *a, t_stack *b)
 		c->pred = b;
 	}
 	return (c);
+}
+// 1 2 3 4 5 -> 2 3 4 5 1
+t_stack		*ra_rb(t_stack *a)
+{
+	t_stack *one;
+	t_stack *two;
+	t_stack *posl;
+	t_stack *pred;
+
+	if (a->next == NULL)
+		return (a);
+	one = a;
+	two = a->next;
+	posl = a;
+	pred = a;
+	while (posl->next != NULL)
+		posl = posl->next;
+	posl->next = one;
+	one->next = NULL;
+	return (two);
 }
 
 int		main(int ac, char **av)
@@ -141,7 +166,7 @@ int		main(int ac, char **av)
 		ft_putstr("stack a.\n");
 		print_stack(start); // 1 2 3
 
-		start = pb(start, b);
+	/*	start = pb(start, b);
 		b = start->pred; // a-> 2 3		b->1
 
 		start = pb(start, b);
@@ -172,6 +197,19 @@ int		main(int ac, char **av)
 		print_stack(start);
 		ft_putstr("stack b.\n");
 		print_stack(b);
+
+		b = pa(start, b);
+		start = start->pred; // a -> 3 2 1  b-> empty
+
+		ft_putstr("stack a.\n");
+		print_stack(start);
+		ft_putstr("stack b.\n");
+		print_stack(b);
+*/
+		start = ra_rb(start);
+		ft_putstr("stack a.\n");
+		print_stack(start);
+
 	}
 	return (0);
 }
