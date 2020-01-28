@@ -1,0 +1,55 @@
+.\n");
+print_stack(start); // 1 2 3
+
+/*start = pb(start, b);
+b = start->pred; // a-> 2 3b->1
+
+start = pb(start, b);
+b = start->pred; // a-> 3b->2 1
+*/
+/*start = pb(start, b);
+b = start->pred; // a -> NULLb -> 3 2 1
+
+ft_putstr("stack b.\n");
+print_stack(b);
+
+ft_putstr("stack a.\n");
+print_stack(start);
+
+b = pa(start, b);
+start = start->pred;// a -> 3b -> 2 1
+
+ft_putstr("stack a.\n");
+print_stack(start);
+
+ft_putstr("stack b.\n");
+print_stack(b);
+
+b = pa(start, b);
+start = start->pred;  // a -> 3 2b -> 1
+
+ft_putstr("stack a.\n");
+print_stack(start);
+ft_putstr("stack b.\n");
+print_stack(b);
+
+b = pa(start, b);
+start = start->pred; // a -> 3 2 1  b-> empty
+
+ft_putstr("stack a.\n");
+print_stack(start); */
+/*ft_putstr("stack b.\n");
+print_stack(b);
+
+start = ra_rb(start);
+ft_putstr("stack a.\n");
+print_stack(start); */
+
+start = rra_rrb(start);
+//b = start->pred;
+
+ft_putstr("stack a.\n");
+print_stack(start);
+
+ft_putstr("stack b.\n");
+print_stack(b);

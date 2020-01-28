@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:48:53 by bantario          #+#    #+#             */
-/*   Updated: 2020/01/23 20:05:06 by bantario         ###   ########.fr       */
+/*   Updated: 2020/01/28 16:27:16 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,37 @@ t_stack		*rr(t_stack *a, t_stack *b)
 	return (c);
 }
 
+t_stack		*rra_rrb(t_stack *a)
+{
+	t_stack	*one;
+	t_stack	*two;
+	t_stack	*posl;
+	t_stack	*pred;
+
+	if (a->next == NULL)
+		return (a);
+	one = a;
+	two = a->next;
+	posl = a;
+	pred = a;
+	while (posl->next != NULL)
+		posl = posl->next;
+	while (pred->next != posl)
+		pred = pred->next;
+	posl->next = one;
+	pred->next = NULL;
+	return (posl);
+}
+
+t_stack		*rrr(t_stack *a, t_stack *b)
+{
+	t_stack		*c;
+
+	c = rra_rrb(a);
+	c->pred = rra_rrb(b);
+	return (c);
+}
+
 int		main(int ac, char **av)
 {
 	int c;
@@ -174,59 +205,8 @@ int		main(int ac, char **av)
 		}	
 		av[i] = 0;
 		ft_putstr("stack a.\n");
-		print_stack(start); // 1 2 3
-
-		start = pb(start, b);
-		b = start->pred; // a-> 2 3		b->1
-
-		start = pb(start, b);
-		b = start->pred; // a-> 3		b->2 1
-
-	/*	start = pb(start, b);
-		b = start->pred; // a -> NULL	b -> 3 2 1
-
-		ft_putstr("stack b.\n");
-		print_stack(b); 
-
-		ft_putstr("stack a.\n");
 		print_stack(start);
-
-		b = pa(start, b);
-		start = start->pred;// a -> 3		b -> 2 1 
-		
-		ft_putstr("stack a.\n");
-		print_stack(start);
-
-		ft_putstr("stack b.\n");
-		print_stack(b);
-
-		b = pa(start, b);
-		start = start->pred;  // a -> 3 2	b -> 1
-
-		ft_putstr("stack a.\n");
-		print_stack(start);
-		ft_putstr("stack b.\n");
-		print_stack(b);
-
-		b = pa(start, b);
-		start = start->pred; // a -> 3 2 1  b-> empty
-
-		ft_putstr("stack a.\n");
-		print_stack(start); */
-		ft_putstr("stack b.\n");
-		print_stack(b);
-
-		start = ra_rb(start);
-		ft_putstr("stack a.\n");
-		print_stack(start);
-
-		start = rr(start, b);
-		b = start->pred;
-
-		ft_putstr("stack a.\n");
-		print_stack(start);
-
-		ft_putstr("stack b.\n");
+		ft_putstr("stack b\n");
 		print_stack(b);
 
 	}
