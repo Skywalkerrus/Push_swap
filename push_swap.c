@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:48:53 by bantario          #+#    #+#             */
-/*   Updated: 2020/01/28 16:27:16 by bantario         ###   ########.fr       */
+/*   Updated: 2020/01/28 18:20:57 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ t_stack		*sa_sb(t_stack *a)
 		a->next = c;
 	}
 	return (a);
+	ft_putstr("sa/sb\n");
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
 	sa_sb(a);
 	sa_sb(b);
+	ft_putstr("ss\n");
 }
 
 void	print_stack(t_stack *a)
@@ -78,6 +80,7 @@ t_stack		*pa(t_stack *a, t_stack *b)
 		c->pred = b;
 		b->next = a;
 	}
+	ft_putstr("pa\n");
 	return (c);
 }
 
@@ -104,6 +107,7 @@ t_stack		*pb(t_stack *a, t_stack *b)
 		b->value = a->value;
 		c->pred = b;
 	}
+	ft_putstr("pb\n");
 	return (c);
 }
 // 1 2 3 4 5 -> 2 3 4 5 1
@@ -124,6 +128,7 @@ t_stack		*ra_rb(t_stack *a)
 		posl = posl->next;
 	posl->next = one;
 	one->next = NULL;
+	ft_putstr("ra/rb\n");
 	return (two);
 }
 
@@ -134,6 +139,7 @@ t_stack		*rr(t_stack *a, t_stack *b)
 
 	c = ra_rb(a);
 	c->pred = ra_rb(b);
+	ft_putstr("rr\n");
 	return (c);
 }
 
@@ -156,6 +162,7 @@ t_stack		*rra_rrb(t_stack *a)
 		pred = pred->next;
 	posl->next = one;
 	pred->next = NULL;
+	ft_putstr("rra/rrb\n");
 	return (posl);
 }
 
@@ -165,7 +172,50 @@ t_stack		*rrr(t_stack *a, t_stack *b)
 
 	c = rra_rrb(a);
 	c->pred = rra_rrb(b);
+	ft_putstr("rrr\n");
 	return (c);
+}
+
+t_stack		*sort_three_part_two(t_stack *a)
+{                                                                       
+	if (a->value < a->next->value && a->next->value < a->next->next->value)
+		return (a);
+	else if (a->value > a->next->value &&
+			a->next->value < a->next->next->value)
+		a = sa_sb(a);
+	else if (a->value > a->next->value 
+			&& a->next->value > a->next->next->value)
+	{
+		a = sa_sb(a);
+		a = rra_rrb(a);
+	}
+	else if (a->value > a->next->value 
+			&& a->next->value < a->next->next->value)
+		a = ra_rb(a);
+	else if (a->value < a->next->value 
+			&& a->next->value > a->next->next->value)
+	{
+		a = sa_sb(a);
+		a = ra_rb(a);
+	}
+	else if (a->value < a->next->value 
+			&& a->next->value > a->next->next->value)
+		a = rra_rrb(a);
+	return (a);
+}
+
+t_stack		*sort_three_numb(t_stack *a)
+{
+	int	i;
+
+	i = 0;
+	while (i < 2)
+	{
+		a = sort_three_part_two(a);
+		print_stack(a);
+		i++;
+	}
+	return (a);
 }
 
 int		main(int ac, char **av)
@@ -208,6 +258,7 @@ int		main(int ac, char **av)
 		print_stack(start);
 		ft_putstr("stack b\n");
 		print_stack(b);
+		start = sort_three_numb(start);
 
 	}
 	return (0);
