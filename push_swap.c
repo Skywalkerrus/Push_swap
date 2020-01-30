@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:48:53 by bantario          #+#    #+#             */
-/*   Updated: 2020/01/28 18:20:57 by bantario         ###   ########.fr       */
+/*   Updated: 2020/01/30 18:55:30 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,12 @@ t_stack		*pa(t_stack *a, t_stack *b)
 	}
 	if (a->value == -1)
 	{
-		printf("!!!\n");
 		b->next = NULL;
 		a = b;
 		c->pred = a;
 	}
 	else if (a->value > 0)
 	{
-		printf("))))\n");
 		c->pred = b;
 		b->next = a;
 	}
@@ -204,6 +202,19 @@ t_stack		*sort_three_part_two(t_stack *a)
 	return (a);
 }
 
+int		how_list(t_stack *a)
+{
+	int	i;
+
+	i = 0;
+	while (a != NULL)
+	{
+		i++;
+		a = a->next;
+	}
+	return (i);
+}
+
 t_stack		*sort_three_numb(t_stack *a)
 {
 	int	i;
@@ -212,10 +223,24 @@ t_stack		*sort_three_numb(t_stack *a)
 	while (i < 2)
 	{
 		a = sort_three_part_two(a);
-		print_stack(a);
 		i++;
 	}
 	return (a);
+}
+
+t_stack		*sort_five_numb(t_stack *start, t_stack *b)
+{
+	start = pb(start, b);
+	b = start->pred;
+	start = pb(start, b);
+	b = start->pred;
+	start = sort_three_numb(start);
+	b = pa(start, b);
+	start = b->pred;
+	b = pa(start, b);
+	start = b->pred;
+	start = sort_three_numb(start);
+	return (start);
 }
 
 int		main(int ac, char **av)
@@ -258,7 +283,12 @@ int		main(int ac, char **av)
 		print_stack(start);
 		ft_putstr("stack b\n");
 		print_stack(b);
-		start = sort_three_numb(start);
+		if (how_list(start) == 3)
+			start = sort_three_numb(start);
+		else if (how_list(start) == 5)
+			start = sort_five_numb(start, b);
+		ft_putstr("stack a\n");
+		print_stack(start);
 
 	}
 	return (0);
