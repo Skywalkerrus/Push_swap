@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:48:53 by bantario          #+#    #+#             */
-/*   Updated: 2020/01/30 18:55:30 by bantario         ###   ########.fr       */
+/*   Updated: 2020/02/06 19:06:23 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,21 +228,6 @@ t_stack		*sort_three_numb(t_stack *a)
 	return (a);
 }
 
-t_stack		*sort_five_numb(t_stack *start, t_stack *b)
-{
-	start = pb(start, b);
-	b = start->pred;
-	start = pb(start, b);
-	b = start->pred;
-	start = sort_three_numb(start);
-	b = pa(start, b);
-	start = b->pred;
-	b = pa(start, b);
-	start = b->pred;
-	start = sort_three_numb(start);
-	return (start);
-}
-
 int		main(int ac, char **av)
 {
 	int c;
@@ -285,8 +270,8 @@ int		main(int ac, char **av)
 		print_stack(b);
 		if (how_list(start) == 3)
 			start = sort_three_numb(start);
-		else if (how_list(start) == 5)
-			start = sort_five_numb(start, b);
+		else if (how_list(start) > 3)
+			start = many_sort(start, b);
 		ft_putstr("stack a\n");
 		print_stack(start);
 
