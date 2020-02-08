@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 17:48:53 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/06 19:06:23 by bantario         ###   ########.fr       */
+/*   Updated: 2020/02/08 18:29:39 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,18 @@ void	print_stack(t_stack *a)
 	}
 	if (a->next == NULL)
 	{
-		printf("stack one el: %d\n", a->value);
-		printf("\n");
+		ft_putstr("stack one el: ");
+		ft_putstr(ft_itoa(a->value));
 		return;
 	}
 	while (a != NULL)
 	{
-		printf("stack: %d\n", a->value);
+		ft_putstr("stack: ");
+		ft_putstr(ft_itoa(a->value));
+		ft_putstr("\n");
 		a = a->next;
 	}
-	printf("\n");
+	ft_putstr("\n");
 }
 
 t_stack		*pa(t_stack *a, t_stack *b)
@@ -108,7 +110,7 @@ t_stack		*pb(t_stack *a, t_stack *b)
 	ft_putstr("pb\n");
 	return (c);
 }
-// 1 2 3 4 5 -> 2 3 4 5 1
+
 t_stack		*ra_rb(t_stack *a)
 {
 	t_stack *one;
@@ -264,17 +266,21 @@ int		main(int ac, char **av)
 				free(ne);
 		}	
 		av[i] = 0;
-		ft_putstr("stack a.\n");
-		print_stack(start);
-		ft_putstr("stack b\n");
-		print_stack(b);
+//		ft_putstr("stack a.\n");
+//		print_stack(start);
+//		ft_putstr("stack b\n");
+//		print_stack(b);
 		if (how_list(start) == 3)
 			start = sort_three_numb(start);
 		else if (how_list(start) > 3)
+		{
 			start = many_sort(start, b);
-		ft_putstr("stack a\n");
-		print_stack(start);
-
+			b = start->pred;
+		}
+		//ft_putstr("stack a\n");
+		//print_stack(start);
+//		ft_putstr("stack b\n");
+//		print_stack(b);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 17:40:22 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/06 19:06:15 by bantario         ###   ########.fr       */
+/*   Updated: 2020/02/08 18:29:42 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,38 +28,68 @@ int		coll_list(t_stack *c)
 	return (i);
 }
 
-t_stack		*many_sort(t_stack *a, t_stack *b)
+int		ft_pos(t_stack *c, int	min)
 {
-	t_stack		*c;
-	t_stack		*g;
-	int			min;
 	int			i;
+	t_stack		*a;
 
-	c = a;
-	g = a;
 	i = 0;
-	min = c->value;
-	while (c->next != NULL)
+	a = c;
+	while (a->value != min)
 	{
-		c = c->next;
-		if (min > c->value)
-			min = c->value;
-	}
-	printf("min: %d\n", min);
-	while (g->value != min)
-	{
-		g = g->next;
+		a = a->next;
 		i++;
 	}
-	printf("i: %d\n", i);
-	min = coll_list(a) - i;
-	printf("PLOLZ:%d\n", min);
-	if (i <= (coll_list(a) / 2))
-		while (min--)
-			a = ra_rb(a);
-	else if (i >= (coll_list(a) / 2))
-		while (min--)
-			a = rra_rrb(a);
-	b = NULL;
+	return (i);
+}
+
+int		where_one(t_stack *a, int min)
+{
+	if (a->value == min)
+		return (1);
+	return (0);
+}
+
+int		min_val(t_stack *c)
+{
+	int			min;
+	t_stack		*a;
+
+	a = c;
+	min = a->value;
+	while (a->next != NULL)
+	{
+		a = a->next;
+		if (min > a->value)
+			min = a->value;
+	}
+	return (min);
+}
+
+t_stack		*many_sort(t_stack *a, t_stack *b)
+{
+	int			min;
+	int			position;
+
+	position = 0;
+	while (a->value != -1)
+	{
+		min = min_val(a);
+		position = ft_pos(a, min);
+		if (position <= (coll_list(a) / 2))
+			while (where_one(a, min) != 1)
+				a = ra_rb(a);
+		else if (position >= (coll_list(a) / 2))
+			while (where_one(a, min) != 1)
+				a = rra_rrb(a);
+		a = pb(a, b);
+		b = a->pred;
+	}
+	while (b->value != -1)
+	{
+		b = pa(a, b);
+		a = b->pred;
+	}
+	a->pred = b;
 	return (a);
 }
