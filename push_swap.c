@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/10 17:48:53 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/08 18:29:39 by bantario         ###   ########.fr       */
+/*   Created: 2020/02/18 15:58:14 by bantario          #+#    #+#             */
+/*   Updated: 2020/02/18 19:20:13 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 #include <stdio.h>
@@ -35,16 +36,19 @@ void	ss(t_stack *a, t_stack *b)
 	ft_putstr("ss\n");
 }
 
-void	print_stack(t_stack *a)
+void	print_stack(t_stack *a, char *stack_name)
 {
-	if (a->value == -1)
+	ft_putstr("stack: ");
+	ft_putstr(stack_name);
+	ft_putstr("\n");
+	if (/*a->value == -1*/ a->value == '-')
 	{
-		ft_putstr("stack is empty\n");
+		ft_putstr("\nstack is empty\n");
 		return;
 	}
 	if (a->next == NULL)
 	{
-		ft_putstr("stack one el: ");
+		ft_putstr("\nstack one el: ");
 		ft_putstr(ft_itoa(a->value));
 		return;
 	}
@@ -67,15 +71,16 @@ t_stack		*pa(t_stack *a, t_stack *b)
 	else
 	{
 		c = (t_stack*)malloc(sizeof(t_stack));
-		c->value = -1;
+		//c->value = -1;
+		c->value = '-';
 	}
-	if (a->value == -1)
+	if (/*a->value == -1*/ a->value == '-')
 	{
 		b->next = NULL;
 		a = b;
 		c->pred = a;
 	}
-	else if (a->value > 0)
+	else //if (a->value > 0)
 	{
 		c->pred = b;
 		b->next = a;
@@ -93,9 +98,10 @@ t_stack		*pb(t_stack *a, t_stack *b)
 	else
 	{
 		c = (t_stack*)malloc(sizeof(t_stack));
-		c->value = -1;
+		//c->value = -1;
+		c->value = '-';
 	}
-	if (b->value > 0)
+	if (/*b->value > 0*/ b->value != '-')
 	{
 		a->next = b;
 		c->pred = a;
@@ -230,46 +236,57 @@ t_stack		*sort_three_numb(t_stack *a)
 	return (a);
 }
 
-int		main(int ac, char **av)
+t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 {
-	int c;
-	int i;
+	t_stack		*start;
+
+	i = 0;
+	while (av[i + 1])
+	{
+		a->value = ft_atoi(av[i + 1]);
+		a->num = i;
+		if (i == 0)
+			start = a;
+		ne = (t_stack *)malloc(sizeof(t_stack));
+		if (av[i + 2] == NULL)
+			a->next = NULL;
+		else
+		{
+			a->next = ne;
+			a = a->next;
+		}
+		ne->next = NULL;
+		i++;
+		if (av[i] == NULL)
+			free(ne);
+	}
+	av[i] = 0;
+	return (start);
+}
+
+t_stack		*create_stack(char	**av)
+{
 	t_stack *a;
 	t_stack *ne;
+	int		i;
+
+	i = 0;
+	ne = NULL;
+	a = (t_stack*)malloc(sizeof(t_stack));
+	return (cr_stack_n(a, av, ne, i));
+}
+
+int		main(int ac, char **av)
+{
 	t_stack *b;
 	t_stack *start;
 
-	a = (t_stack*)malloc(sizeof(t_stack));
 	b = (t_stack*)malloc(sizeof(t_stack));
 	b->next = NULL;
-	i = 0;
-	c = 0;
 	if (ac > 1)
 	{
-		while (av[i + 1])
-		{
-			a->value = ft_atoi(av[i + 1]);
-			a->num = i;
-			if (i == 0)
-				start = a;
-			ne = (t_stack *)malloc(sizeof(t_stack));
-			if (av[i + 2] == NULL)
-				a->next = NULL;
-			else 
-			{
-				a->next = ne;
-				a = a->next;
-			}
-			ne->next = NULL;
-			i++;
-			if (av[i] == NULL)
-				free(ne);
-		}	
-		av[i] = 0;
-//		ft_putstr("stack a.\n");
-//		print_stack(start);
-//		ft_putstr("stack b\n");
-//		print_stack(b);
+		start = create_stack(av);
+		print_stack(start, "a");
 		if (how_list(start) == 3)
 			start = sort_three_numb(start);
 		else if (how_list(start) > 3)
@@ -277,10 +294,8 @@ int		main(int ac, char **av)
 			start = many_sort(start, b);
 			b = start->pred;
 		}
-		//ft_putstr("stack a\n");
-		//print_stack(start);
-//		ft_putstr("stack b\n");
-//		print_stack(b);
+		print_stack(start, "a");
+		print_stack(b, "b");
 	}
 	return (0);
 }

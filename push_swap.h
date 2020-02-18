@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 17:36:45 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/08 17:37:43 by bantario         ###   ########.fr       */
+/*   Updated: 2020/02/18 19:16:54 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,4 @@ t_stack     *ra_rb(t_stack *a);
 int			how_list(t_stack *a);
 t_stack		*pb(t_stack *a, t_stack *b);
 t_stack		*pa(t_stack *a, t_stack *b);
-void		print_stack(t_stack *a);
+void		print_stack(t_stack *a, char *stack_name);

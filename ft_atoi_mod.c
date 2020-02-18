@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:27:51 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/15 19:24:50 by bantario         ###   ########.fr       */
+/*   Updated: 2020/02/18 17:23:11 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,15 @@ int			ft_atoi_mod(const char *str)
 	sign = 1;
 	check = 0;
 	i = 0;
-	while (ft_isdigit(str[i]))
+	if (str[0] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	while (str[i] != '\0')
 	{
 		if (ft_isdigit(str[i]) == 0)
-			return ('\0');
+			return ('-');
 		check = result;
 		result = str[i] + result * 10 - '0';
 		if (result / 10 != check)

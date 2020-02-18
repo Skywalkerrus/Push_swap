@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 17:40:22 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/08 18:29:42 by bantario         ###   ########.fr       */
+/*   Updated: 2020/02/18 16:13:07 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ t_stack		*many_sort(t_stack *a, t_stack *b)
 	int			position;
 
 	position = 0;
-	while (a->value != -1)
-	{
+	while (/*a->value != -1*/ a->value != '-')
+	{ 
 		min = min_val(a);
 		position = ft_pos(a, min);
 		if (position <= (coll_list(a) / 2))
@@ -85,7 +85,7 @@ t_stack		*many_sort(t_stack *a, t_stack *b)
 		a = pb(a, b);
 		b = a->pred;
 	}
-	while (b->value != -1)
+	while (/*b->value != -1*/ b->value != '-')
 	{
 		b = pa(a, b);
 		a = b->pred;
