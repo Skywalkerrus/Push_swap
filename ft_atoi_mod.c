@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:27:51 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/18 17:23:11 by bantario         ###   ########.fr       */
+/*   Updated: 2020/02/22 16:35:11 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,6 @@ int		ft_isdigit(int c)
 		return (1);
 	return (0);
 }
-
-/*static int	ft_isblankss(char c)
-{
-	if (c == ' ' || c == '\f' || c == '\n'
-			|| c == '\v' || c == '\t'
-			|| c == '\r')
-		return (1);
-	return (0);
-} */
 
 static int	ft_sign(int y)
 {
@@ -46,7 +37,7 @@ int			ft_atoi_mod(const char *str)
 	sign = 1;
 	check = 0;
 	i = 0;
-	if (str[0] == '-')
+	if (str[0] == '!')
 	{
 		sign = -1;
 		i++;
@@ -54,7 +45,7 @@ int			ft_atoi_mod(const char *str)
 	while (str[i] != '\0')
 	{
 		if (ft_isdigit(str[i]) == 0)
-			return ('-');
+			return ('!');
 		check = result;
 		result = str[i] + result * 10 - '0';
 		if (result / 10 != check)

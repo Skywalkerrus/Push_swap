@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 15:58:14 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/18 19:20:13 by bantario         ###   ########.fr       */
+/*   Updated: 2020/02/22 17:57:05 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void	print_stack(t_stack *a, char *stack_name)
 	}
 	while (a != NULL)
 	{
-		ft_putstr("stack: ");
+		//ft_putstr("stack: ");
 		ft_putstr(ft_itoa(a->value));
-		ft_putstr("\n");
+		ft_putstr(" ");
 		a = a->next;
 	}
 	ft_putstr("\n");
@@ -286,7 +286,7 @@ int		main(int ac, char **av)
 	if (ac > 1)
 	{
 		start = create_stack(av);
-		print_stack(start, "a");
+	print_stack(start, "a");
 		if (how_list(start) == 3)
 			start = sort_three_numb(start);
 		else if (how_list(start) > 3)
@@ -295,7 +295,7 @@ int		main(int ac, char **av)
 			b = start->pred;
 		}
 		print_stack(start, "a");
-		print_stack(b, "b");
+		//print_stack(b, "b");
 	}
 	return (0);
 }
