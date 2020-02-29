@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/18 15:58:14 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/27 17:07:49 by bantario         ###   ########.fr       */
+/*   Created: 2020/02/29 18:23:04 by bantario          #+#    #+#             */
+/*   Updated: 2020/02/29 18:44:11 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
-#include <stdio.h>
+#include "checker.h"
+
 
 t_stack		*sa_sb(t_stack *a)
 {
@@ -50,6 +50,7 @@ void	print_stack(t_stack *a, char *stack_name)
 	{
 		ft_putstr("\nstack one el: ");
 		ft_putstr(ft_itoa(a->value));
+		ft_putstr("\n");
 		return;
 	}
 	while (a != NULL)
@@ -80,7 +81,7 @@ t_stack		*pa(t_stack *a, t_stack *b)
 		a = b;
 		c->pred = a;
 	}
-	else //if (a->value > 0)
+	else if (/*a->value > 0*/ a->value == '-')
 	{
 		c->pred = b;
 		b->next = a;
@@ -182,60 +183,6 @@ t_stack		*rrr(t_stack *a, t_stack *b)
 	return (c);
 }
 
-t_stack		*sort_three_part_two(t_stack *a)
-{                                                                       
-	if (a->value < a->next->value && a->next->value < a->next->next->value)
-		return (a);
-	else if (a->value > a->next->value &&
-			a->next->value < a->next->next->value)
-		a = sa_sb(a);
-	else if (a->value > a->next->value 
-			&& a->next->value > a->next->next->value)
-	{
-		a = sa_sb(a);
-		a = rra_rrb(a);
-	}
-	else if (a->value > a->next->value 
-			&& a->next->value < a->next->next->value)
-		a = ra_rb(a);
-	else if (a->value < a->next->value 
-			&& a->next->value > a->next->next->value)
-	{
-		a = sa_sb(a);
-		a = ra_rb(a);
-	}
-	else if (a->value < a->next->value 
-			&& a->next->value > a->next->next->value)
-		a = rra_rrb(a);
-	return (a);
-}
-
-int		how_list(t_stack *a)
-{
-	int	i;
-
-	i = 0;
-	while (a != NULL)
-	{
-		i++;
-		a = a->next;
-	}
-	return (i);
-}
-
-t_stack		*sort_three_numb(t_stack *a)
-{
-	int	i;
-
-	i = 0;
-	while (i < 2)
-	{
-		a = sort_three_part_two(a);
-		i++;
-	}
-	return (a);
-}
-
 t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 {
 	t_stack		*start;
@@ -274,28 +221,4 @@ t_stack		*create_stack(char	**av)
 	ne = NULL;
 	a = (t_stack*)malloc(sizeof(t_stack));
 	return (cr_stack_n(a, av, ne, i));
-}
-
-int		main(int ac, char **av)
-{
-	t_stack *b;
-	t_stack *start;
-
-	b = (t_stack*)malloc(sizeof(t_stack));
-	b->next = NULL;
-	if (ac > 1)
-	{
-		start = create_stack(av);
-	//print_stack(start, "a");
-		if (how_list(start) == 3)
-			start = sort_three_numb(start);
-		else if (how_list(start) > 3)
-		{
-			start = many_sort(start, b);
-			b = start->pred;
-		}
-		print_stack(start, "a");
-		//print_stack(b, "b");
-	}
-	return (0);
 }

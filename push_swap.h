@@ -6,11 +6,12 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 17:36:45 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/20 16:41:04 by bantario         ###   ########.fr       */
+/*   Updated: 2020/02/29 18:23:32 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include <stdio.h>
 
 typedef	struct	s_stack
 {
@@ -32,3 +33,7 @@ t_stack		*sa_sb(t_stack *a);
 void		ss(t_stack *a, t_stack *b);
 t_stack		*rr(t_stack *a, t_stack *b);
 t_stack		*rrr(t_stack *a, t_stack *b);
+t_stack		*create_stack(char	**av);
+t_stack		*cr_stack_n(t_stack *a, char **av, t_stack *ne, int i);
+t_stack     *cast_push_first(int    key, t_stack *start, t_stack *b);
+t_stack     *cast_push_second(int   key, t_stack *start, t_stack *b);
