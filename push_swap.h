@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 17:36:45 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/29 18:23:32 by bantario         ###   ########.fr       */
+/*   Updated: 2020/03/02 18:48:46 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_stack		*pb(t_stack *a, t_stack *b);
 t_stack		*pa(t_stack *a, t_stack *b);
 void		print_stack(t_stack *a, char *stack_name);
 t_stack		*sa_sb(t_stack *a);
-void		ss(t_stack *a, t_stack *b);
+t_stack		*ss(t_stack *a, t_stack *b);
 t_stack		*rr(t_stack *a, t_stack *b);
 t_stack		*rrr(t_stack *a, t_stack *b);
 t_stack		*create_stack(char	**av);

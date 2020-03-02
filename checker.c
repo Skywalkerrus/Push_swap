@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:20:51 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/29 18:44:31 by bantario         ###   ########.fr       */
+/*   Updated: 2020/03/02 20:10:55 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,26 @@ int		equal(char *str)
 
 t_stack		*cast_push_first(int	key, t_stack *start, t_stack *b)
 {
-	t_stack	*ret;
+	//t_stack	*ret;
 
 	if (key == 1)
-		start = sa_sb(start);
+		return(start = sa_sb(start));
 	else if (key == 2)
-		b = sa_sb(b);
+		return(b = sa_sb(b));
 	else if (key == 3)
-		ss(start, b);
+	{
+		start = ss(start, b);
+		return(start);
+	}
 	else if (key == 4)
-		b = ra_rb(b);
+		return(b = ra_rb(b));
 	else if (key == 5)
-		b = rra_rrb(b);
+		return(b = rra_rrb(b));
 	else if (key == 6)
-		start = ra_rb(start);
+		return(start = ra_rb(start));
 	else if (key == 7)
-		start = rra_rrb(start);
-	ret = start;
-	ret->pred = b;
-	return (ret);
-	
+		return(start = rra_rrb(start));
+	return (NULL);
 }
 
 t_stack		*cast_push_second(int	key, t_stack *start, t_stack *b)
@@ -99,13 +99,19 @@ void	cast_de(int		key, char	**av)
 	t_stack	*start;
 
 	b = (t_stack*)malloc(sizeof(t_stack));
+	b->value = '-';
 	b->next = NULL;
 	start = create_stack(av);
 	if (key < 8 && key > 0)
+	{
 		start = cast_push_first(key, start, b);
+		b = start->pred;
+	}
 	else if (key > 8 && key < 12)
+	{
 		start = cast_push_second(key, start, b);
-	b = start->pred;
+		b = start->pred;
+	}
 	print_stack(start, "a");
 	print_stack(b, "b");
 }
@@ -141,6 +147,33 @@ int		check_numb(int	i, char **av, int	last) // proverka poryadka vorastaniya
 	return (0);
 }
 
+int		check_numb_dublic(char	**av, int	ac) // proverka na dublicaty
+{
+	int		i;
+	int		j;
+	int		tec;
+
+	j = 1;
+	i = j + 1;
+	tec = ft_atoi(av[1]);
+	while (tec != ft_atoi(av[ac - 1]))
+	{
+		tec = ft_atoi(av[j]);
+		while (av[i] != '\0')
+		{
+			if (tec == ft_atoi(av[i]))
+			{
+				ft_putstr("Error\n");
+				return (1);
+			}
+			i++;
+		}
+		j++;
+		i = j + 1;
+	}
+	return (0);
+}
+
 int		check_on_char(char	**av, int i) // proverka chisel na bykvi
 {
 	if (ft_atoi_mod(av[i]) == '!')
@@ -166,7 +199,7 @@ int		main(int ac, char **av)
 		while (m[1] < ac)
 		{
 			tab[m[1] - 1] = ft_atoi_mod(av[m[1]]);
-			if (/*(check_numb(m[1], av, m[2]) == 1) ||*/ (check_on_char(av, m[1]) == 1))
+			if ((check_on_char(av, m[1]) == 1) || check_numb_dublic(av, ac) == 1)
 				return (0);
 			m[2] = ft_atoi(av[m[1]]);
 			m[1]++;

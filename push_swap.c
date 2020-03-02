@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 15:58:14 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/27 17:07:49 by bantario         ###   ########.fr       */
+/*   Updated: 2020/03/02 17:39:04 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,29 @@ t_stack		*sa_sb(t_stack *a)
 		c->next = a->next;
 		a->next = c;
 	}
-	return (a);
 	ft_putstr("sa/sb\n");
+	return (a);
+}
+
+
+t_stack		*sa_sb_ss(t_stack *a)
+{
+	t_stack *c;
+
+	if (a->next != NULL)
+	{
+		c = a;
+		a = a->next;
+		c->next = a->next;
+		a->next = c;
+	}
+	return (a);
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
-	sa_sb(a);
-	sa_sb(b);
+	sa_sb_ss(a);
+	sa_sb_ss(b);
 	ft_putstr("ss\n");
 }
 
@@ -71,16 +86,15 @@ t_stack		*pa(t_stack *a, t_stack *b)
 	else
 	{
 		c = (t_stack*)malloc(sizeof(t_stack));
-		//c->value = -1;
 		c->value = '-';
 	}
-	if (/*a->value == -1*/ a->value == '-')
+	if (a->value == '-')
 	{
 		b->next = NULL;
 		a = b;
 		c->pred = a;
 	}
-	else //if (a->value > 0)
+	else if (a->value != '-')
 	{
 		c->pred = b;
 		b->next = a;
@@ -101,12 +115,12 @@ t_stack		*pb(t_stack *a, t_stack *b)
 		//c->value = -1;
 		c->value = '-';
 	}
-	if (/*b->value > 0*/ b->value != '-')
+	if (b->value != '-')
 	{
 		a->next = b;
 		c->pred = a;
 	}
-	if (b->value == 0)
+	if (b->value == '-')
 	{
 		a->next = NULL;
 		b = a;
@@ -138,13 +152,34 @@ t_stack		*ra_rb(t_stack *a)
 	return (two);
 }
 
+t_stack		*ra_rb_rr(t_stack *a)
+{
+	t_stack *one;
+	t_stack *two;
+	t_stack *posl;
+	t_stack *pred;
+
+	if (a->next == NULL)
+		return (a);
+	one = a;
+	two = a->next;
+	posl = a;
+	pred = a;
+	while (posl->next != NULL)
+		posl = posl->next;
+	posl->next = one;
+	one->next = NULL;
+	return (two);
+}
+
+
 t_stack		*rr(t_stack *a, t_stack *b)
 {
 	t_stack *c;
 
 
-	c = ra_rb(a);
-	c->pred = ra_rb(b);
+	c = ra_rb_rr(a);
+	c->pred = ra_rb_rr(b);
 	ft_putstr("rr\n");
 	return (c);
 }
@@ -172,12 +207,34 @@ t_stack		*rra_rrb(t_stack *a)
 	return (posl);
 }
 
+t_stack		*rra_rrb_rrr(t_stack *a)
+{
+	t_stack	*one;
+	t_stack	*two;
+	t_stack	*posl;
+	t_stack	*pred;
+
+	if (a->next == NULL)
+		return (a);
+	one = a;
+	two = a->next;
+	posl = a;
+	pred = a;
+	while (posl->next != NULL)
+		posl = posl->next;
+	while (pred->next != posl)
+		pred = pred->next;
+	posl->next = one;
+	pred->next = NULL;
+	return (posl);
+}
+
 t_stack		*rrr(t_stack *a, t_stack *b)
 {
 	t_stack		*c;
 
-	c = rra_rrb(a);
-	c->pred = rra_rrb(b);
+	c = rra_rrb_rrr(a);
+	c->pred = rra_rrb_rrr(b);
 	ft_putstr("rrr\n");
 	return (c);
 }
@@ -283,10 +340,11 @@ int		main(int ac, char **av)
 
 	b = (t_stack*)malloc(sizeof(t_stack));
 	b->next = NULL;
+	b->value = '-';
 	if (ac > 1)
 	{
 		start = create_stack(av);
-	//print_stack(start, "a");
+	print_stack(start, "a");
 		if (how_list(start) == 3)
 			start = sort_three_numb(start);
 		else if (how_list(start) > 3)
