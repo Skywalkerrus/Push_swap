@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 18:23:04 by bantario          #+#    #+#             */
-/*   Updated: 2020/03/02 20:05:55 by bantario         ###   ########.fr       */
+/*   Updated: 2020/03/03 19:11:21 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ t_stack		*ra_rb(t_stack *a)
 	two = a->next;
 	posl = a;
 	pred = a;
-	while (posl->next != NULL)
+	while (posl->next != NULL && posl->next->value != '-')
 		posl = posl->next;
 	posl->next = one;
 	one->next = NULL;

@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:20:51 by bantario          #+#    #+#             */
-/*   Updated: 2020/03/02 20:10:55 by bantario         ###   ########.fr       */
+/*   Updated: 2020/03/03 18:44:48 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	cast_de(int		key, char	**av)
 		b = start->pred;
 	}
 	print_stack(start, "a");
-	print_stack(b, "b");
+	//print_stack(b, "b");
 }
 
 int		line(char	*str, char	**av)

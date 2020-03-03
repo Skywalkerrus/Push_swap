@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 15:58:14 by bantario          #+#    #+#             */
-/*   Updated: 2020/03/02 17:39:04 by bantario         ###   ########.fr       */
+/*   Updated: 2020/03/03 19:49:21 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_stack		*sa_sb_ss(t_stack *a)
 	return (a);
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss_push_swap(t_stack *a, t_stack *b)
 {
 	sa_sb_ss(a);
 	sa_sb_ss(b);
@@ -112,7 +112,6 @@ t_stack		*pb(t_stack *a, t_stack *b)
 	else
 	{
 		c = (t_stack*)malloc(sizeof(t_stack));
-		//c->value = -1;
 		c->value = '-';
 	}
 	if (b->value != '-')
@@ -344,14 +343,15 @@ int		main(int ac, char **av)
 	if (ac > 1)
 	{
 		start = create_stack(av);
-	print_stack(start, "a");
-		if (how_list(start) == 3)
+		print_stack(start, "a");
+		/*if (how_list(start) == 3)
 			start = sort_three_numb(start);
 		else if (how_list(start) > 3)
 		{
 			start = many_sort(start, b);
 			b = start->pred;
-		}
+		}*/
+		start = algo_two(start, b);
 		print_stack(start, "a");
 		//print_stack(b, "b");
 	}

@@ -6,7 +6,7 @@
 /*   By: bantario <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 17:40:22 by bantario          #+#    #+#             */
-/*   Updated: 2020/02/18 16:13:07 by bantario         ###   ########.fr       */
+/*   Updated: 2020/03/03 20:00:02 by bantario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,13 @@ int		ft_pos(t_stack *c, int	min)
 
 	i = 0;
 	a = c;
-	while (a->value != min)
+	while (c->value != min)
 	{
-		a = a->next;
+		c = c->next;
+		printf("FT_POSOSOSSOS: %d\n", c->value);
 		i++;
 	}
+	c = a;
 	return (i);
 }
 
