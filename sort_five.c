@@ -38,7 +38,6 @@ int		ft_pos(t_stack *c, int	min)
 	while (c->value != min)
 	{
 		c = c->next;
-		printf("FT_POSOSOSSOS: %d\n", c->value);
 		i++;
 	}
 	c = a;

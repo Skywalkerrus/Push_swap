@@ -51,7 +51,7 @@ void	ss_push_swap(t_stack *a, t_stack *b)
 	ft_putstr("ss\n");
 }
 
-void	print_stack(t_stack *a, char *stack_name)
+int	    print_stack(t_stack *a, char *stack_name)
 {
 	ft_putstr("stack: ");
 	ft_putstr(stack_name);
@@ -59,13 +59,13 @@ void	print_stack(t_stack *a, char *stack_name)
 	if (/*a->value == -1*/ a->value == '-')
 	{
 		ft_putstr("\nstack is empty\n");
-		return;
+		return (2);
 	}
 	if (a->next == NULL)
 	{
 		ft_putstr("\nstack one el: ");
 		ft_putstr(ft_itoa(a->value));
-		return;
+		return (1);
 	}
 	while (a != NULL)
 	{
@@ -75,6 +75,7 @@ void	print_stack(t_stack *a, char *stack_name)
 		a = a->next;
 	}
 	ft_putstr("\n");
+    return (0);
 }
 
 t_stack		*pa(t_stack *a, t_stack *b)
@@ -266,10 +267,12 @@ t_stack		*sort_three_part_two(t_stack *a)
 	return (a);
 }
 
-int		how_list(t_stack *a)
+int		how_list(t_stack *c)
 {
+    t_stack *a;
 	int	i;
 
+	a = c;
 	i = 0;
 	while (a != NULL)
 	{

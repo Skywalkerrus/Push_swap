@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/bantario/Desktop/Push_swap/algo_two.c
+push_swap.h
+/Users/bantario/Desktop/Push_swap/push_swap.h
+
+/Users/bantario/Desktop/Push_swap/libft/libft.h
+stdlib.h
+-
+unistd.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+
+/Users/bantario/Desktop/Push_swap/push_swap.h
+libft/libft.h
+/Users/bantario/Desktop/Push_swap/libft/libft.h
+stdio.h
+-
+
