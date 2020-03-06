@@ -14,7 +14,9 @@
 
 t_stack     *mod_znac(int   pos, t_stack *start, int a_val)
 {
-    if (pos <= (how_list(start) / 2))
+    if (how_list(start) == 1 && a_val == 45)
+        return (start);
+    else if (pos <= (how_list(start) / 2))
         while (where_one(start, a_val) != 1)
             start = ra_rb(start);
     else if (pos >= (how_list(start) / 2))
@@ -23,7 +25,7 @@ t_stack     *mod_znac(int   pos, t_stack *start, int a_val)
     return (start);
 }
 
-t_stack		*znac_do_interv(int i, t_stack *a, t_stack *b, int	interv)
+t_stack		*znac_do_interv(t_stack *a, t_stack *b, int	interv)
 {
 	int		    position;
 	t_stack	    *start;
@@ -31,20 +33,18 @@ t_stack		*znac_do_interv(int i, t_stack *a, t_stack *b, int	interv)
 	start = a;
 	while (a != NULL)
 	{
-		if (a->value <= interv && a->value >= i)
+		if (a->value <= interv && a->trig != 10)
 		{
-			position = ft_pos(start, a->value);
-			if (a->value == '-')
-			    break;
-			start = mod_znac(position, start, a->value);
-			a = pb(start, b);
-			b = a->pred;
-			start = a;
-		}
+            position = ft_pos(start, a->value);
+            start = mod_znac(position, start, a->value);
+            a = pb(start, b);
+            b = a->pred;
+            start = a;
+        }
 		else if (a->next != NULL)
-			a = a->next;
+            a = a->next;
 		else
-		    return (start);
+            return (start);
 	}
 	return (start);
 }
@@ -72,7 +72,7 @@ t_stack     *step_two(t_stack *a, t_stack *b)
     t_stack     *for_b;
 
     for_b = b;
-    while (b->value != '-')
+    while (b->trig != 10)
     {
         max = max_val(b);
         position = ft_pos(for_b, max);
@@ -97,10 +97,10 @@ t_stack     *algo_two(t_stack *a, t_stack *b)
 
 	n = how_list(a) / 5;
 	iter = n;
-	i = 0;
+	i = iter - n;
 	while (i <= (n * 5))
 	{
-		a = znac_do_interv(i, a, b, iter);
+		a = znac_do_interv(a, b, iter);
 		b = a->pred;
         iter += n;
 		i += 1;

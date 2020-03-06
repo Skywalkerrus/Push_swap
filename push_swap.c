@@ -56,7 +56,7 @@ int	    print_stack(t_stack *a, char *stack_name)
 	ft_putstr("stack: ");
 	ft_putstr(stack_name);
 	ft_putstr("\n");
-	if (/*a->value == -1*/ a->value == '-')
+	if (a->trig == 10 /*a->value == '-'*/)
 	{
 		ft_putstr("\nstack is empty\n");
 		return (2);
@@ -87,15 +87,15 @@ t_stack		*pa(t_stack *a, t_stack *b)
 	else
 	{
 		c = (t_stack*)malloc(sizeof(t_stack));
-		c->value = '-';
+		c->trig = 10;
 	}
-	if (a->value == '-')
+	if (a->trig == 10)
 	{
 		b->next = NULL;
 		a = b;
 		c->pred = a;
 	}
-	else if (a->value != '-')
+	else if (a->trig != 10)
 	{
 		c->pred = b;
 		b->next = a;
@@ -113,14 +113,14 @@ t_stack		*pb(t_stack *a, t_stack *b)
 	else
 	{
 		c = (t_stack*)malloc(sizeof(t_stack));
-		c->value = '-';
+		c->trig = 10;
 	}
-	if (b->value != '-')
+	if (b->trig != 10)
 	{
 		a->next = b;
 		c->pred = a;
 	}
-	if (b->value == '-')
+	if (b->trig == 10)
 	{
 		a->next = NULL;
 		b = a;
@@ -303,7 +303,7 @@ t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 	while (av[i + 1])
 	{
 		a->value = ft_atoi(av[i + 1]);
-		a->num = i;
+		a->trig = 66;
 		if (i == 0)
 			start = a;
 		ne = (t_stack *)malloc(sizeof(t_stack));
@@ -332,6 +332,7 @@ t_stack		*create_stack(char	**av)
 	i = 0;
 	ne = NULL;
 	a = (t_stack*)malloc(sizeof(t_stack));
+	a->trig = 10;
 	return (cr_stack_n(a, av, ne, i));
 }
 
@@ -342,11 +343,11 @@ int		main(int ac, char **av)
 
 	b = (t_stack*)malloc(sizeof(t_stack));
 	b->next = NULL;
-	b->value = '-';
+	b->trig = 10;
 	if (ac > 1)
 	{
 		start = create_stack(av);
-		print_stack(start, "a");
+		//print_stack(start, "a");
 		/*if (how_list(start) == 3)
 			start = sort_three_numb(start);
 		else if (how_list(start) > 3)

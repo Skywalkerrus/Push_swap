@@ -73,7 +73,7 @@ t_stack		*many_sort(t_stack *a, t_stack *b)
 	int			position;
 
 	position = 0;
-	while (/*a->value != -1*/ a->value != '-')
+	while (a->trig != 10)
 	{ 
 		min = min_val(a);
 		position = ft_pos(a, min);
@@ -86,7 +86,7 @@ t_stack		*many_sort(t_stack *a, t_stack *b)
 		a = pb(a, b);
 		b = a->pred;
 	}
-	while (/*b->value != -1*/ b->value != '-')
+	while (b->trig != 10)
 	{
 		b = pa(a, b);
 		a = b->pred;

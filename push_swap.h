@@ -17,6 +17,7 @@ typedef	struct	s_stack
 {
 	int			value;
 	int			num;
+	int         trig;
 	struct s_stack	*pred;
 	struct s_stack *next;
 	struct s_stack *start;
