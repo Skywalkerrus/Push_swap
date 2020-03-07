@@ -5,6 +5,12 @@ CMakeFiles/Push_swap.dir/algo_two.c.o
  /Users/bantario/Desktop/Push_swap/algo_two.c
  /Users/bantario/Desktop/Push_swap/libft/libft.h
  /Users/bantario/Desktop/Push_swap/push_swap.h
+ /Users/bantario/Desktop/Push_swap/struct.h
+CMakeFiles/Push_swap.dir/dop_func.c.o
+ /Users/bantario/Desktop/Push_swap/dop_func.c
+ /Users/bantario/Desktop/Push_swap/libft/libft.h
+ /Users/bantario/Desktop/Push_swap/push_swap.h
+ /Users/bantario/Desktop/Push_swap/struct.h
 CMakeFiles/Push_swap.dir/ft_atoi_mod.c.o
  /Users/bantario/Desktop/Push_swap/ft_atoi_mod.c
 CMakeFiles/Push_swap.dir/libft/ft_atoi.c.o
@@ -207,15 +213,19 @@ CMakeFiles/Push_swap.dir/push_swap.c.o
  /Users/bantario/Desktop/Push_swap/libft/libft.h
  /Users/bantario/Desktop/Push_swap/push_swap.c
  /Users/bantario/Desktop/Push_swap/push_swap.h
+ /Users/bantario/Desktop/Push_swap/struct.h
 CMakeFiles/Push_swap.dir/push_swap_actions.c.o
  /Users/bantario/Desktop/Push_swap/libft/libft.h
  /Users/bantario/Desktop/Push_swap/push_swap.h
  /Users/bantario/Desktop/Push_swap/push_swap_actions.c
+ /Users/bantario/Desktop/Push_swap/struct.h
 CMakeFiles/Push_swap.dir/sort_five.c.o
  /Users/bantario/Desktop/Push_swap/libft/libft.h
  /Users/bantario/Desktop/Push_swap/push_swap.h
  /Users/bantario/Desktop/Push_swap/sort_five.c
+ /Users/bantario/Desktop/Push_swap/struct.h
 CMakeFiles/Push_swap.dir/sort_one_h.c.o
  /Users/bantario/Desktop/Push_swap/libft/libft.h
  /Users/bantario/Desktop/Push_swap/push_swap.h
  /Users/bantario/Desktop/Push_swap/sort_one_h.c
+ /Users/bantario/Desktop/Push_swap/struct.h

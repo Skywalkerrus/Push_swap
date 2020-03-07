@@ -11,6 +11,6 @@
 # **************************************************************************** #
 
 all:
-	gcc -Wall -Wextra -Werror -o push_swap push_swap.c sort_five.c	algo_two.c libft/libft.a
+	gcc -Wall -Wextra -Werror -o push_swap push_swap.c sort_five.c ft_atoi_mod.c dop_func.c algo_two.c libft/libft.a
 check:
 	gcc -Wall -Wextra -Werror -o checker actions.c checker.c ft_atoi_mod.c libft/libft.a

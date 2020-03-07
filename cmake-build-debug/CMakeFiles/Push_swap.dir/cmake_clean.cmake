@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Push_swap.dir/algo_two.c.o"
+  "CMakeFiles/Push_swap.dir/dop_func.c.o"
   "CMakeFiles/Push_swap.dir/ft_atoi_mod.c.o"
   "CMakeFiles/Push_swap.dir/libft/ft_atoi.c.o"
   "CMakeFiles/Push_swap.dir/libft/ft_bzero.c.o"

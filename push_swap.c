@@ -51,7 +51,7 @@ void	ss_push_swap(t_stack *a, t_stack *b)
 	ft_putstr("ss\n");
 }
 
-int	    print_stack(t_stack *a, char *stack_name)
+void	    print_stack(t_stack *a, char *stack_name)
 {
 	ft_putstr("stack: ");
 	ft_putstr(stack_name);
@@ -59,13 +59,13 @@ int	    print_stack(t_stack *a, char *stack_name)
 	if (a->trig == 10 /*a->value == '-'*/)
 	{
 		ft_putstr("\nstack is empty\n");
-		return (2);
+		return;
 	}
 	if (a->next == NULL)
 	{
 		ft_putstr("\nstack one el: ");
 		ft_putstr(ft_itoa(a->value));
-		return (1);
+		return;
 	}
 	while (a != NULL)
 	{
@@ -75,7 +75,7 @@ int	    print_stack(t_stack *a, char *stack_name)
 		a = a->next;
 	}
 	ft_putstr("\n");
-    return (0);
+    return;
 }
 
 t_stack		*pa(t_stack *a, t_stack *b)
@@ -336,16 +336,34 @@ t_stack		*create_stack(char	**av)
 	return (cr_stack_n(a, av, ne, i));
 }
 
+int     mod_econom(char **av)
+{
+    int i;
+
+    i = 1;
+    while (av[i] != '\0')
+    {
+        if (check_on_char(av[i]) == 1)
+            return (1);
+        i++;
+    }
+    return (0);
+}
+
 int		main(int ac, char **av)
 {
-	t_stack *b;
-	t_stack *start;
+	t_stack     *b;
+	t_stack     *start;
 
+	if (mod_econom(av) == 1)
+        return (0);
 	b = (t_stack*)malloc(sizeof(t_stack));
 	b->next = NULL;
 	b->trig = 10;
 	if (ac > 1)
 	{
+        if (check_numb_dublic(av) == 1)
+            return (0);
 		start = create_stack(av);
 		//print_stack(start, "a");
 		/*if (how_list(start) == 3)

@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 
-int		ft_isdigit(int c)
+int		ft_isdigit(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
@@ -37,15 +37,14 @@ int			ft_atoi_mod(const char *str)
 	sign = 1;
 	check = 0;
 	i = 0;
-	if (str[0] == '!')
-	{
-		sign = -1;
+	if (str[0] == '-')
 		i++;
-	}
 	while (str[i] != '\0')
 	{
-		if (ft_isdigit(str[i]) == 0)
-			return ('!');
+		if (str[i] != '0' && ft_isdigit(str[i]) == 0)
+			return (0);
+		else if (str[i] == '0' && ft_isdigit(str[i]) == 0)
+            return (-1);
 		check = result;
 		result = str[i] + result * 10 - '0';
 		if (result / 10 != check)

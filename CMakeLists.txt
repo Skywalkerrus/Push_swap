@@ -84,4 +84,7 @@ add_executable(Push_swap
         push_swap_actions.c
         sort_five.c
         sort_one_h.c
-        push_swap.c)
+        push_swap.c
+        dop_func.c
+        struct.h)
+

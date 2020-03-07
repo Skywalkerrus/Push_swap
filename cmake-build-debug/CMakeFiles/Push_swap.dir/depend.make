@@ -4,6 +4,12 @@
 CMakeFiles/Push_swap.dir/algo_two.c.o: ../algo_two.c
 CMakeFiles/Push_swap.dir/algo_two.c.o: ../libft/libft.h
 CMakeFiles/Push_swap.dir/algo_two.c.o: ../push_swap.h
+CMakeFiles/Push_swap.dir/algo_two.c.o: ../struct.h
+
+CMakeFiles/Push_swap.dir/dop_func.c.o: ../dop_func.c
+CMakeFiles/Push_swap.dir/dop_func.c.o: ../libft/libft.h
+CMakeFiles/Push_swap.dir/dop_func.c.o: ../push_swap.h
+CMakeFiles/Push_swap.dir/dop_func.c.o: ../struct.h
 
 CMakeFiles/Push_swap.dir/ft_atoi_mod.c.o: ../ft_atoi_mod.c
 
@@ -206,16 +212,20 @@ CMakeFiles/Push_swap.dir/libft/ft_toupper.c.o: ../libft/libft.h
 CMakeFiles/Push_swap.dir/push_swap.c.o: ../libft/libft.h
 CMakeFiles/Push_swap.dir/push_swap.c.o: ../push_swap.c
 CMakeFiles/Push_swap.dir/push_swap.c.o: ../push_swap.h
+CMakeFiles/Push_swap.dir/push_swap.c.o: ../struct.h
 
 CMakeFiles/Push_swap.dir/push_swap_actions.c.o: ../libft/libft.h
 CMakeFiles/Push_swap.dir/push_swap_actions.c.o: ../push_swap.h
 CMakeFiles/Push_swap.dir/push_swap_actions.c.o: ../push_swap_actions.c
+CMakeFiles/Push_swap.dir/push_swap_actions.c.o: ../struct.h
 
 CMakeFiles/Push_swap.dir/sort_five.c.o: ../libft/libft.h
 CMakeFiles/Push_swap.dir/sort_five.c.o: ../push_swap.h
 CMakeFiles/Push_swap.dir/sort_five.c.o: ../sort_five.c
+CMakeFiles/Push_swap.dir/sort_five.c.o: ../struct.h
 
 CMakeFiles/Push_swap.dir/sort_one_h.c.o: ../libft/libft.h
 CMakeFiles/Push_swap.dir/sort_one_h.c.o: ../push_swap.h
 CMakeFiles/Push_swap.dir/sort_one_h.c.o: ../sort_one_h.c
+CMakeFiles/Push_swap.dir/sort_one_h.c.o: ../struct.h
 

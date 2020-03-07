@@ -150,6 +150,33 @@ algo_two.c.s:
 	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/algo_two.c.s
 .PHONY : algo_two.c.s
 
+dop_func.o: dop_func.c.o
+
+.PHONY : dop_func.o
+
+# target to build an object file
+dop_func.c.o:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/dop_func.c.o
+.PHONY : dop_func.c.o
+
+dop_func.i: dop_func.c.i
+
+.PHONY : dop_func.i
+
+# target to preprocess a source file
+dop_func.c.i:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/dop_func.c.i
+.PHONY : dop_func.c.i
+
+dop_func.s: dop_func.c.s
+
+.PHONY : dop_func.s
+
+# target to generate assembly for a file
+dop_func.c.s:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/dop_func.c.s
+.PHONY : dop_func.c.s
+
 ft_atoi_mod.o: ft_atoi_mod.c.o
 
 .PHONY : ft_atoi_mod.o
@@ -2079,6 +2106,9 @@ help:
 	@echo "... algo_two.o"
 	@echo "... algo_two.i"
 	@echo "... algo_two.s"
+	@echo "... dop_func.o"
+	@echo "... dop_func.i"
+	@echo "... dop_func.s"
 	@echo "... ft_atoi_mod.o"
 	@echo "... ft_atoi_mod.i"
 	@echo "... ft_atoi_mod.s"

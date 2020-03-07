@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/bantario/Desktop/Push_swap/algo_two.c
+push_swap.h
+/Users/bantario/Desktop/Push_swap/push_swap.h
+
+/Users/bantario/Desktop/Push_swap/dop_func.c
+push_swap.h
+/Users/bantario/Desktop/Push_swap/push_swap.h
+
 /Users/bantario/Desktop/Push_swap/libft/libft.h
 stdlib.h
 -
@@ -29,4 +37,22 @@ libft/libft.h
 /Users/bantario/Desktop/Push_swap/libft/libft.h
 stdio.h
 -
+struct.h
+/Users/bantario/Desktop/Push_swap/struct.h
+
+/Users/bantario/Desktop/Push_swap/push_swap_actions.c
+push_swap.h
+/Users/bantario/Desktop/Push_swap/push_swap.h
+
+/Users/bantario/Desktop/Push_swap/sort_five.c
+push_swap.h
+/Users/bantario/Desktop/Push_swap/push_swap.h
+stdio.h
+-
+
+/Users/bantario/Desktop/Push_swap/sort_one_h.c
+push_swap.h
+/Users/bantario/Desktop/Push_swap/push_swap.h
+
+/Users/bantario/Desktop/Push_swap/struct.h
 

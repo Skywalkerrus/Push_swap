@@ -90,6 +90,9 @@
 		<Unit filename="/Users/bantario/Desktop/Push_swap/checker.h">
 			<Option target="Push_swap"/>
 		</Unit>
+		<Unit filename="/Users/bantario/Desktop/Push_swap/dop_func.c">
+			<Option target="Push_swap"/>
+		</Unit>
 		<Unit filename="/Users/bantario/Desktop/Push_swap/ft_atoi_mod.c">
 			<Option target="Push_swap"/>
 		</Unit>
@@ -307,6 +310,9 @@
 			<Option target="Push_swap"/>
 		</Unit>
 		<Unit filename="/Users/bantario/Desktop/Push_swap/sort_one_h.c">
+			<Option target="Push_swap"/>
+		</Unit>
+		<Unit filename="/Users/bantario/Desktop/Push_swap/struct.h">
 			<Option target="Push_swap"/>
 		</Unit>
 		<Unit filename="/Users/bantario/Desktop/Push_swap/CMakeLists.txt">

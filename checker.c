@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include "checker.h"
-#include "push_swap.h"
+//#include "push_swap.h"
 #define BUFF 12000
 
 int		equal(char *str)
@@ -147,7 +147,7 @@ int		check_numb(int	i, char **av, int	last) // proverka poryadka vorastaniya
 	return (0);
 }
 
-int		check_numb_dublic(char	**av, int	ac) // proverka na dublicaty
+int		check_numb_dublic(char	**av) // proverka na dublicaty
 {
 	int		i;
 	int		j;
@@ -155,8 +155,7 @@ int		check_numb_dublic(char	**av, int	ac) // proverka na dublicaty
 
 	j = 1;
 	i = j + 1;
-	tec = ft_atoi(av[1]);
-	while (tec != ft_atoi(av[ac - 1]))
+	while (av[j] != '\0')
 	{
 		tec = ft_atoi(av[j]);
 		while (av[i] != '\0')
@@ -174,9 +173,9 @@ int		check_numb_dublic(char	**av, int	ac) // proverka na dublicaty
 	return (0);
 }
 
-int		check_on_char(char	**av, int i) // proverka chisel na bykvi
+int		check_on_char_check(char	*av) // proverka chisel na bykvi
 {
-	if (ft_atoi_mod(av[i]) == '!')
+    if (ft_atoi_mod(av) == 0 || ft_atoi_mod(av) == -1)
 	{
 		ft_putstr("Error\n");
 		return (1);
@@ -199,7 +198,7 @@ int		main(int ac, char **av)
 		while (m[1] < ac)
 		{
 			tab[m[1] - 1] = ft_atoi_mod(av[m[1]]);
-			if ((check_on_char(av, m[1]) == 1) || check_numb_dublic(av, ac) == 1)
+			if ((check_on_char_check(av[m[1]]) == 1) || check_numb_dublic(av) == 1)
 				return (0);
 			m[2] = ft_atoi(av[m[1]]);
 			m[1]++;

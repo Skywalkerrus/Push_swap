@@ -10,18 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PUSH_SWAP_H
+#define PUSH_SWAP_H
+
 #include "libft/libft.h"
 #include <stdio.h>
+#include "struct.h"
 
-typedef	struct	s_stack
-{
-	int			value;
-	int			num;
-	int         trig;
-	struct s_stack	*pred;
-	struct s_stack *next;
-	struct s_stack *start;
-}			t_stack;
 
 t_stack     *many_sort(t_stack *a, t_stack *b);
 t_stack     *rra_rrb(t_stack *a);
@@ -29,7 +24,7 @@ t_stack     *ra_rb(t_stack *a);
 int			how_list(t_stack *a);
 t_stack		*pb(t_stack *a, t_stack *b);
 t_stack		*pa(t_stack *a, t_stack *b);
-int		    print_stack(t_stack *a, char *stack_name);
+void	    print_stack(t_stack *a, char *stack_name);
 t_stack		*sa_sb(t_stack *a);
 t_stack		*ss(t_stack *a, t_stack *b);
 t_stack		*rr(t_stack *a, t_stack *b);
@@ -43,3 +38,7 @@ void		ss_push_swap(t_stack *a, t_stack *b);
 t_stack		*algo_two(t_stack *a, t_stack *b);
 int			ft_pos(t_stack *c, int	min);
 int			where_one(t_stack *a, int min);
+int         check_numb_dublic(char	**av);
+int		    check_on_char(char	*av);
+int         ft_atoi_mod(const char *str);
+#endif

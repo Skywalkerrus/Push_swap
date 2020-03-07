@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/bantario/Desktop/Push_swap/algo_two.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/algo_two.c.o"
+  "/Users/bantario/Desktop/Push_swap/dop_func.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/dop_func.c.o"
   "/Users/bantario/Desktop/Push_swap/ft_atoi_mod.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ft_atoi_mod.c.o"
   "/Users/bantario/Desktop/Push_swap/libft/ft_atoi.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_atoi.c.o"
   "/Users/bantario/Desktop/Push_swap/libft/ft_bzero.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_bzero.c.o"
