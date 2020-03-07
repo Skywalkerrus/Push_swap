@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "checker.h"
+#include "includes/checker.h"
 #define BUFF 12000
 
 int		equal(char *str)
