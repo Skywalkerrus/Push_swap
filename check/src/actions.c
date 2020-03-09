@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 //#include "push_swap.h"
-#include "includes/checker.h"
+#include "../../includes/checker.h"
 
 t_stack		*sa_sb(t_stack *a)
 {

@@ -11,12 +11,14 @@
 # **************************************************************************** #
 
 
-INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
+.PHONY: all, $(NAME), clean, fclean, re
 
-LIBFT = $(LIBFT_DIRECTORY)libft.a
-LIBFT_DIRECTORY = ./libft/
-LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
-LIBRARIES = -lft -L $(LIBFT_DIRECTORY)
+NAME1 = push_swap
+NAME2 = checker
+
+CC = gcc
+
+FLAGS = -Wall -Werror -Wextra
 
 HEADERS_DIR = ./includes/
 
@@ -26,53 +28,62 @@ HEADERS_LIST =  push_swap.h\
 
 HEADERS = $(addprefix $(HEADERS_DIR), $(HEADERS_LIS))
 
-SRC_PH = ./ph_sw/src/
+SRC_PH = ./ph/src/
 
 SRC_CH = ./check/src/
 
-SRC_PH_LIST = push_swap.c\
-        sort_five.c\
-        ft_atoi_mod.c\
-        dop_func.c\
-        algo_two.c
+INCLUDES = ./includes/
+OBJ_PATH1 = ./obj/
+LFT_PATH = ./libft/
+OBJ_PATH2 = ./obj/
 
-SRC_CH_LIST = actions.c\
+SRC_S_PH = $(addprefix $(SRC_PH),$(SRC_NAME_PH))
+
+SRC_S_CH = $(addprefix $(SRC_CH),$(SRC_NAME_CH))
+
+OBJ1 = $(addprefix $(OBJ_PATH1),$(OBJ_NAME1))
+
+OBJ2 = $(addprefix $(OBJ_PATH2),$(OBJ_NAME2))
+
+OBJ_NAME1 = $(SRC_NAME_PH:.c=.o)
+
+OBJ_NAME2 = $(SRC_NAME_CH:.c=.o)
+
+SRC_NAME_PH = push_swap.c\
+             sort_five.c\
+             ft_atoi_mod.c\
+              dop_func.c\
+              algo_two.c
+
+SRC_NAME_CH = actions.c\
         checker.c\
         ft_atoi_mod.c
 
-SRCS_PH = $(addprefix $(SRC_PH), $(SRC_PH_LIST))
+all: $(NAME1) $(NAME2)
 
-SRCS_CH = $(addprefix $(SRC_CH), $(SRC_CH_LIST))
+$(NAME1): $(OBJ1)
+	@make -C $(LFT_PATH)
+	@$(CC) -o push_swap $(OBJ1) -lm -L $(LFT_PATH) -lft
 
-FLAGS = -Wall -Wextra -Werror
-CC = gcc
-LIBFT_DIR = ./libft/
-LIBFT_NAME = libft.a
-LIBFT = $(addprefix $(LIBFT_DIR), $(LIBFT_NAME))
+$(NAME2): $(OBJ2)
+	@make -C $(LFT_PATH)
+	@$(CC) -o $(NAME2) $(OBJ2) -lm -L $(LFT_PATH) -lft
 
-SOURCES_DIR = ./sources/
+$(OBJ_PATH1)%.o: $(SRC_CH)%.c
+	@mkdir -p $(OBJ_PATH1)
+	@$(CC) $(FLAGS) $(HEADERS) -o $@ -c $<
 
-SOURCES_LIST = actions.c \
-    ft_atoi_mod.c\
-    sort_five.c\
-    ft_atoi_mod.c\
-    dop_func.c\
-    algo_two.c
+$(OBJ_PATH2)%.o: $(SRC_PH)%.c
+	@mkdir -p $(OBJ_PATH2)
+	@$(CC) $(FLAGS) $(HEADERS) -o $@ -c $<
 
-OBJECTS_DIRECTORY = objects/
-OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
-OBJECTS_LIST_PH = $(patsubst %.c, %.o, $(SOURCES_PH_LIST))
-OBJECTS_LIST_CH = $(patsubst %.c, %.o, $(SOURCES_CH_LIST))
-OBJECTS	= push_swap.o\
-                  sort_five.o\
-                  ft_atoi_mod.o\
-                  dop_func.o\
-                  algo_two.o
-OBJECTS_PS = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST_PH))
-OBJECTS_CH = $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST_CH))
+clean:
+	@make -C $(LFT_PATH) clean
+	@rm -rf $(OBJ_PATH)
 
-all:
-	gcc $(FLAGS) -I $(HEADERS) -c $(SRC_PH_LIST)
-	$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJECTS) -o push_swap
-check:
-	gcc -Wall -Wextra -Werror -o checker actions.c checker.c ft_atoi_mod.c libft/libft.a)
+fclean: clean
+	@make -C $(LFT_PATH) fclean
+	@rm -f $(NAME1)
+	@rm -f $(NAME2)
+
+re: fclean all

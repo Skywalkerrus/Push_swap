@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "includes/checker.h"
+#include "../../includes/checker.h"
 #define BUFF 12000
 
 int		equal(char *str)
@@ -44,25 +44,32 @@ int		equal(char *str)
 
 t_stack		*cast_push_first(int	key, t_stack *start, t_stack *b)
 {
-	//t_stack	*ret;
+	t_stack	*ret;
 
+	ret = start;
 	if (key == 1)
-		return(start = sa_sb(start));
-	else if (key == 2)
-		return(b = sa_sb(b));
+		return(start = sa_sb(ret));
+	else if (key == 2) {
+        ret = b;
+	    return (ret = sa_sb(ret));
+    }
 	else if (key == 3)
-	{
-		start = ss(start, b);
-		return(start);
+    {
+        ret = ss(ret, b);
+		return(ret);
 	}
 	else if (key == 4)
-		return(b = ra_rb(b));
-	else if (key == 5)
-		return(b = rra_rrb(b));
-	else if (key == 6)
-		return(start = ra_rb(start));
+    {
+        ret = b;
+		return(ret = ra_rb(ret));
+    }
+	else if (key == 5) {
+        ret = b;
+	    return (ret = rra_rrb(ret));
+    }else if (key == 6)
+		return(ret = ra_rb(ret));
 	else if (key == 7)
-		return(start = rra_rrb(start));
+		return(ret = rra_rrb(ret));
 	return (NULL);
 }
 

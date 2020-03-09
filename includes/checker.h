@@ -13,7 +13,7 @@
 #ifndef CHECKER_H
 #define CHECKER_H
 
-#include "libft/libft.h"
+#include "../libft/libft.h"
 #include "struct.h"
 #include <stdlib.h>
 #include <unistd.h>

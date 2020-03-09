@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Push_swap.dir/algo_two.c.o"
-  "CMakeFiles/Push_swap.dir/dop_func.c.o"
-  "CMakeFiles/Push_swap.dir/ft_atoi_mod.c.o"
+  "CMakeFiles/Push_swap.dir/check/src/actions.c.o"
+  "CMakeFiles/Push_swap.dir/check/src/checker.c.o"
+  "CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.o"
   "CMakeFiles/Push_swap.dir/libft/ft_atoi.c.o"
   "CMakeFiles/Push_swap.dir/libft/ft_bzero.c.o"
   "CMakeFiles/Push_swap.dir/libft/ft_ctword.c.o"
@@ -68,10 +68,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Push_swap.dir/libft/ft_swap.c.o"
   "CMakeFiles/Push_swap.dir/libft/ft_tolower.c.o"
   "CMakeFiles/Push_swap.dir/libft/ft_toupper.c.o"
-  "CMakeFiles/Push_swap.dir/push_swap.c.o"
-  "CMakeFiles/Push_swap.dir/push_swap_actions.c.o"
-  "CMakeFiles/Push_swap.dir/sort_five.c.o"
-  "CMakeFiles/Push_swap.dir/sort_one_h.c.o"
   "Push_swap"
   "Push_swap.pdb"
 )
