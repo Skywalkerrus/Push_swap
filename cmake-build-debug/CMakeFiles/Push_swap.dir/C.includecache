@@ -6,13 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/Users/bantario/Desktop/Push_swap/algo_two.c
-push_swap.h
-/Users/bantario/Desktop/Push_swap/push_swap.h
+/Users/bantario/Desktop/Push_swap/check/src/actions.c
+../../includes/checker.h
+/Users/bantario/Desktop/Push_swap/includes/checker.h
 
-/Users/bantario/Desktop/Push_swap/dop_func.c
-push_swap.h
-/Users/bantario/Desktop/Push_swap/push_swap.h
+/Users/bantario/Desktop/Push_swap/check/src/checker.c
+stdio.h
+-
+../../includes/checker.h
+/Users/bantario/Desktop/Push_swap/includes/checker.h
+
+/Users/bantario/Desktop/Push_swap/check/src/ft_atoi_mod.c
+stdio.h
+-
+
+/Users/bantario/Desktop/Push_swap/includes/checker.h
+../libft/libft.h
+/Users/bantario/Desktop/Push_swap/libft/libft.h
+struct.h
+/Users/bantario/Desktop/Push_swap/includes/struct.h
+stdlib.h
+-
+unistd.h
+-
+stdio.h
+-
+
+/Users/bantario/Desktop/Push_swap/includes/struct.h
 
 /Users/bantario/Desktop/Push_swap/libft/libft.h
 stdlib.h
@@ -25,34 +45,4 @@ sys/stat.h
 -
 fcntl.h
 -
-
-/Users/bantario/Desktop/Push_swap/push_swap.c
-push_swap.h
-/Users/bantario/Desktop/Push_swap/push_swap.h
-stdio.h
--
-
-/Users/bantario/Desktop/Push_swap/push_swap.h
-libft/libft.h
-/Users/bantario/Desktop/Push_swap/libft/libft.h
-stdio.h
--
-struct.h
-/Users/bantario/Desktop/Push_swap/struct.h
-
-/Users/bantario/Desktop/Push_swap/push_swap_actions.c
-push_swap.h
-/Users/bantario/Desktop/Push_swap/push_swap.h
-
-/Users/bantario/Desktop/Push_swap/sort_five.c
-push_swap.h
-/Users/bantario/Desktop/Push_swap/push_swap.h
-stdio.h
--
-
-/Users/bantario/Desktop/Push_swap/sort_one_h.c
-push_swap.h
-/Users/bantario/Desktop/Push_swap/push_swap.h
-
-/Users/bantario/Desktop/Push_swap/struct.h
 

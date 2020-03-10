@@ -42,87 +42,69 @@ int		equal(char *str)
 		return (0);
 }
 
-t_stack		*cast_push_first(int	key, t_stack *start, t_stack *b)
+t_stack		*cast_push_first(int	key, t_stack *ret, t_stack *b)
 {
-	t_stack	*ret;
-
-	ret = start;
 	if (key == 1)
-		return(start = sa_sb(ret));
-	else if (key == 2) {
-        ret = b;
-	    return (ret = sa_sb(ret));
-    }
+        return (sa_sb(ret));
+	else if (key == 2)
+	    return (sa_sb(b));
 	else if (key == 3)
-    {
-        ret = ss(ret, b);
-		return(ret);
-	}
+		return(ss(ret, b));
 	else if (key == 4)
-    {
-        ret = b;
-		return(ret = ra_rb(ret));
-    }
-	else if (key == 5) {
-        ret = b;
-	    return (ret = rra_rrb(ret));
-    }else if (key == 6)
-		return(ret = ra_rb(ret));
+		return(ra_rb(b));
+	else if (key == 5)
+	    return (rra_rrb(b));
+    else if (key == 6)
+		return(ra_rb(ret));
 	else if (key == 7)
-		return(ret = rra_rrb(ret));
+		return(rra_rrb(ret));
 	return (NULL);
 }
 
-t_stack		*cast_push_second(int	key, t_stack *start, t_stack *b)
+t_stack		*cast_push_second(int	key, t_stack *a, t_stack *b)
 {
 	t_stack *ret;
 
+	ret = a;
 	if (key == 8)
 	{
-		b = pa(start, b);
-		start = b->pred;
+		b = pa(a, b);
+		a = b->pred;
 	} else if (key == 9)
 	{
-		start = pb(start, b);
-		b = start->pred;
+		a = pb(a, b);
+		b = a->pred;
 	} else if (key == 10)
 	{
-		start = rr(start, b);
-		b = start->pred;
+		a = rr(a, b);
+		b = a->pred;
 	} else if (key == 11)
 	{
-		start = rrr(start, b);
-		b = start->pred;
+		a = rrr(a, b);
+		b = a->pred;
 	}
-	ret = start;
+	ret = a;
 	ret->pred = b;
 	return (ret);
 }
 
-void	cast_de(int		key, char	**av)
+void	cast_de(int     key, t_stack *a, t_stack *b)
 {
-	t_stack	*b;
-	t_stack	*start;
-
-	b = (t_stack*)malloc(sizeof(t_stack));
-	b->value = '-';
-	b->next = NULL;
-	start = create_stack(av);
 	if (key < 8 && key > 0)
 	{
-		start = cast_push_first(key, start, b);
-		b = start->pred;
+        a = cast_push_first(key, a, b);
+        b = a->pred;
 	}
 	else if (key > 8 && key < 12)
 	{
-		start = cast_push_second(key, start, b);
-		b = start->pred;
+		a = cast_push_second(key, a, b);
+		b = a->pred;
 	}
-	print_stack(start, "a");
-	//print_stack(b, "b");
+	print_stack(a, "a");
+	print_stack(b, "b");
 }
 
-int		line(char	*str, char	**av)
+int		line(char	*str,  t_stack *a, t_stack *b)
 {
 	int		i;
 	char	*str2;
@@ -139,11 +121,11 @@ int		line(char	*str, char	**av)
 		ft_putstr("Error\n");
 		return (1);
 	} else
-		cast_de(equal(str2), av);
+		cast_de(equal(str2), a, b);
 	return (0);
 }
 
-int		check_numb(int	i, char **av, int	last) // proverka poryadka vorastaniya
+int		check_numb(int	i, char **av, int	last) // proverka poryadka vozrastaniya
 {
 	if (i > 1 && last > ft_atoi(av[i]))
 	{
@@ -189,11 +171,26 @@ int		check_on_char_check(char	*av) // proverka chisel na bykvi
 	return (0);
 }
 
+int     chtec(char **av)
+{
+    char	buff[BUFF];
+    t_stack *a;
+    t_stack *b;
+
+    b = (t_stack*)malloc(sizeof(t_stack));
+    b->trig = 10;
+    b->next = NULL;
+    a = create_stack(av);
+    while (read(2, buff, BUFF) > 0)
+        if (line(buff, a, b) == 1)
+            return (1);
+    return (0);
+}
+
 int		main(int ac, char **av)
 {
 	int		*tab;
 	int		m[3];
-	char	buff[BUFF];
 
 	m[0] = 0; // num
 	m[1] = 1; //i
@@ -209,9 +206,8 @@ int		main(int ac, char **av)
 			m[2] = ft_atoi(av[m[1]]);
 			m[1]++;
 		}
-		while (read(2, buff, BUFF) > 0)
-			if (line(buff, av) == 1)
-				return (0);
+		if (chtec(av) == 1)
+            return (0);
 	}
 	return (0);
 }
