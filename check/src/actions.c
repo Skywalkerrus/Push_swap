@@ -23,7 +23,8 @@ t_stack		*sa_sb(t_stack *a)
 		a = a->next;
 		c->next = a->next;
 		a->next = c;
-	}
+	} else
+	    printf("!!!!\n");
 	return (a);
 }
 

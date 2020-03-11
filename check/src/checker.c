@@ -42,30 +42,32 @@ int		equal(char *str)
 		return (0);
 }
 
-t_stack		*cast_push_first(int	key, t_stack *ret, t_stack *b)
+t_stack		*cast_push_first(int	key, t_stack *a, t_stack *b)
 {
+    t_stack *r;
+
+    r = NULL;
 	if (key == 1)
-        return (sa_sb(ret));
+	    r = sa_sb(a);
 	else if (key == 2)
-	    return (sa_sb(b));
+	    r->pred = sa_sb(b);
 	else if (key == 3)
-		return(ss(ret, b));
+	    return(ss(a, b));
 	else if (key == 4)
-		return(ra_rb(b));
+		r->pred = rra_rrb(b);
 	else if (key == 5)
-	    return (rra_rrb(b));
+	    r->pred = rra_rrb(b);//return (rra_rrb(b));
     else if (key == 6)
-		return(ra_rb(ret));
+        r = ra_rb(a);
 	else if (key == 7)
-		return(rra_rrb(ret));
-	return (NULL);
+	    r = rra_rrb(a);
+	return (r);
 }
 
 t_stack		*cast_push_second(int	key, t_stack *a, t_stack *b)
 {
 	t_stack *ret;
 
-	ret = a;
 	if (key == 8)
 	{
 		b = pa(a, b);
@@ -88,11 +90,12 @@ t_stack		*cast_push_second(int	key, t_stack *a, t_stack *b)
 	return (ret);
 }
 
-void	cast_de(int     key, t_stack *a, t_stack *b)
+t_stack     *cast_de(int    key, t_stack *a, t_stack *b, t_stack *s)
 {
+    a = s;
 	if (key < 8 && key > 0)
-	{
-        a = cast_push_first(key, a, b);
+    {
+	    a = cast_push_first(key, a, b);
         b = a->pred;
 	}
 	else if (key > 8 && key < 12)
@@ -101,10 +104,23 @@ void	cast_de(int     key, t_stack *a, t_stack *b)
 		b = a->pred;
 	}
 	print_stack(a, "a");
-	print_stack(b, "b");
+    return (a);
 }
 
-int		line(char	*str,  t_stack *a, t_stack *b)
+t_stack     *chtec2(char    **av)
+{
+    t_stack *a;
+    t_stack *b;
+
+    b = (t_stack*)malloc(sizeof(t_stack));
+    b->trig = 10;
+    b->next = NULL;
+    a = create_stack(av);
+    a->pred = b;
+    return (a);
+}
+
+t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
 {
 	int		i;
 	char	*str2;
@@ -119,10 +135,14 @@ int		line(char	*str,  t_stack *a, t_stack *b)
 	if (equal(str2) == 0)
 	{
 		ft_putstr("Error\n");
-		return (1);
+		s = NULL;
+		return (s);
 	} else
-		cast_de(equal(str2), a, b);
-	return (0);
+    {
+        a = cast_de(equal(str2) , a, b, s);
+        b = a->pred;
+    }
+	return (a);
 }
 
 int		check_numb(int	i, char **av, int	last) // proverka poryadka vozrastaniya
@@ -171,19 +191,17 @@ int		check_on_char_check(char	*av) // proverka chisel na bykvi
 	return (0);
 }
 
-int     chtec(char **av)
+int     chtec(t_stack *a, t_stack *b, t_stack *s)
 {
     char	buff[BUFF];
-    t_stack *a;
-    t_stack *b;
 
-    b = (t_stack*)malloc(sizeof(t_stack));
-    b->trig = 10;
-    b->next = NULL;
-    a = create_stack(av);
     while (read(2, buff, BUFF) > 0)
-        if (line(buff, a, b) == 1)
+    {
+        s = line(buff, a, b, s);
+        b = a->pred;
+        if (s == NULL)
             return (1);
+    }
     return (0);
 }
 
@@ -191,9 +209,11 @@ int		main(int ac, char **av)
 {
 	int		*tab;
 	int		m[3];
+	t_stack *a;
+	t_stack *s;
 
-	m[0] = 0; // num
-	m[1] = 1; //i
+	m[0] = 0;
+	m[1] = 1;
 	if (ac > 1)
 	{
 		m[2] = ft_atoi(av[1]); //last
@@ -206,7 +226,9 @@ int		main(int ac, char **av)
 			m[2] = ft_atoi(av[m[1]]);
 			m[1]++;
 		}
-		if (chtec(av) == 1)
+		a = chtec2(av);
+		s = a;
+		if (chtec(a, a->pred, s) == 1)
             return (0);
 	}
 	return (0);

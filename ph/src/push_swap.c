@@ -365,7 +365,14 @@ int		main(int ac, char **av)
         if (check_numb_dublic(av) == 1)
             return (0);
 		start = create_stack(av);
-		//print_stack(start, "a");
+		start = sa_sb(start);
+        print_stack(start, "a");
+		start = sa_sb(start);
+		print_stack(start, "a");
+        start = sa_sb(start);
+        print_stack(start, "a");
+        start = sa_sb(start);
+        print_stack(start, "a");
 		/*if (how_list(start) == 3)
 			start = sort_three_numb(start);
 		else if (how_list(start) > 3)

@@ -6,19 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/bantario/Desktop/Push_swap/check/src/actions.c
-../../includes/checker.h
-/Users/bantario/Desktop/Push_swap/includes/checker.h
-
 /Users/bantario/Desktop/Push_swap/check/src/checker.c
 stdio.h
 -
 ../../includes/checker.h
 /Users/bantario/Desktop/Push_swap/includes/checker.h
-
-/Users/bantario/Desktop/Push_swap/check/src/ft_atoi_mod.c
-stdio.h
--
 
 /Users/bantario/Desktop/Push_swap/includes/checker.h
 ../libft/libft.h
