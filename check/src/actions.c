@@ -23,8 +23,7 @@ t_stack		*sa_sb(t_stack *a)
 		a = a->next;
 		c->next = a->next;
 		a->next = c;
-	} else
-	    printf("!!!!\n");
+	}
 	return (a);
 }
 
@@ -52,31 +51,31 @@ t_stack		*ss(t_stack *a, t_stack *b)
 	return (c);
 }
 
-void	print_stack(t_stack *a, char *stack_name)
+int	print_stack(t_stack *a, char *stack_name)
 {
 	ft_putstr("stack: ");
 	ft_putstr(stack_name);
 	ft_putstr("\n");
-	if (a->value == '-' || a == NULL)
+	if (a->trig == 10)
 	{
 		ft_putstr("\nstack is empty\n");
-		return;
+		return (0);
 	}
-	if (a->value != '-' && a->next == NULL)
+	if (a->next == NULL)
 	{
 		ft_putstr("stack one el: ");
 		ft_putstr(ft_itoa(a->value));
 		ft_putstr("\n");
-		return;
+		return (1);
 	}
-	while (a != NULL && a->value != '-')
+	while (a != NULL && a->trig != 10)
 	{
-		//ft_putstr("stack: ");
 		ft_putstr(ft_itoa(a->value));
 		ft_putstr(" ");
 		a = a->next;
 	}
 	ft_putstr("\n");
+    return (3);
 }
 
 t_stack		*pa(t_stack *a, t_stack *b)
@@ -88,15 +87,15 @@ t_stack		*pa(t_stack *a, t_stack *b)
 	else
 	{
 		c = (t_stack*)malloc(sizeof(t_stack));
-		c->value = '-';
+		c->trig= 10;
 	}
-	if (a->value == '-')
+	if (a->trig == 10)
 	{
 		b->next = NULL;
 		a = b;
 		c->pred = a;
 	}
-	else if (a->value != '-')
+	else if (a->trig != 10)
 	{
 		c->pred = b;
 		b->next = a;
@@ -113,14 +112,14 @@ t_stack		*pb(t_stack *a, t_stack *b)
 	else
 	{
 		c = (t_stack*)malloc(sizeof(t_stack));
-		c->value = '-';
+		c->trig = 10;
 	}
-	if (b->value != '-')
+	if (b->trig != 10)
 	{
 		c->pred = a;
 		a->next = b;
 	}
-	else if (b->value == '-')
+	else if (b->trig == 10)
 	{
 		a->next = NULL;
 		b = a;
@@ -143,7 +142,7 @@ t_stack		*ra_rb(t_stack *a)
 	two = a->next;
 	posl = a;
 	pred = a;
-	while (posl->next != NULL && posl->next->value != '-')
+	while (posl->next != NULL && posl->next->trig != 10)
 		posl = posl->next;
 	posl->next = one;
 	one->next = NULL;
@@ -257,9 +256,9 @@ t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 		if (av[i] == NULL)
 			free(ne);
 	}
-	ne->value = '-';
+	ne->trig = 10;//ne->value = '-';
 	//printf("NE->value: %d\n", ne->value);
-	av[i] = ft_itoa('-');
+	av[i] = 0;
 	return (start);
 }
 

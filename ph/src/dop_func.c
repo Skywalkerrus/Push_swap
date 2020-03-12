@@ -41,7 +41,7 @@ int		check_numb_dublic(char	**av) // proverka na dublicaty
 
 int		check_on_char(char	*av) // proverka chisel na bykvi
 {
-    if (ft_atoi_mod(av) == 0 || ft_atoi_mod(av) == -1)
+    if (ft_atoi_mod(av) == -1)
     {
         ft_putstr("Error\n");
         return (1);

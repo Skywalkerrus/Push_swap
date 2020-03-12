@@ -30,7 +30,7 @@ t_stack		*ra_rb_rr(t_stack *a);
 t_stack		*ra_rb(t_stack *a);
 t_stack		*pb(t_stack *a, t_stack *b);
 t_stack		*pa(t_stack *a, t_stack *b);
-void	    print_stack(t_stack *a, char *stack_name);
+int         print_stack(t_stack *a, char *stack_name);
 t_stack		*ss(t_stack *a, t_stack *b);
 t_stack		*sa_sb_ss(t_stack *a);
 t_stack		*sa_sb(t_stack *a);

@@ -40,7 +40,7 @@ int			ft_atoi_mod(const char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] != '0' && ft_isdigit(str[i]) == 0)
-			return (0);
+			return (1);
 		else if (str[i] == '0' && ft_isdigit(str[i]) == 0)
             return (-1);
 		check = result;

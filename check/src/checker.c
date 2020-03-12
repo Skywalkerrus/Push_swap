@@ -19,9 +19,9 @@ int		equal(char *str)
 	if (ft_strnequ(str, "sa", 3) == 1)
 		return (1);
 	else if (ft_strnequ(str, "sb", 3) == 1)
-		return (2);
-	else if (ft_strnequ(str, "ss", 3) == 1)
 		return (3);
+	else if (ft_strnequ(str, "ss", 3) == 1)
+		return (2);
 	else if (ft_strnequ(str, "pa", 3) == 1)
 		return (8);
 	else if (ft_strnequ(str, "pb", 3) == 1)
@@ -42,81 +42,76 @@ int		equal(char *str)
 		return (0);
 }
 
+t_stack     *cast_push_b(int	key, t_stack *a, t_stack *b)
+{
+    t_stack *r;
+
+    r = a;
+    if (key == 3)
+        r->pred = sa_sb(b);
+    else if (key == 4)
+        r->pred = ra_rb(b);
+    else if (key == 5)
+        r->pred = rra_rrb(b);
+    //print_stack(r, "b");
+    return (r);
+}
+
 t_stack		*cast_push_first(int	key, t_stack *a, t_stack *b)
 {
     t_stack *r;
 
-    r = NULL;
+    r = a;
 	if (key == 1)
 	    r = sa_sb(a);
 	else if (key == 2)
-	    r->pred = sa_sb(b);
-	else if (key == 3)
 	    return(ss(a, b));
-	else if (key == 4)
-		r->pred = rra_rrb(b);
-	else if (key == 5)
-	    r->pred = rra_rrb(b);//return (rra_rrb(b));
-    else if (key == 6)
+	else if (key == 6)
         r = ra_rb(a);
 	else if (key == 7)
 	    r = rra_rrb(a);
+	//print_stack(r, "a");
 	return (r);
 }
 
 t_stack		*cast_push_second(int	key, t_stack *a, t_stack *b)
 {
-	t_stack *ret;
+	t_stack *r;
+	t_stack *z;
 
+	r = NULL;
+	z = NULL;
 	if (key == 8)
 	{
-		b = pa(a, b);
-		a = b->pred;
+		r = pa(a, b);
+		z = r; //b
+		r = r->pred; //a
+		r->pred = z;
 	} else if (key == 9)
-	{
-		a = pb(a, b);
-		b = a->pred;
-	} else if (key == 10)
-	{
-		a = rr(a, b);
-		b = a->pred;
-	} else if (key == 11)
-	{
-		a = rrr(a, b);
-		b = a->pred;
-	}
-	ret = a;
-	ret->pred = b;
-	return (ret);
+		r = pb(a, b);
+	else if (key == 10)
+		r = rr(a, b);
+	else if (key == 11)
+		r = rrr(a, b);
+	return (r);
 }
 
 t_stack     *cast_de(int    key, t_stack *a, t_stack *b, t_stack *s)
 {
     a = s;
-	if (key < 8 && key > 0)
+    b = s->pred;
+	if ((key <= 2 && key > 0) || (key > 5 && key < 8))
     {
 	    a = cast_push_first(key, a, b);
-        b = a->pred;
-	}
-	else if (key > 8 && key < 12)
+    }
+	else if (key >= 8 && key < 12)
 	{
-		a = cast_push_second(key, a, b);
-		b = a->pred;
-	}
-	print_stack(a, "a");
-    return (a);
-}
-
-t_stack     *chtec2(char    **av)
-{
-    t_stack *a;
-    t_stack *b;
-
-    b = (t_stack*)malloc(sizeof(t_stack));
-    b->trig = 10;
-    b->next = NULL;
-    a = create_stack(av);
-    a->pred = b;
+        a = cast_push_second(key, a, b);
+    }
+	else if (key > 2 && key < 6)
+    {
+	    a = cast_push_b(key, a, b);
+    }
     return (a);
 }
 
@@ -138,10 +133,7 @@ t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
 		s = NULL;
 		return (s);
 	} else
-    {
         a = cast_de(equal(str2) , a, b, s);
-        b = a->pred;
-    }
 	return (a);
 }
 
@@ -183,7 +175,7 @@ int		check_numb_dublic(char	**av) // proverka na dublicaty
 
 int		check_on_char_check(char	*av) // proverka chisel na bykvi
 {
-    if (ft_atoi_mod(av) == 0 || ft_atoi_mod(av) == -1)
+    if (ft_atoi_mod(av) == -1)
 	{
 		ft_putstr("Error\n");
 		return (1);
@@ -191,17 +183,48 @@ int		check_on_char_check(char	*av) // proverka chisel na bykvi
 	return (0);
 }
 
+t_stack     *chtec2(char    **av)
+{
+    t_stack *a;
+    t_stack *b;
+
+    b = (t_stack*)malloc(sizeof(t_stack));
+    b->trig = 10;
+    b->next = NULL;
+    a = create_stack(av);
+    a->pred = b;
+    return (a);
+}
+
 int     chtec(t_stack *a, t_stack *b, t_stack *s)
 {
     char	buff[BUFF];
+    t_stack *k;
 
+    k = NULL;
     while (read(2, buff, BUFF) > 0)
     {
         s = line(buff, a, b, s);
-        b = a->pred;
+        k = s;
+        b = k->pred;
+        //print_stack(s, "a");
         if (s == NULL)
             return (1);
     }
+    return (0);
+}
+
+int     blyat(char     **av)
+{
+    t_stack *a;
+    t_stack *s;
+    t_stack *b;
+
+    a = chtec2(av);
+    b = a->pred;
+    s = a;
+    if (chtec(a, b, s) == 1)
+        return (1);
     return (0);
 }
 
@@ -209,8 +232,7 @@ int		main(int ac, char **av)
 {
 	int		*tab;
 	int		m[3];
-	t_stack *a;
-	t_stack *s;
+
 
 	m[0] = 0;
 	m[1] = 1;
@@ -226,9 +248,7 @@ int		main(int ac, char **av)
 			m[2] = ft_atoi(av[m[1]]);
 			m[1]++;
 		}
-		a = chtec2(av);
-		s = a;
-		if (chtec(a, a->pred, s) == 1)
+		if (blyat(av) == 1)
             return (0);
 	}
 	return (0);

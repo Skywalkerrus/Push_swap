@@ -350,6 +350,16 @@ int     mod_econom(char **av)
     return (0);
 }
 
+t_stack     *kostyl_for_two(t_stack *a)
+{
+    t_stack     *c;
+
+    c = NULL;
+    if (a->value > a->next->value)
+        a = sa_sb(a);
+    return (a);
+}
+
 int		main(int ac, char **av)
 {
 	t_stack     *b;
@@ -365,22 +375,12 @@ int		main(int ac, char **av)
         if (check_numb_dublic(av) == 1)
             return (0);
 		start = create_stack(av);
-		start = sa_sb(start);
-        print_stack(start, "a");
-		start = sa_sb(start);
-		print_stack(start, "a");
-        start = sa_sb(start);
-        print_stack(start, "a");
-        start = sa_sb(start);
-        print_stack(start, "a");
-		/*if (how_list(start) == 3)
+		if (how_list(start) == 2)
+		    start = kostyl_for_two(start);
+		if (how_list(start) == 3)
 			start = sort_three_numb(start);
-		else if (how_list(start) > 3)
-		{
-			start = many_sort(start, b);
-			b = start->pred;
-		}*/
-		start = algo_two(start, b);
+		if (how_list(start) > 3)
+		    start = algo_two(start, b);
 		print_stack(start, "a");
 		//print_stack(b, "b");
 	}
