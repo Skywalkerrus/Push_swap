@@ -14,7 +14,7 @@
 #include "../../includes/push_swap.h"
 #include <stdio.h>
 
-t_stack		*sa_sb(t_stack *a)
+t_stack		*sa(t_stack *a)
 {
 	t_stack *c;
 
@@ -25,10 +25,24 @@ t_stack		*sa_sb(t_stack *a)
 		c->next = a->next;
 		a->next = c;
 	}
-	ft_putstr("sa/sb\n");
+	ft_putstr("sa\n");
 	return (a);
 }
 
+t_stack		*sb(t_stack *a)
+{
+	t_stack *c;
+
+	if (a->next != NULL)
+	{
+		c = a;
+		a = a->next;
+		c->next = a->next;
+		a->next = c;
+	}
+	ft_putstr("sb\n");
+	return (a);
+}
 
 t_stack		*sa_sb_ss(t_stack *a)
 {
@@ -131,7 +145,7 @@ t_stack		*pb(t_stack *a, t_stack *b)
 	return (c);
 }
 
-t_stack		*ra_rb(t_stack *a)
+t_stack		*ra(t_stack *a)
 {
 	t_stack *one;
 	t_stack *two;
@@ -148,7 +162,28 @@ t_stack		*ra_rb(t_stack *a)
 		posl = posl->next;
 	posl->next = one;
 	one->next = NULL;
-	ft_putstr("ra/rb\n");
+	ft_putstr("ra\n");
+	return (two);
+}
+
+t_stack		*rb(t_stack *a)
+{
+	t_stack *one;
+	t_stack *two;
+	t_stack *posl;
+	t_stack *pred;
+
+	if (a->next == NULL)
+		return (a);
+	one = a;
+	two = a->next;
+	posl = a;
+	pred = a;
+	while (posl->next != NULL)
+		posl = posl->next;
+	posl->next = one;
+	one->next = NULL;
+	ft_putstr("rb\n");
 	return (two);
 }
 
@@ -184,7 +219,7 @@ t_stack		*rr(t_stack *a, t_stack *b)
 	return (c);
 }
 
-t_stack		*rra_rrb(t_stack *a)
+t_stack		*rra(t_stack *a)
 {
 	t_stack	*one;
 	t_stack	*two;
@@ -203,7 +238,30 @@ t_stack		*rra_rrb(t_stack *a)
 		pred = pred->next;
 	posl->next = one;
 	pred->next = NULL;
-	ft_putstr("rra/rrb\n");
+	ft_putstr("rra\n");
+	return (posl);
+}
+
+t_stack		*rrb(t_stack *a)
+{
+	t_stack	*one;
+	t_stack	*two;
+	t_stack	*posl;
+	t_stack	*pred;
+
+	if (a->next == NULL)
+		return (a);
+	one = a;
+	two = a->next;
+	posl = a;
+	pred = a;
+	while (posl->next != NULL)
+		posl = posl->next;
+	while (pred->next != posl)
+		pred = pred->next;
+	posl->next = one;
+	pred->next = NULL;
+	ft_putstr("rrb\n");
 	return (posl);
 }
 
@@ -245,25 +303,25 @@ t_stack		*sort_three_part_two(t_stack *a)
 		return (a);
 	else if (a->value > a->next->value &&
 			a->next->value < a->next->next->value)
-		a = sa_sb(a);
+		a = sa(a);
 	else if (a->value > a->next->value 
 			&& a->next->value > a->next->next->value)
 	{
-		a = sa_sb(a);
-		a = rra_rrb(a);
+		a = sa(a);
+		a = rra(a);
 	}
 	else if (a->value > a->next->value 
 			&& a->next->value < a->next->next->value)
-		a = ra_rb(a);
+		a = ra(a);
 	else if (a->value < a->next->value 
 			&& a->next->value > a->next->next->value)
 	{
-		a = sa_sb(a);
-		a = ra_rb(a);
+		a = sa(a);
+		a = ra(a);
 	}
 	else if (a->value < a->next->value 
 			&& a->next->value > a->next->next->value)
-		a = rra_rrb(a);
+		a = rra(a);
 	return (a);
 }
 
@@ -356,7 +414,7 @@ t_stack     *kostyl_for_two(t_stack *a)
 
     c = NULL;
     if (a->value > a->next->value)
-        a = sa_sb(a);
+        a = sa(a);
     return (a);
 }
 
@@ -379,8 +437,10 @@ int		main(int ac, char **av)
 		    start = kostyl_for_two(start);
 		if (how_list(start) == 3)
 			start = sort_three_numb(start);
-		if (how_list(start) > 3)
+		if (how_list(start) > 70)
 		    start = algo_two(start, b);
+		if (how_list(start) < 70 && how_list(start) > 3)
+			start = many_sort(start, b);
 		print_stack(start, "a");
 		//print_stack(b, "b");
 	}

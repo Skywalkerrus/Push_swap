@@ -59,13 +59,13 @@ SRC_NAME_CH = actions.c\
         checker.c\
         ft_atoi_mod.c
 
-all: fclean $(NAME1) $(NAME2)
+all: fclean $(NAME1)
 
 $(NAME1): $(OBJ1)
 	@make -C $(LFT_PATH)
 	@$(CC) -o push_swap $(OBJ1) -lm -L $(LFT_PATH) -lft
 
-$(NAME2): $(OBJ2)
+$(NAME2): fclean $(OBJ2)
 	@make -C $(LFT_PATH)
 	@$(CC) -o $(NAME2) $(OBJ2) -lm -L $(LFT_PATH) -lft
 

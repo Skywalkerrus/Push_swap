@@ -93,6 +93,9 @@
 		<Unit filename="/Users/bantario/Desktop/Push_swap/check/src/ft_atoi_mod.c">
 			<Option target="Push_swap"/>
 		</Unit>
+		<Unit filename="/Users/bantario/Desktop/Push_swap/includes/checker.h">
+			<Option target="Push_swap"/>
+		</Unit>
 		<Unit filename="/Users/bantario/Desktop/Push_swap/includes/struct.h">
 			<Option target="Push_swap"/>
 		</Unit>

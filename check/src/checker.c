@@ -42,6 +42,13 @@ int		equal(char *str)
 		return (0);
 }
 
+int     equal_sec(char  *str)
+{
+    if (ft_strnequ(str, "", 1) == 1)
+        return (95);
+    return (0);
+}
+
 t_stack     *cast_push_b(int	key, t_stack *a, t_stack *b)
 {
     t_stack *r;
@@ -53,7 +60,6 @@ t_stack     *cast_push_b(int	key, t_stack *a, t_stack *b)
         r->pred = ra_rb(b);
     else if (key == 5)
         r->pred = rra_rrb(b);
-    //print_stack(r, "b");
     return (r);
 }
 
@@ -70,7 +76,7 @@ t_stack		*cast_push_first(int	key, t_stack *a, t_stack *b)
         r = ra_rb(a);
 	else if (key == 7)
 	    r = rra_rrb(a);
-	//print_stack(r, "a");
+	r->pred = b;
 	return (r);
 }
 
@@ -88,7 +94,7 @@ t_stack		*cast_push_second(int	key, t_stack *a, t_stack *b)
 		r = r->pred; //a
 		r->pred = z;
 	} else if (key == 9)
-		r = pb(a, b);
+        r = pb(a, b);
 	else if (key == 10)
 		r = rr(a, b);
 	else if (key == 11)
@@ -101,18 +107,38 @@ t_stack     *cast_de(int    key, t_stack *a, t_stack *b, t_stack *s)
     a = s;
     b = s->pred;
 	if ((key <= 2 && key > 0) || (key > 5 && key < 8))
-    {
 	    a = cast_push_first(key, a, b);
-    }
 	else if (key >= 8 && key < 12)
-	{
         a = cast_push_second(key, a, b);
-    }
 	else if (key > 2 && key < 6)
-    {
 	    a = cast_push_b(key, a, b);
-    }
     return (a);
+}
+
+void     check_numb_two(t_stack *a)
+{
+    int     tec;
+    int     last;
+
+    last = a->value;
+    if (a->next->trig != 10)
+        a = a->next;
+    tec = a->value;
+    while (a->trig != 10)
+    {
+        if (last > tec)
+        {
+            ft_putstr("KO\n");
+            return;
+        }
+        last = a->value;
+        if (a->next != NULL && a->next->trig != 10)
+            a = a->next;
+        else
+            break;
+        tec = a->value;
+    }
+    ft_putstr("OK\n");
 }
 
 t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
@@ -127,24 +153,20 @@ t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
 		str2[i] = str[i];
 		i++;
 	}
-	if (equal(str2) == 0)
+    if (equal_sec(str2) == 95)
+    {
+        check_numb_two(a);
+        return (NULL);
+    }
+    else  if (equal(str2) == 0)
 	{
 		ft_putstr("Error\n");
 		s = NULL;
 		return (s);
-	} else
+	}
+	else
         a = cast_de(equal(str2) , a, b, s);
 	return (a);
-}
-
-int		check_numb(int	i, char **av, int	last) // proverka poryadka vozrastaniya
-{
-	if (i > 1 && last > ft_atoi(av[i]))
-	{
-		ft_putstr("KO\n");
-		return (1);
-	}
-	return (0);
 }
 
 int		check_numb_dublic(char	**av) // proverka na dublicaty
@@ -202,12 +224,11 @@ int     chtec(t_stack *a, t_stack *b, t_stack *s)
     t_stack *k;
 
     k = NULL;
-    while (read(2, buff, BUFF) > 0)
+    while (read(0, buff, BUFF) > 0)
     {
         s = line(buff, a, b, s);
         k = s;
         b = k->pred;
-        //print_stack(s, "a");
         if (s == NULL)
             return (1);
     }

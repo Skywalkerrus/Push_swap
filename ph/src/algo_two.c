@@ -18,10 +18,10 @@ t_stack     *mod_znac(int   pos, t_stack *start, int a_val)
         return (start);
     else if (pos <= (how_list(start) / 2))
         while (where_one(start, a_val) != 1)
-            start = ra_rb(start);
+            start = ra(start);
     else if (pos >= (how_list(start) / 2))
         while (where_one(start, a_val) != 1)
-            start = rra_rrb(start);
+            start = rra(start);
     return (start);
 }
 
@@ -78,15 +78,26 @@ t_stack     *step_two(t_stack *a, t_stack *b)
         position = ft_pos(for_b, max);
         if (position <= (coll_list(for_b) / 2))
             while (where_one(for_b, max) != 1)
-                for_b = ra_rb(for_b);
+                for_b = rb(for_b);
         else if (position >= (coll_list(for_b) / 2))
             while (where_one(for_b, max) != 1)
-                for_b = rra_rrb(for_b);
+                for_b = rrb(for_b);
         b = pa(a, for_b);
         a = b->pred;
         for_b = b;
     }
     return (b);
+}
+
+int     na_scoc_delit(t_stack *a)
+{
+    if (how_list(a) < 100)
+        return (how_list(a) / SIX);
+    else if (how_list(a) > 100 && how_list(a) < 700)
+        return (how_list(a) / DVEN);
+    else if (how_list(a) > 700)
+        return (how_list(a) / TWEN);
+	return (0);
 }
 
 t_stack     *algo_two(t_stack *a, t_stack *b)
@@ -95,7 +106,7 @@ t_stack     *algo_two(t_stack *a, t_stack *b)
 	int	n;
 	int	i;
 
-	n = how_list(a) / 5;
+	n = na_scoc_delit(a);
 	iter = n;
 	i = iter - n;
 	while (i <= (n * 5))

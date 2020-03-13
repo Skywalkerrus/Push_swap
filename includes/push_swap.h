@@ -17,15 +17,22 @@
 #include <stdio.h>
 #include "struct.h"
 
+#define FIVE 5
+#define SIX 6
+#define DVEN 12
+#define TWEN 20
 
 t_stack     *many_sort(t_stack *a, t_stack *b);
-t_stack     *rra_rrb(t_stack *a);
-t_stack     *ra_rb(t_stack *a);
+t_stack     *rra(t_stack *a);
+t_stack     *rrb(t_stack *a);
+t_stack     *ra(t_stack *a);
+t_stack     *rb(t_stack *a);
 int			how_list(t_stack *a);
 t_stack		*pb(t_stack *a, t_stack *b);
 t_stack		*pa(t_stack *a, t_stack *b);
 void	    print_stack(t_stack *a, char *stack_name);
-t_stack		*sa_sb(t_stack *a);
+t_stack		*sa(t_stack *a);
+t_stack		*sb(t_stack *a);
 t_stack		*ss(t_stack *a, t_stack *b);
 t_stack		*rr(t_stack *a, t_stack *b);
 t_stack		*rrr(t_stack *a, t_stack *b);

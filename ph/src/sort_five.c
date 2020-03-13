@@ -79,10 +79,10 @@ t_stack		*many_sort(t_stack *a, t_stack *b)
 		position = ft_pos(a, min);
 		if (position <= (coll_list(a) / 2))
 			while (where_one(a, min) != 1)
-				a = ra_rb(a);
+				a = ra(a);
 		else if (position >= (coll_list(a) / 2))
 			while (where_one(a, min) != 1)
-				a = rra_rrb(a);
+				a = rra(a);
 		a = pb(a, b);
 		b = a->pred;
 	}

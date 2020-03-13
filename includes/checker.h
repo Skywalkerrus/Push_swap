@@ -36,5 +36,4 @@ t_stack		*sa_sb_ss(t_stack *a);
 t_stack		*sa_sb(t_stack *a);
 int		    check_numb_dublic(char	**av);
 int		    check_on_char_check(char	*av);
-
 #endif

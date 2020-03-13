@@ -79,7 +79,7 @@ add_executable(Push_swap
       #  ph/src/algo_two.c
         check/src/checker.c
         check/src/ft_atoi_mod.c
-        #includes/checker.h
+        includes/checker.h
       #  ph/src/ft_atoi_mod.c
       #  includes/push_swap.h
       #  ph/src/sort_five.c
