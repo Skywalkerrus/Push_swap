@@ -915,44 +915,83 @@ CMakeFiles/Push_swap.dir/libft/ft_toupper.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Push_swap.dir/libft/ft_toupper.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/bantario/Desktop/Push_swap/libft/ft_toupper.c -o CMakeFiles/Push_swap.dir/libft/ft_toupper.c.s
 
-CMakeFiles/Push_swap.dir/check/src/actions.c.o: CMakeFiles/Push_swap.dir/flags.make
-CMakeFiles/Push_swap.dir/check/src/actions.c.o: ../check/src/actions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/Push_swap.dir/check/src/actions.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Push_swap.dir/check/src/actions.c.o   -c /Users/bantario/Desktop/Push_swap/check/src/actions.c
+CMakeFiles/Push_swap.dir/ph/src/algo_two.c.o: CMakeFiles/Push_swap.dir/flags.make
+CMakeFiles/Push_swap.dir/ph/src/algo_two.c.o: ../ph/src/algo_two.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/Push_swap.dir/ph/src/algo_two.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Push_swap.dir/ph/src/algo_two.c.o   -c /Users/bantario/Desktop/Push_swap/ph/src/algo_two.c
 
-CMakeFiles/Push_swap.dir/check/src/actions.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Push_swap.dir/check/src/actions.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/bantario/Desktop/Push_swap/check/src/actions.c > CMakeFiles/Push_swap.dir/check/src/actions.c.i
+CMakeFiles/Push_swap.dir/ph/src/algo_two.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Push_swap.dir/ph/src/algo_two.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/bantario/Desktop/Push_swap/ph/src/algo_two.c > CMakeFiles/Push_swap.dir/ph/src/algo_two.c.i
 
-CMakeFiles/Push_swap.dir/check/src/actions.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Push_swap.dir/check/src/actions.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/bantario/Desktop/Push_swap/check/src/actions.c -o CMakeFiles/Push_swap.dir/check/src/actions.c.s
+CMakeFiles/Push_swap.dir/ph/src/algo_two.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Push_swap.dir/ph/src/algo_two.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/bantario/Desktop/Push_swap/ph/src/algo_two.c -o CMakeFiles/Push_swap.dir/ph/src/algo_two.c.s
 
-CMakeFiles/Push_swap.dir/check/src/checker.c.o: CMakeFiles/Push_swap.dir/flags.make
-CMakeFiles/Push_swap.dir/check/src/checker.c.o: ../check/src/checker.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/Push_swap.dir/check/src/checker.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Push_swap.dir/check/src/checker.c.o   -c /Users/bantario/Desktop/Push_swap/check/src/checker.c
+CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.o: CMakeFiles/Push_swap.dir/flags.make
+CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.o: ../ph/src/ft_atoi_mod.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.o   -c /Users/bantario/Desktop/Push_swap/ph/src/ft_atoi_mod.c
 
-CMakeFiles/Push_swap.dir/check/src/checker.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Push_swap.dir/check/src/checker.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/bantario/Desktop/Push_swap/check/src/checker.c > CMakeFiles/Push_swap.dir/check/src/checker.c.i
+CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/bantario/Desktop/Push_swap/ph/src/ft_atoi_mod.c > CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.i
 
-CMakeFiles/Push_swap.dir/check/src/checker.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Push_swap.dir/check/src/checker.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/bantario/Desktop/Push_swap/check/src/checker.c -o CMakeFiles/Push_swap.dir/check/src/checker.c.s
+CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/bantario/Desktop/Push_swap/ph/src/ft_atoi_mod.c -o CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.s
 
-CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.o: CMakeFiles/Push_swap.dir/flags.make
-CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.o: ../check/src/ft_atoi_mod.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.o   -c /Users/bantario/Desktop/Push_swap/check/src/ft_atoi_mod.c
+CMakeFiles/Push_swap.dir/ph/src/sort_five.c.o: CMakeFiles/Push_swap.dir/flags.make
+CMakeFiles/Push_swap.dir/ph/src/sort_five.c.o: ../ph/src/sort_five.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/Push_swap.dir/ph/src/sort_five.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Push_swap.dir/ph/src/sort_five.c.o   -c /Users/bantario/Desktop/Push_swap/ph/src/sort_five.c
 
-CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/bantario/Desktop/Push_swap/check/src/ft_atoi_mod.c > CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.i
+CMakeFiles/Push_swap.dir/ph/src/sort_five.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Push_swap.dir/ph/src/sort_five.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/bantario/Desktop/Push_swap/ph/src/sort_five.c > CMakeFiles/Push_swap.dir/ph/src/sort_five.c.i
 
-CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/bantario/Desktop/Push_swap/check/src/ft_atoi_mod.c -o CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.s
+CMakeFiles/Push_swap.dir/ph/src/sort_five.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Push_swap.dir/ph/src/sort_five.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/bantario/Desktop/Push_swap/ph/src/sort_five.c -o CMakeFiles/Push_swap.dir/ph/src/sort_five.c.s
+
+CMakeFiles/Push_swap.dir/ph/src/push_swap.c.o: CMakeFiles/Push_swap.dir/flags.make
+CMakeFiles/Push_swap.dir/ph/src/push_swap.c.o: ../ph/src/push_swap.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/Push_swap.dir/ph/src/push_swap.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Push_swap.dir/ph/src/push_swap.c.o   -c /Users/bantario/Desktop/Push_swap/ph/src/push_swap.c
+
+CMakeFiles/Push_swap.dir/ph/src/push_swap.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Push_swap.dir/ph/src/push_swap.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/bantario/Desktop/Push_swap/ph/src/push_swap.c > CMakeFiles/Push_swap.dir/ph/src/push_swap.c.i
+
+CMakeFiles/Push_swap.dir/ph/src/push_swap.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Push_swap.dir/ph/src/push_swap.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/bantario/Desktop/Push_swap/ph/src/push_swap.c -o CMakeFiles/Push_swap.dir/ph/src/push_swap.c.s
+
+CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o: CMakeFiles/Push_swap.dir/flags.make
+CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o: ../ph/src/dop_func.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o   -c /Users/bantario/Desktop/Push_swap/ph/src/dop_func.c
+
+CMakeFiles/Push_swap.dir/ph/src/dop_func.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Push_swap.dir/ph/src/dop_func.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/bantario/Desktop/Push_swap/ph/src/dop_func.c > CMakeFiles/Push_swap.dir/ph/src/dop_func.c.i
+
+CMakeFiles/Push_swap.dir/ph/src/dop_func.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Push_swap.dir/ph/src/dop_func.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/bantario/Desktop/Push_swap/ph/src/dop_func.c -o CMakeFiles/Push_swap.dir/ph/src/dop_func.c.s
+
+CMakeFiles/Push_swap.dir/ph/src/freesh.c.o: CMakeFiles/Push_swap.dir/flags.make
+CMakeFiles/Push_swap.dir/ph/src/freesh.c.o: ../ph/src/freesh.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/Push_swap.dir/ph/src/freesh.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Push_swap.dir/ph/src/freesh.c.o   -c /Users/bantario/Desktop/Push_swap/ph/src/freesh.c
+
+CMakeFiles/Push_swap.dir/ph/src/freesh.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Push_swap.dir/ph/src/freesh.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/bantario/Desktop/Push_swap/ph/src/freesh.c > CMakeFiles/Push_swap.dir/ph/src/freesh.c.i
+
+CMakeFiles/Push_swap.dir/ph/src/freesh.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Push_swap.dir/ph/src/freesh.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/bantario/Desktop/Push_swap/ph/src/freesh.c -o CMakeFiles/Push_swap.dir/ph/src/freesh.c.s
 
 # Object files for target Push_swap
 Push_swap_OBJECTS = \
@@ -1022,9 +1061,12 @@ Push_swap_OBJECTS = \
 "CMakeFiles/Push_swap.dir/libft/ft_swap.c.o" \
 "CMakeFiles/Push_swap.dir/libft/ft_tolower.c.o" \
 "CMakeFiles/Push_swap.dir/libft/ft_toupper.c.o" \
-"CMakeFiles/Push_swap.dir/check/src/actions.c.o" \
-"CMakeFiles/Push_swap.dir/check/src/checker.c.o" \
-"CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.o"
+"CMakeFiles/Push_swap.dir/ph/src/algo_two.c.o" \
+"CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.o" \
+"CMakeFiles/Push_swap.dir/ph/src/sort_five.c.o" \
+"CMakeFiles/Push_swap.dir/ph/src/push_swap.c.o" \
+"CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o" \
+"CMakeFiles/Push_swap.dir/ph/src/freesh.c.o"
 
 # External object files for target Push_swap
 Push_swap_EXTERNAL_OBJECTS =
@@ -1095,12 +1137,15 @@ Push_swap: CMakeFiles/Push_swap.dir/libft/ft_strtrim.c.o
 Push_swap: CMakeFiles/Push_swap.dir/libft/ft_swap.c.o
 Push_swap: CMakeFiles/Push_swap.dir/libft/ft_tolower.c.o
 Push_swap: CMakeFiles/Push_swap.dir/libft/ft_toupper.c.o
-Push_swap: CMakeFiles/Push_swap.dir/check/src/actions.c.o
-Push_swap: CMakeFiles/Push_swap.dir/check/src/checker.c.o
-Push_swap: CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.o
+Push_swap: CMakeFiles/Push_swap.dir/ph/src/algo_two.c.o
+Push_swap: CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.o
+Push_swap: CMakeFiles/Push_swap.dir/ph/src/sort_five.c.o
+Push_swap: CMakeFiles/Push_swap.dir/ph/src/push_swap.c.o
+Push_swap: CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o
+Push_swap: CMakeFiles/Push_swap.dir/ph/src/freesh.c.o
 Push_swap: CMakeFiles/Push_swap.dir/build.make
 Push_swap: CMakeFiles/Push_swap.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Linking C executable Push_swap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Linking C executable Push_swap"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Push_swap.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

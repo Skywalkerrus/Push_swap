@@ -228,7 +228,8 @@ int     chtec(t_stack *a, t_stack *b, t_stack *s)
     {
         s = line(buff, a, b, s);
         k = s;
-        b = k->pred;
+        if (s != NULL)
+            b = k->pred;
         if (s == NULL)
             return (1);
     }

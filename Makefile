@@ -53,13 +53,14 @@ SRC_NAME_PH = push_swap.c\
              sort_five.c\
              ft_atoi_mod.c\
               dop_func.c\
-              algo_two.c
+              algo_two.c\
+              freesh.c
 
 SRC_NAME_CH = actions.c\
         checker.c\
         ft_atoi_mod.c
 
-all: fclean $(NAME1)
+all: fclean $(NAME1) $(NAME2)
 
 $(NAME1): $(OBJ1)
 	@make -C $(LFT_PATH)

@@ -123,87 +123,6 @@ Push_swap/fast:
 	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/build
 .PHONY : Push_swap/fast
 
-check/src/actions.o: check/src/actions.c.o
-
-.PHONY : check/src/actions.o
-
-# target to build an object file
-check/src/actions.c.o:
-	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/check/src/actions.c.o
-.PHONY : check/src/actions.c.o
-
-check/src/actions.i: check/src/actions.c.i
-
-.PHONY : check/src/actions.i
-
-# target to preprocess a source file
-check/src/actions.c.i:
-	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/check/src/actions.c.i
-.PHONY : check/src/actions.c.i
-
-check/src/actions.s: check/src/actions.c.s
-
-.PHONY : check/src/actions.s
-
-# target to generate assembly for a file
-check/src/actions.c.s:
-	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/check/src/actions.c.s
-.PHONY : check/src/actions.c.s
-
-check/src/checker.o: check/src/checker.c.o
-
-.PHONY : check/src/checker.o
-
-# target to build an object file
-check/src/checker.c.o:
-	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/check/src/checker.c.o
-.PHONY : check/src/checker.c.o
-
-check/src/checker.i: check/src/checker.c.i
-
-.PHONY : check/src/checker.i
-
-# target to preprocess a source file
-check/src/checker.c.i:
-	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/check/src/checker.c.i
-.PHONY : check/src/checker.c.i
-
-check/src/checker.s: check/src/checker.c.s
-
-.PHONY : check/src/checker.s
-
-# target to generate assembly for a file
-check/src/checker.c.s:
-	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/check/src/checker.c.s
-.PHONY : check/src/checker.c.s
-
-check/src/ft_atoi_mod.o: check/src/ft_atoi_mod.c.o
-
-.PHONY : check/src/ft_atoi_mod.o
-
-# target to build an object file
-check/src/ft_atoi_mod.c.o:
-	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.o
-.PHONY : check/src/ft_atoi_mod.c.o
-
-check/src/ft_atoi_mod.i: check/src/ft_atoi_mod.c.i
-
-.PHONY : check/src/ft_atoi_mod.i
-
-# target to preprocess a source file
-check/src/ft_atoi_mod.c.i:
-	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.i
-.PHONY : check/src/ft_atoi_mod.c.i
-
-check/src/ft_atoi_mod.s: check/src/ft_atoi_mod.c.s
-
-.PHONY : check/src/ft_atoi_mod.s
-
-# target to generate assembly for a file
-check/src/ft_atoi_mod.c.s:
-	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.s
-.PHONY : check/src/ft_atoi_mod.c.s
-
 libft/ft_atoi.o: libft/ft_atoi.c.o
 
 .PHONY : libft/ft_atoi.o
@@ -1986,6 +1905,168 @@ libft/ft_toupper.c.s:
 	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/libft/ft_toupper.c.s
 .PHONY : libft/ft_toupper.c.s
 
+ph/src/algo_two.o: ph/src/algo_two.c.o
+
+.PHONY : ph/src/algo_two.o
+
+# target to build an object file
+ph/src/algo_two.c.o:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/algo_two.c.o
+.PHONY : ph/src/algo_two.c.o
+
+ph/src/algo_two.i: ph/src/algo_two.c.i
+
+.PHONY : ph/src/algo_two.i
+
+# target to preprocess a source file
+ph/src/algo_two.c.i:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/algo_two.c.i
+.PHONY : ph/src/algo_two.c.i
+
+ph/src/algo_two.s: ph/src/algo_two.c.s
+
+.PHONY : ph/src/algo_two.s
+
+# target to generate assembly for a file
+ph/src/algo_two.c.s:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/algo_two.c.s
+.PHONY : ph/src/algo_two.c.s
+
+ph/src/dop_func.o: ph/src/dop_func.c.o
+
+.PHONY : ph/src/dop_func.o
+
+# target to build an object file
+ph/src/dop_func.c.o:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o
+.PHONY : ph/src/dop_func.c.o
+
+ph/src/dop_func.i: ph/src/dop_func.c.i
+
+.PHONY : ph/src/dop_func.i
+
+# target to preprocess a source file
+ph/src/dop_func.c.i:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/dop_func.c.i
+.PHONY : ph/src/dop_func.c.i
+
+ph/src/dop_func.s: ph/src/dop_func.c.s
+
+.PHONY : ph/src/dop_func.s
+
+# target to generate assembly for a file
+ph/src/dop_func.c.s:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/dop_func.c.s
+.PHONY : ph/src/dop_func.c.s
+
+ph/src/freesh.o: ph/src/freesh.c.o
+
+.PHONY : ph/src/freesh.o
+
+# target to build an object file
+ph/src/freesh.c.o:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/freesh.c.o
+.PHONY : ph/src/freesh.c.o
+
+ph/src/freesh.i: ph/src/freesh.c.i
+
+.PHONY : ph/src/freesh.i
+
+# target to preprocess a source file
+ph/src/freesh.c.i:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/freesh.c.i
+.PHONY : ph/src/freesh.c.i
+
+ph/src/freesh.s: ph/src/freesh.c.s
+
+.PHONY : ph/src/freesh.s
+
+# target to generate assembly for a file
+ph/src/freesh.c.s:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/freesh.c.s
+.PHONY : ph/src/freesh.c.s
+
+ph/src/ft_atoi_mod.o: ph/src/ft_atoi_mod.c.o
+
+.PHONY : ph/src/ft_atoi_mod.o
+
+# target to build an object file
+ph/src/ft_atoi_mod.c.o:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.o
+.PHONY : ph/src/ft_atoi_mod.c.o
+
+ph/src/ft_atoi_mod.i: ph/src/ft_atoi_mod.c.i
+
+.PHONY : ph/src/ft_atoi_mod.i
+
+# target to preprocess a source file
+ph/src/ft_atoi_mod.c.i:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.i
+.PHONY : ph/src/ft_atoi_mod.c.i
+
+ph/src/ft_atoi_mod.s: ph/src/ft_atoi_mod.c.s
+
+.PHONY : ph/src/ft_atoi_mod.s
+
+# target to generate assembly for a file
+ph/src/ft_atoi_mod.c.s:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.s
+.PHONY : ph/src/ft_atoi_mod.c.s
+
+ph/src/push_swap.o: ph/src/push_swap.c.o
+
+.PHONY : ph/src/push_swap.o
+
+# target to build an object file
+ph/src/push_swap.c.o:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/push_swap.c.o
+.PHONY : ph/src/push_swap.c.o
+
+ph/src/push_swap.i: ph/src/push_swap.c.i
+
+.PHONY : ph/src/push_swap.i
+
+# target to preprocess a source file
+ph/src/push_swap.c.i:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/push_swap.c.i
+.PHONY : ph/src/push_swap.c.i
+
+ph/src/push_swap.s: ph/src/push_swap.c.s
+
+.PHONY : ph/src/push_swap.s
+
+# target to generate assembly for a file
+ph/src/push_swap.c.s:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/push_swap.c.s
+.PHONY : ph/src/push_swap.c.s
+
+ph/src/sort_five.o: ph/src/sort_five.c.o
+
+.PHONY : ph/src/sort_five.o
+
+# target to build an object file
+ph/src/sort_five.c.o:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/sort_five.c.o
+.PHONY : ph/src/sort_five.c.o
+
+ph/src/sort_five.i: ph/src/sort_five.c.i
+
+.PHONY : ph/src/sort_five.i
+
+# target to preprocess a source file
+ph/src/sort_five.c.i:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/sort_five.c.i
+.PHONY : ph/src/sort_five.c.i
+
+ph/src/sort_five.s: ph/src/sort_five.c.s
+
+.PHONY : ph/src/sort_five.s
+
+# target to generate assembly for a file
+ph/src/sort_five.c.s:
+	$(MAKE) -f CMakeFiles/Push_swap.dir/build.make CMakeFiles/Push_swap.dir/ph/src/sort_five.c.s
+.PHONY : ph/src/sort_five.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1995,15 +2076,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Push_swap"
-	@echo "... check/src/actions.o"
-	@echo "... check/src/actions.i"
-	@echo "... check/src/actions.s"
-	@echo "... check/src/checker.o"
-	@echo "... check/src/checker.i"
-	@echo "... check/src/checker.s"
-	@echo "... check/src/ft_atoi_mod.o"
-	@echo "... check/src/ft_atoi_mod.i"
-	@echo "... check/src/ft_atoi_mod.s"
 	@echo "... libft/ft_atoi.o"
 	@echo "... libft/ft_atoi.i"
 	@echo "... libft/ft_atoi.s"
@@ -2202,6 +2274,24 @@ help:
 	@echo "... libft/ft_toupper.o"
 	@echo "... libft/ft_toupper.i"
 	@echo "... libft/ft_toupper.s"
+	@echo "... ph/src/algo_two.o"
+	@echo "... ph/src/algo_two.i"
+	@echo "... ph/src/algo_two.s"
+	@echo "... ph/src/dop_func.o"
+	@echo "... ph/src/dop_func.i"
+	@echo "... ph/src/dop_func.s"
+	@echo "... ph/src/freesh.o"
+	@echo "... ph/src/freesh.i"
+	@echo "... ph/src/freesh.s"
+	@echo "... ph/src/ft_atoi_mod.o"
+	@echo "... ph/src/ft_atoi_mod.i"
+	@echo "... ph/src/ft_atoi_mod.s"
+	@echo "... ph/src/push_swap.o"
+	@echo "... ph/src/push_swap.i"
+	@echo "... ph/src/push_swap.s"
+	@echo "... ph/src/sort_five.o"
+	@echo "... ph/src/sort_five.i"
+	@echo "... ph/src/sort_five.s"
 .PHONY : help
 
 

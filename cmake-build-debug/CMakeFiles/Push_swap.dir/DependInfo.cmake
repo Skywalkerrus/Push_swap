@@ -4,9 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/bantario/Desktop/Push_swap/check/src/actions.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/check/src/actions.c.o"
-  "/Users/bantario/Desktop/Push_swap/check/src/checker.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/check/src/checker.c.o"
-  "/Users/bantario/Desktop/Push_swap/check/src/ft_atoi_mod.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.o"
   "/Users/bantario/Desktop/Push_swap/libft/ft_atoi.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_atoi.c.o"
   "/Users/bantario/Desktop/Push_swap/libft/ft_bzero.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_bzero.c.o"
   "/Users/bantario/Desktop/Push_swap/libft/ft_ctword.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_ctword.c.o"
@@ -73,6 +70,12 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/bantario/Desktop/Push_swap/libft/ft_swap.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_swap.c.o"
   "/Users/bantario/Desktop/Push_swap/libft/ft_tolower.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_tolower.c.o"
   "/Users/bantario/Desktop/Push_swap/libft/ft_toupper.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_toupper.c.o"
+  "/Users/bantario/Desktop/Push_swap/ph/src/algo_two.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/algo_two.c.o"
+  "/Users/bantario/Desktop/Push_swap/ph/src/dop_func.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o"
+  "/Users/bantario/Desktop/Push_swap/ph/src/freesh.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/freesh.c.o"
+  "/Users/bantario/Desktop/Push_swap/ph/src/ft_atoi_mod.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.o"
+  "/Users/bantario/Desktop/Push_swap/ph/src/push_swap.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/push_swap.c.o"
+  "/Users/bantario/Desktop/Push_swap/ph/src/sort_five.c" "/Users/bantario/Desktop/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/sort_five.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

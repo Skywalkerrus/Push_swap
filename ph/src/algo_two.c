@@ -91,11 +91,11 @@ t_stack     *step_two(t_stack *a, t_stack *b)
 
 int     na_scoc_delit(t_stack *a)
 {
-    if (how_list(a) < 100)
+    if (how_list(a) <= 100)
         return (how_list(a) / SIX);
     else if (how_list(a) > 100 && how_list(a) < 700)
         return (how_list(a) / DVEN);
-    else if (how_list(a) > 700)
+    else if (how_list(a) >= 700)
         return (how_list(a) / TWEN);
 	return (0);
 }

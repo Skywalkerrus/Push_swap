@@ -75,15 +75,16 @@ add_executable(Push_swap
         libft/ft_tolower.c
         libft/ft_toupper.c
         libft/libft.h
-        check/src/actions.c
-      #  ph/src/algo_two.c
-        check/src/checker.c
-        check/src/ft_atoi_mod.c
-        includes/checker.h
-      #  ph/src/ft_atoi_mod.c
-      #  includes/push_swap.h
-      #  ph/src/sort_five.c
-      #  ph/src/push_swap.c
-       # ph/src/dop_func.c
+        #check/src/actions.c
+        ph/src/algo_two.c
+        #check/src/checker.c
+        #check/src/ft_atoi_mod.c
+        #includes/checker.h
+        ph/src/ft_atoi_mod.c
+        includes/push_swap.h
+        ph/src/sort_five.c
+        ph/src/push_swap.c
+        ph/src/dop_func.c
+        ph/src/freesh.c
         includes/struct.h)
 

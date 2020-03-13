@@ -48,4 +48,5 @@ int			where_one(t_stack *a, int min);
 int         check_numb_dublic(char	**av);
 int		    check_on_char(char	*av);
 int         ft_atoi_mod(const char *str);
+void		free_list(t_stack *a);
 #endif
