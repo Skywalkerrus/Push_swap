@@ -378,28 +378,37 @@ t_stack		*analog_cr_stack_mod(int cunt_w, t_stack *a)
 	return (a);
 }
 
-t_stack		*analog_cr_stack(char	*str, t_stack	*a, int j, int i)
+int		anal_mod(char	*str, char	*s2, int i)
+{
+	while (str[i] != ' ' && str[i] != '\t' && str[i])
+	{
+		if (str[i] != '0' && ft_isdigit(str[i]) == 0)
+			return (-1);
+		*s2 = str[i];
+		s2++;
+		i++;
+	}
+	*s2 = '\0';
+	return (i);
+}
+
+t_stack		*analog_cr_stack(char	*str, t_stack	*a, int i)
 {
 	t_stack	*start;
 	char	*s2;
 	int 	cunt_w;
 
 	cunt_w = ft_ctword(str, ' ') + 1;
-	s2 = (char*) malloc(sizeof(char) * 100);
 	while (str[i])
 	{
 		if (!start) start = a;
-		j = 0;
 		if (str[i] != ' ' && str[i] != '\t')
 		{
-			while (str[i] != ' ' && str[i] != '\t' && str[i])
-			{
-				if (str[i] != '0' && ft_isdigit(str[i]) == 0)
-					return (NULL);
-				s2[j++] = str[i++];
-			}
-			s2[j] = '\0';
+			s2 = (char*) malloc(sizeof(char) * 100);
+			if ((i = anal_mod(str, s2, i)) == -1)
+				return (NULL);
 			a->value = ft_atoi(s2);
+			free(s2);
 			a->trig = 66;
 			a = analog_cr_stack_mod(cunt_w--, a);
 		} else
@@ -442,22 +451,22 @@ t_stack		*create_stack(char	**av, int ac)
 {
 	t_stack *a;
 	t_stack *ne;
+	t_stack	*r;
 	int		i;
-	int 	j;
 
 	i = 0;
-	j = 0;
 	ne = NULL;
 	a = (t_stack*)malloc(sizeof(t_stack));
 	a->trig = 10;
 	if (ac > 2)
 		return (cr_stack_n(a, av, ne, i));
-	if (analog_cr_stack(av[1], a, j, i) == NULL)
+	r = analog_cr_stack(av[1], a, i);
+	if (r == NULL)
 	{
 		ft_putstr("Error\n");
 		return (NULL);
 	} else
-		return (analog_cr_stack(av[1], a, j, i));
+		return (r);
 }
 
 int     mod_econom(char **av)
