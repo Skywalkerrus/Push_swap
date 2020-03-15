@@ -20,7 +20,7 @@
 #include <stdio.h>
 
 int         ft_atoi_mod(const char *str);
-t_stack		*create_stack(char	**av);
+t_stack		*create_stack(char	**av, int ac);
 t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i);
 t_stack		*rrr(t_stack *a, t_stack *b);
 t_stack		*rra_rrb_rrr(t_stack *a);
@@ -36,4 +36,8 @@ t_stack		*sa_sb_ss(t_stack *a);
 t_stack		*sa_sb(t_stack *a);
 int		    check_numb_dublic(char	**av);
 int		    check_on_char_check(char	*av);
+t_stack		*analog_cr_stack_mod(int cunt_w, t_stack *a);
+int			anal_mod(char	*str, char	*s2, int i);
+t_stack		*analog_cr_stack(char	*str, t_stack	*a, int i);
+int 		check_n_arg(t_stack	*start);
 #endif

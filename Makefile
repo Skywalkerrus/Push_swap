@@ -58,7 +58,8 @@ SRC_NAME_PH = push_swap.c\
 
 SRC_NAME_CH = actions.c\
         checker.c\
-        ft_atoi_mod.c
+        ft_atoi_mod.c\
+        cr_stack_for_one_arg.c
 
 all: fclean $(NAME1) $(NAME2)
 

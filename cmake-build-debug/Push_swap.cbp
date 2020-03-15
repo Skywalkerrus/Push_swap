@@ -84,7 +84,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/bantario/Desktop/Push_swap/includes/push_swap.h">
+		<Unit filename="/Users/bantario/Desktop/Push_swap/check/src/actions.c">
+			<Option target="Push_swap"/>
+		</Unit>
+		<Unit filename="/Users/bantario/Desktop/Push_swap/check/src/checker.c">
+			<Option target="Push_swap"/>
+		</Unit>
+		<Unit filename="/Users/bantario/Desktop/Push_swap/check/src/cr_stack_for_one_arg.c">
+			<Option target="Push_swap"/>
+		</Unit>
+		<Unit filename="/Users/bantario/Desktop/Push_swap/check/src/ft_atoi_mod.c">
+			<Option target="Push_swap"/>
+		</Unit>
+		<Unit filename="/Users/bantario/Desktop/Push_swap/includes/checker.h">
 			<Option target="Push_swap"/>
 		</Unit>
 		<Unit filename="/Users/bantario/Desktop/Push_swap/includes/struct.h">
@@ -289,24 +301,6 @@
 			<Option target="Push_swap"/>
 		</Unit>
 		<Unit filename="/Users/bantario/Desktop/Push_swap/libft/libft.h">
-			<Option target="Push_swap"/>
-		</Unit>
-		<Unit filename="/Users/bantario/Desktop/Push_swap/ph/src/algo_two.c">
-			<Option target="Push_swap"/>
-		</Unit>
-		<Unit filename="/Users/bantario/Desktop/Push_swap/ph/src/dop_func.c">
-			<Option target="Push_swap"/>
-		</Unit>
-		<Unit filename="/Users/bantario/Desktop/Push_swap/ph/src/freesh.c">
-			<Option target="Push_swap"/>
-		</Unit>
-		<Unit filename="/Users/bantario/Desktop/Push_swap/ph/src/ft_atoi_mod.c">
-			<Option target="Push_swap"/>
-		</Unit>
-		<Unit filename="/Users/bantario/Desktop/Push_swap/ph/src/push_swap.c">
-			<Option target="Push_swap"/>
-		</Unit>
-		<Unit filename="/Users/bantario/Desktop/Push_swap/ph/src/sort_five.c">
 			<Option target="Push_swap"/>
 		</Unit>
 		<Unit filename="/Users/bantario/Desktop/Push_swap/CMakeLists.txt">

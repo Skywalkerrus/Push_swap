@@ -38,6 +38,8 @@ int		equal(char *str)
 		return (5);
 	else if (ft_strnequ(str, "rrr", 4) == 1)
 		return (11);
+	else if (ft_strnequ(str, "", 1) == 1)
+		return (95);
 	else
 		return (0);
 }
@@ -85,7 +87,7 @@ t_stack		*cast_push_second(int	key, t_stack *a, t_stack *b)
 	t_stack *r;
 	t_stack *z;
 
-	r = NULL;
+	r = a;
 	z = NULL;
 	if (key == 8)
 	{
@@ -117,27 +119,29 @@ t_stack     *cast_de(int    key, t_stack *a, t_stack *b, t_stack *s)
 
 void     check_numb_two(t_stack *a)
 {
-    int     tec;
-    int     last;
+    t_stack	*s;
+    t_stack	*s2;
 
-    last = a->value;
-    if (a->next->trig != 10)
-        a = a->next;
-    tec = a->value;
-    while (a->trig != 10)
-    {
-        if (last > tec)
-        {
-            ft_putstr("KO\n");
-            return;
-        }
-        last = a->value;
-        if (a->next != NULL && a->next->trig != 10)
-            a = a->next;
-        else
-            break;
-        tec = a->value;
-    }
+    s = a;
+    if (s->next != NULL)
+    	s2 = s->next;
+    while (s->trig != 10)
+	{
+    	while (s2->trig != 10)
+		{
+    		if (s->value > s2->value)
+			{
+				ft_putstr("KO\n");
+				return;
+			}
+    		if (s2->next != NULL)
+    			s2 = s2->next;
+		}
+		if (s->next != NULL)
+			s = s->next;
+		if (s->next != NULL)
+			s2 = s->next;
+	}
     ft_putstr("OK\n");
 }
 
@@ -153,19 +157,25 @@ t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
 		str2[i] = str[i];
 		i++;
 	}
-    if (equal_sec(str2) == 95)
-    {
-        check_numb_two(a);
-        return (NULL);
-    }
-    else  if (equal(str2) == 0)
+	/*if (equal_sec(str2) == 95)
+	{
+		check_numb_two(a);
+		return (NULL);
+	}*/
+	if (equal(str2) == 0)
 	{
 		ft_putstr("Error\n");
 		s = NULL;
 		return (s);
 	}
+	else if (equal(str2) == 95) {
+		print_stack(a, "hui na");
+		check_numb_two(a);
+		return (NULL);
+	}
 	else
         a = cast_de(equal(str2) , a, b, s);
+	//print_stack(a, "a");
 	return (a);
 }
 
@@ -205,7 +215,7 @@ int		check_on_char_check(char	*av) // proverka chisel na bykvi
 	return (0);
 }
 
-t_stack     *chtec2(char    **av)
+t_stack     *chtec2(char    **av, int ac)
 {
     t_stack *a;
     t_stack *b;
@@ -213,8 +223,9 @@ t_stack     *chtec2(char    **av)
     b = (t_stack*)malloc(sizeof(t_stack));
     b->trig = 10;
     b->next = NULL;
-    a = create_stack(av);
-    a->pred = b;
+    a = create_stack(av, ac);
+    if (a)
+    	a->pred = b;
     return (a);
 }
 
@@ -236,13 +247,19 @@ int     chtec(t_stack *a, t_stack *b, t_stack *s)
     return (0);
 }
 
-int     blyat(char     **av)
+int     blyat(char     **av, int ac)
 {
     t_stack *a;
     t_stack *s;
     t_stack *b;
 
-    a = chtec2(av);
+    if ((a = chtec2(av, ac)) == NULL)
+		return (1);
+	if (ac == 2 && check_n_arg(a) == -1)
+	{
+		//free_list(a);
+		return (1);
+	}
     b = a->pred;
     s = a;
     if (chtec(a, b, s) == 1)
@@ -255,23 +272,25 @@ int		main(int ac, char **av)
 	int		*tab;
 	int		m[3];
 
-
 	m[0] = 0;
 	m[1] = 1;
 	if (ac > 1)
 	{
+		if (ac == 2)
+			if (blyat(av, ac) == 1)
+				return (0);
 		m[2] = ft_atoi(av[1]); //last
 		tab = (int  *)malloc(sizeof(int) * ac);
 		while (m[1] < ac)
 		{
 			tab[m[1] - 1] = ft_atoi_mod(av[m[1]]);
-			if ((check_on_char_check(av[m[1]]) == 1) || check_numb_dublic(av) == 1)
+			if ((check_on_char_check(av[m[1]]) == 1) || (check_numb_dublic(av) == 1))
 				return (0);
 			m[2] = ft_atoi(av[m[1]]);
 			m[1]++;
 		}
-		if (blyat(av) == 1)
-            return (0);
+		if (blyat(av, ac) == 1)
+			return (0);
 	}
 	return (0);
 }

@@ -523,7 +523,7 @@ int		main(int ac, char **av)
 		    start = algo_two(start, b);
 		else if (how_list(start) < 70 && how_list(start) > 3)
 			start = many_sort(start, b);
-		print_stack(start, "a");
+		//print_stack(start, "a");
 		free_list(start);
 		free(b);
 	}

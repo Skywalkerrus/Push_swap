@@ -6,13 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/Users/bantario/Desktop/Push_swap/includes/push_swap.h
-../libft/libft.h
-/Users/bantario/Desktop/Push_swap/libft/libft.h
+/Users/bantario/Desktop/Push_swap/check/src/checker.c
 stdio.h
 -
+../../includes/checker.h
+/Users/bantario/Desktop/Push_swap/includes/checker.h
+
+/Users/bantario/Desktop/Push_swap/includes/checker.h
+../libft/libft.h
+/Users/bantario/Desktop/Push_swap/libft/libft.h
 struct.h
 /Users/bantario/Desktop/Push_swap/includes/struct.h
+stdlib.h
+-
+unistd.h
+-
+stdio.h
+-
 
 /Users/bantario/Desktop/Push_swap/includes/struct.h
 
@@ -26,11 +36,5 @@ sys/types.h
 sys/stat.h
 -
 fcntl.h
--
-
-/Users/bantario/Desktop/Push_swap/ph/src/push_swap.c
-../../includes/push_swap.h
-/Users/bantario/Desktop/Push_swap/includes/push_swap.h
-stdio.h
 -
 
