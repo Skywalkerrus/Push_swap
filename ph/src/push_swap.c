@@ -351,6 +351,63 @@ t_stack		*sort_three_numb(t_stack *a)
 	return (a);
 }
 
+void 		free_three_lists(t_stack *o, t_stack *t, t_stack *th)
+{
+	free_list(o);
+	free_list(t);
+	free_list(th);
+}
+
+t_stack		*analog_cr_stack_mod(int cunt_w, t_stack *a)
+{
+	t_stack	*ne;
+
+	ne = NULL;
+	if (cunt_w == 0)
+	{
+		a->next = NULL;
+		a->trig = 10;
+	} else
+	{
+		ne = (t_stack *)malloc(sizeof(t_stack));
+		ne->trig = 10;
+		a->next = ne;
+		a = a->next;
+		a->next = NULL;
+	}
+	return (a);
+}
+
+t_stack		*analog_cr_stack(char	*str, t_stack	*a, int j, int i)
+{
+	t_stack	*start;
+	char	*s2;
+	int 	cunt_w;
+
+	cunt_w = ft_ctword(str, ' ') + 1;
+	s2 = (char*) malloc(sizeof(char) * 100);
+	while (str[i])
+	{
+		if (!start) start = a;
+		j = 0;
+		if (str[i] != ' ' && str[i] != '\t')
+		{
+			while (str[i] != ' ' && str[i] != '\t' && str[i])
+			{
+				if (str[i] != '0' && ft_isdigit(str[i]) == 0)
+					return (NULL);
+				s2[j++] = str[i++];
+			}
+			s2[j] = '\0';
+			a->value = ft_atoi(s2);
+			a->trig = 66;
+			a = analog_cr_stack_mod(cunt_w--, a);
+		} else
+			i++;
+	}
+	return (start);
+}
+
 t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 {
 	t_stack		*start;
@@ -381,17 +438,26 @@ t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 	return (start);
 }
 
-t_stack		*create_stack(char	**av)
+t_stack		*create_stack(char	**av, int ac)
 {
 	t_stack *a;
 	t_stack *ne;
 	int		i;
+	int 	j;
 
 	i = 0;
+	j = 0;
 	ne = NULL;
 	a = (t_stack*)malloc(sizeof(t_stack));
 	a->trig = 10;
-	return (cr_stack_n(a, av, ne, i));
+	if (ac > 2)
+		return (cr_stack_n(a, av, ne, i));
+	if (analog_cr_stack(av[1], a, j, i) == NULL)
+	{
+		ft_putstr("Error\n");
+		return (NULL);
+	} else
+		return (analog_cr_stack(av[1], a, j, i));
 }
 
 int     mod_econom(char **av)
@@ -415,23 +481,31 @@ t_stack     *kostyl_for_two(t_stack *a)
     return (a);
 }
 
-
-
 int		main(int ac, char **av)
 {
 	t_stack     *b;
 	t_stack     *start;
 
-	if (mod_econom(av) == 1)
+	if (ac != 2 && mod_econom(av) == 1)
         return (0);
 	b = (t_stack*)malloc(sizeof(t_stack));
 	b->next = NULL;
 	b->trig = 10;
 	if (ac > 1)
 	{
-        if (check_numb_dublic(av) == 1)
+        if (check_numb_dublic(av) == 1 && ac != 2)
+		{
+        	free_list(b);
         	return (0);
-		start = create_stack(av);
+		}
+		if ((start = create_stack(av, ac)) == NULL)
+			return (0);
+		if (ac == 2 && check_n_arg(start) == -1)
+		{
+			free_list(start);
+			free_list(b);
+			return (0);
+		}
 		if (how_list(start) == 2)
 		    start = kostyl_for_two(start);
 		else if (how_list(start) == 3)

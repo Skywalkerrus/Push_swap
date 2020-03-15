@@ -36,7 +36,7 @@ t_stack		*sb(t_stack *a);
 t_stack		*ss(t_stack *a, t_stack *b);
 t_stack		*rr(t_stack *a, t_stack *b);
 t_stack		*rrr(t_stack *a, t_stack *b);
-t_stack		*create_stack(char	**av);
+t_stack		*create_stack(char	**av, int ac);
 t_stack		*cr_stack_n(t_stack *a, char **av, t_stack *ne, int i);
 t_stack     *cast_push_first(int    key, t_stack *start, t_stack *b);
 t_stack     *cast_push_second(int   key, t_stack *start, t_stack *b);
@@ -49,4 +49,5 @@ int         check_numb_dublic(char	**av);
 int		    check_on_char(char	*av);
 int         ft_atoi_mod(const char *str);
 void		free_list(t_stack *a);
+int 		check_n_arg(t_stack *start);
 #endif

@@ -12,7 +12,34 @@
 
 #include "../../includes/push_swap.h"
 
-int		check_numb_dublic(char	**av) // proverka na dublicaty
+int 		check_n_arg(t_stack	*start)
+{
+	t_stack	*a;
+	t_stack *b;
+
+	a = start;
+	if (a->next != NULL)
+		b = a->next;
+	while (a->trig != 10)
+	{
+		while (b->trig != 10)
+		{
+			if (a->value == b->value)
+			{
+				ft_putstr("Error\n");
+				return (-1);
+			}
+			b = b->next;
+		}
+		if (a->next != NULL)
+			a = a->next;
+		if (a->next != NULL)
+			b = a->next;
+	}
+	return (0);
+}
+
+int			check_numb_dublic(char	**av) // proverka na dublicaty
 {
     int		i;
     int		j;

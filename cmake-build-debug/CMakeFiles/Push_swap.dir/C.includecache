@@ -28,23 +28,7 @@ sys/stat.h
 fcntl.h
 -
 
-/Users/bantario/Desktop/Push_swap/ph/src/algo_two.c
-../../includes/push_swap.h
-/Users/bantario/Desktop/Push_swap/includes/push_swap.h
-
-/Users/bantario/Desktop/Push_swap/ph/src/dop_func.c
-../../includes/push_swap.h
-/Users/bantario/Desktop/Push_swap/includes/push_swap.h
-
-/Users/bantario/Desktop/Push_swap/ph/src/ft_atoi_mod.c
-
 /Users/bantario/Desktop/Push_swap/ph/src/push_swap.c
-../../includes/push_swap.h
-/Users/bantario/Desktop/Push_swap/includes/push_swap.h
-stdio.h
--
-
-/Users/bantario/Desktop/Push_swap/ph/src/sort_five.c
 ../../includes/push_swap.h
 /Users/bantario/Desktop/Push_swap/includes/push_swap.h
 stdio.h

@@ -207,6 +207,11 @@ CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o: ../includes/struct.h
 CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o: ../libft/libft.h
 CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o: ../ph/src/dop_func.c
 
+CMakeFiles/Push_swap.dir/ph/src/freesh.c.o: ../includes/push_swap.h
+CMakeFiles/Push_swap.dir/ph/src/freesh.c.o: ../includes/struct.h
+CMakeFiles/Push_swap.dir/ph/src/freesh.c.o: ../libft/libft.h
+CMakeFiles/Push_swap.dir/ph/src/freesh.c.o: ../ph/src/freesh.c
+
 CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.o: ../ph/src/ft_atoi_mod.c
 
 CMakeFiles/Push_swap.dir/ph/src/push_swap.c.o: ../includes/push_swap.h
