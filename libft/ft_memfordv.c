@@ -15,9 +15,7 @@
 char	**ft_memfordv(size_t size)
 {
 	char			**str;
-	unsigned int	i;
 
-	i = 0;
 	str = (char **)malloc(sizeof(char*) * (size + 1));
 	if (str == NULL)
 		return (NULL);

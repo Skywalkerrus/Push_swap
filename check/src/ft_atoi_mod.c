@@ -37,7 +37,7 @@ int			ft_atoi_mod(const char *str)
 	i = 0;
 	if (str[0] == '-' && str[1] != '0')
 		i++;
-    else if (str[0] == '-' && str[1] == '0')
+	else if (str[0] == '-' && str[1] == '0')
         return (-1);
 	while (str[i] != '\0')
 	{

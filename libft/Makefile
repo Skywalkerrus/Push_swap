@@ -20,7 +20,7 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	@gcc $(FLAGS) -I $(HEAD) -c $(SRC)
+	@gcc $(FLAGS) $(HEAD) -c $(SRC)
 	@ar rc $(NAME) $(OFF)
 	@ranlib $(NAME)
 clean:

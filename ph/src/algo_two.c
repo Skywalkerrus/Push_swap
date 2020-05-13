@@ -97,7 +97,8 @@ int     na_scoc_delit(t_stack *a)
         return (how_list(a) / DVEN);
     else if (how_list(a) >= 700)
         return (how_list(a) / TWEN);
-	return (0);
+    else
+	    return (0);
 }
 
 t_stack     *algo_two(t_stack *a, t_stack *b)

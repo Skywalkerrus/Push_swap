@@ -148,14 +148,12 @@ t_stack		*ra(t_stack *a)
 	t_stack *one;
 	t_stack *two;
 	t_stack *posl;
-	t_stack *pred;
 
 	if (a->next == NULL)
 		return (a);
 	one = a;
 	two = a->next;
 	posl = a;
-	pred = a;
 	while (posl->next != NULL)
 		posl = posl->next;
 	posl->next = one;
@@ -169,14 +167,12 @@ t_stack		*rb(t_stack *a)
 	t_stack *one;
 	t_stack *two;
 	t_stack *posl;
-	t_stack *pred;
 
 	if (a->next == NULL)
 		return (a);
 	one = a;
 	two = a->next;
 	posl = a;
-	pred = a;
 	while (posl->next != NULL)
 		posl = posl->next;
 	posl->next = one;
@@ -190,14 +186,12 @@ t_stack		*ra_rb_rr(t_stack *a)
 	t_stack *one;
 	t_stack *two;
 	t_stack *posl;
-	t_stack *pred;
 
 	if (a->next == NULL)
 		return (a);
 	one = a;
 	two = a->next;
 	posl = a;
-	pred = a;
 	while (posl->next != NULL)
 		posl = posl->next;
 	posl->next = one;
@@ -220,14 +214,12 @@ t_stack		*rr(t_stack *a, t_stack *b)
 t_stack		*rra(t_stack *a)
 {
 	t_stack	*one;
-	t_stack	*two;
 	t_stack	*posl;
 	t_stack	*pred;
 
 	if (a->next == NULL)
 		return (a);
 	one = a;
-	two = a->next;
 	posl = a;
 	pred = a;
 	while (posl->next != NULL)
@@ -243,14 +235,12 @@ t_stack		*rra(t_stack *a)
 t_stack		*rrb(t_stack *a)
 {
 	t_stack	*one;
-	t_stack	*two;
 	t_stack	*posl;
 	t_stack	*pred;
 
 	if (a->next == NULL)
 		return (a);
 	one = a;
-	two = a->next;
 	posl = a;
 	pred = a;
 	while (posl->next != NULL)
@@ -266,14 +256,12 @@ t_stack		*rrb(t_stack *a)
 t_stack		*rra_rrb_rrr(t_stack *a)
 {
 	t_stack	*one;
-	t_stack	*two;
 	t_stack	*posl;
 	t_stack	*pred;
 
 	if (a->next == NULL)
 		return (a);
 	one = a;
-	two = a->next;
 	posl = a;
 	pred = a;
 	while (posl->next != NULL)
@@ -474,7 +462,7 @@ int     mod_econom(char **av)
     int i;
 
     i = 1;
-    while (av[i] != '\0')
+    while (av[i])
     {
         if (check_on_char(av[i]) == 1)
             return (1);
@@ -523,7 +511,7 @@ int		main(int ac, char **av)
 		    start = algo_two(start, b);
 		else if (how_list(start) < 70 && how_list(start) > 3)
 			start = many_sort(start, b);
-		//print_stack(start, "a");
+		print_stack(start, "a");
 		free_list(start);
 		free(b);
 	}

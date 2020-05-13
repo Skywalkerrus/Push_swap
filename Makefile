@@ -18,7 +18,7 @@ NAME2 = checker
 
 CC = gcc
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Wextra -Werror
 
 HEADERS_DIR = ./includes/
 
@@ -34,7 +34,7 @@ SRC_CH = ./check/src/
 
 INCLUDES = ./includes/
 OBJ_PATH1 = ./obj/
-LFT_PATH = ./libft/
+LFT_PATH = ./libft/libft.a
 OBJ_PATH2 = ./obj/
 
 SRC_S_PH = $(addprefix $(SRC_PH),$(SRC_NAME_PH))
@@ -60,6 +60,12 @@ SRC_NAME_CH = actions.c\
         checker.c\
         ft_atoi_mod.c\
         cr_stack_for_one_arg.c
+
+ubph:
+	gcc $(FLAGS) -o push_swap $(SRC_S_PH) $(LFT_PATH)
+
+ubch:
+	gcc $(FLAGS) -o checker $(SRC_S_CH) $(LFT_PATH)
 
 all: fclean $(NAME1) $(NAME2)
 

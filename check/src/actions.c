@@ -134,14 +134,12 @@ t_stack		*ra_rb(t_stack *a)
 	t_stack *one;
 	t_stack *two;
 	t_stack *posl;
-	t_stack *pred;
 
 	if (a->next == NULL)
 		return (a);
 	one = a;
 	two = a->next;
 	posl = a;
-	pred = a;
 	while (posl->next != NULL && posl->next->trig != 10)
 		posl = posl->next;
 	posl->next = one;
@@ -154,14 +152,12 @@ t_stack		*ra_rb_rr(t_stack *a)
 	t_stack *one;
 	t_stack *two;
 	t_stack *posl;
-	t_stack *pred;
 
 	if (a->next == NULL)
 		return (a);
 	one = a;
 	two = a->next;
 	posl = a;
-	pred = a;
 	while (posl->next != NULL)
 		posl = posl->next;
 	posl->next = one;
@@ -183,14 +179,12 @@ t_stack		*rr(t_stack *a, t_stack *b)
 t_stack		*rra_rrb(t_stack *a)
 {
 	t_stack	*one;
-	t_stack	*two;
 	t_stack	*posl;
 	t_stack	*pred;
 
 	if (a->next == NULL)
 		return (a);
 	one = a;
-	two = a->next;
 	posl = a;
 	pred = a;
 	while (posl->next != NULL)
@@ -205,14 +199,12 @@ t_stack		*rra_rrb(t_stack *a)
 t_stack		*rra_rrb_rrr(t_stack *a)
 {
 	t_stack	*one;
-	t_stack	*two;
 	t_stack	*posl;
 	t_stack	*pred;
 
 	if (a->next == NULL)
 		return (a);
 	one = a;
-	two = a->next;
 	posl = a;
 	pred = a;
 	while (posl->next != NULL)

@@ -152,7 +152,7 @@ t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
 
 	i = 0;
 	str2 = (char *)malloc(sizeof(char) * ft_strlen(str));
-	while (str[i] != '\0' && str[i] != '\n')
+	while (str[i] && str[i] != '\n')
 	{
 		str2[i] = str[i];
 		i++;
@@ -175,7 +175,7 @@ t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
 	}
 	else
         a = cast_de(equal(str2) , a, b, s);
-	//print_stack(a, "a");
+	print_stack(a, "a");
 	return (a);
 }
 
@@ -187,10 +187,10 @@ int		check_numb_dublic(char	**av) // proverka na dublicaty
 
 	j = 1;
 	i = j + 1;
-	while (av[j] != '\0')
+	while (av[j])
 	{
 		tec = ft_atoi(av[j]);
-		while (av[i] != '\0')
+		while (av[i])
 		{
 			if (tec == ft_atoi(av[i]))
 			{

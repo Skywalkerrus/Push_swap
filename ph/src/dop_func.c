@@ -48,10 +48,10 @@ int			check_numb_dublic(char	**av) // proverka na dublicaty
     j = 1;
     i = j + 1;
 
-    while (av[j] != '\0')
+    while (av[j])
     {
         tec = ft_atoi(av[j]);
-        while (av[i] != '\0')
+        while (av[i])
         {
             if (tec == ft_atoi(av[i]))
             {

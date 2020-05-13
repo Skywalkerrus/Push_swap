@@ -15,9 +15,7 @@
 static char			*ft_strnew_mod(size_t size, char **arr, int y)
 {
 	char			*str;
-	unsigned int	i;
 
-	i = 0;
 	str = (char *)malloc(sizeof(char) * (size + 1));
 	if (str == NULL)
 	{
@@ -69,9 +67,7 @@ static int			c_w(char const *s, char c)
 static char			**ft_strnew_dv(size_t size)
 {
 	char			**str;
-	unsigned int	i;
 
-	i = 0;
 	str = (char **)malloc(sizeof(char*) * (size + 1));
 	if (str == NULL)
 		return (NULL);
