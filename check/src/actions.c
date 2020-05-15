@@ -140,7 +140,10 @@ t_stack		*ra_rb(t_stack *a)
 	one = a;
 	two = a->next;
 	posl = a;
-	while (posl->next != NULL && posl->next->trig != 10)
+    // в цикле ниже раньше была ошибка, у последнего элемента был присвоен
+    //  тригер 10, поэтому последним элементом получался предпоследний
+    //  элемент госпади пжлс пусть это будет последняя ошибка
+	while (posl->next != NULL /*&& posl->next->trig != 10*/)
 		posl = posl->next;
 	posl->next = one;
 	one->next = NULL;

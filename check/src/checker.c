@@ -173,8 +173,10 @@ t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
 		check_numb_two(a);
 		return (NULL);
 	}
-	else
-        a = cast_de(equal(str2) , a, b, s);
+	else {
+	    int test_jopi = equal(str2);
+        a = cast_de(test_jopi/*equal(str2)*/, a, b, s);
+    }
 	print_stack(a, "a");
 	return (a);
 }
