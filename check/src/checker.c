@@ -82,6 +82,16 @@ t_stack		*cast_push_first(int	key, t_stack *a, t_stack *b)
 	return (r);
 }
 
+t_stack     *helper_pb(t_stack *a, t_stack *b)
+{
+    if (a->trig != 10)
+        return (pb(a, b));
+    else{
+        a->pred = b;
+        return (a);
+    }
+}
+
 t_stack		*cast_push_second(int	key, t_stack *a, t_stack *b)
 {
 	t_stack *r;
@@ -91,12 +101,16 @@ t_stack		*cast_push_second(int	key, t_stack *a, t_stack *b)
 	z = NULL;
 	if (key == 8)
 	{
-		r = pa(a, b);
-		z = r; //b
-		r = r->pred; //a
-		r->pred = z;
+	    if (b->trig != 10)
+	    {
+		    r = pa(a, b);
+		    z = r; //b
+		    r = r->pred; //a
+	    }else
+	        z = b;
+	    r->pred = z;
 	} else if (key == 9)
-        r = pb(a, b);
+        r = helper_pb(a, b);//pb(a, b);
 	else if (key == 10)
 		r = rr(a, b);
 	else if (key == 11)
@@ -178,6 +192,7 @@ t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
         a = cast_de(test_jopi/*equal(str2)*/, a, b, s);
     }
 	print_stack(a, "a");
+	print_stack(a->pred, "b");
 	return (a);
 }
 
@@ -226,6 +241,7 @@ t_stack     *chtec2(char    **av, int ac)
     b->trig = 10;
     b->next = NULL;
     a = create_stack(av, ac);
+    a->trig = 0;
     if (a)
     	a->pred = b;
     return (a);

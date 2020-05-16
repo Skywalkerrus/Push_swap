@@ -6,9 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/skywalker/Рабочий стол/Push_swap/check/src/checker.c
-stdio.h
--
+/home/skywalker/Рабочий стол/Push_swap/check/src/actions.c
 ../../includes/checker.h
 /home/skywalker/Рабочий стол/Push_swap/includes/checker.h
 

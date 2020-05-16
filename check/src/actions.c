@@ -56,7 +56,7 @@ int	print_stack(t_stack *a, char *stack_name)
 	ft_putstr("stack: ");
 	ft_putstr(stack_name);
 	ft_putstr("\n");
-	if (/*a->trig == 10*/ a == NULL)
+	if (a->trig == 10 || a == NULL)
 	{
 		ft_putstr("\nstack is empty\n");
 		return (0);
