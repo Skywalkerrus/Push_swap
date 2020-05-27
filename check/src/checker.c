@@ -280,8 +280,10 @@ int     blyat(char     **av, int ac)
 	}
     b = a->pred;
     s = a;
-    if (chtec(a, b, s) == 1)
+    if (chtec(a, b, s) == 1) {
+        //free_list
         return (1);
+    }
     return (0);
 }
 
@@ -292,23 +294,21 @@ int		main(int ac, char **av)
 
 	m[0] = 0;
 	m[1] = 1;
-	if (ac > 1)
-	{
-		if (ac == 2)
-			if (blyat(av, ac) == 1)
-				return (0);
-		m[2] = ft_atoi(av[1]); //last
-		tab = (int  *)malloc(sizeof(int) * ac);
-		while (m[1] < ac)
-		{
-			tab[m[1] - 1] = ft_atoi_mod(av[m[1]]);
-			if ((check_on_char_check(av[m[1]]) == 1) || (check_numb_dublic(av) == 1))
-				return (0);
-			m[2] = ft_atoi(av[m[1]]);
-			m[1]++;
-		}
-		if (blyat(av, ac) == 1)
-			return (0);
-	}
+	if (ac > 1) {
+        if (ac == 2)
+            if (blyat(av, ac) == 1)
+                return (0);
+        m[2] = ft_atoi(av[1]); //last
+        tab = (int *) malloc(sizeof(int) * ac);
+        while (m[1] < ac) {
+            tab[m[1] - 1] = ft_atoi_mod(av[m[1]]);
+            if ((check_on_char_check(av[m[1]]) == 1) || (check_numb_dublic(av) == 1))
+                return (0);
+            m[2] = ft_atoi(av[m[1]]);
+            m[1]++;
+        }
+        if (blyat(av, ac) == 1)
+            return (0);
+    }
 	return (0);
 }

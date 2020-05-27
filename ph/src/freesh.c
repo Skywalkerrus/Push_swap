@@ -18,6 +18,8 @@ void	free_list(t_stack *a)
 	t_stack	*nex;
 
 	tec = a;
+	if (a == NULL)
+        return;
 	if (a->next != NULL)
 		a = a->next;
 	nex = a;
@@ -34,4 +36,7 @@ void	free_list(t_stack *a)
 		}
 		nex = a;
 	}
+	//free(tec);
+	free(nex);
+	free(a);
 }

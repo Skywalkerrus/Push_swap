@@ -419,6 +419,7 @@ t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 		ne = (t_stack *)malloc(sizeof(t_stack));
 		if (av[i + 2] == NULL) {
 			a->next = NULL;
+			//free(a);
 			free_list(ne);
 		}
 		else
@@ -452,9 +453,16 @@ t_stack		*create_stack(char	**av, int ac)
 	if (r == NULL)
 	{
 		ft_putstr("Error\n");
+		/*free_list(r);
+		//free(r);
+		free_list(a);
+		//free(a);
+		free_list(ne);
+		//free(ne);*/
 		return (NULL);
-	} else
-		return (r);
+	} else {
+        return (r);
+    }
 }
 
 int     mod_econom(char **av)
@@ -478,6 +486,16 @@ t_stack     *kostyl_for_two(t_stack *a)
     return (a);
 }
 
+void    free_to_free(t_stack *a)
+{
+    if (a != NULL)
+    {
+        free_list(a);
+        free(a);
+    } else
+        return;
+}
+
 int		main(int ac, char **av)
 {
 	t_stack     *b;
@@ -485,18 +503,20 @@ int		main(int ac, char **av)
 
 	if (ac != 2 && mod_econom(av) == 1)
         return (0);
-	b = (t_stack*)malloc(sizeof(t_stack));
+	if ((b = (t_stack*)malloc(sizeof(t_stack))) == NULL)
+	    return (0);
 	b->next = NULL;
 	b->trig = 10;
-	if (ac > 1)
-	{
-        if (check_numb_dublic(av) == 1 && ac != 2)
-		{
-        	free_list(b);
-        	return (0);
-		}
-		if ((start = create_stack(av, ac)) == NULL)
-			return (0);
+	if (ac > 1) {
+        if (check_numb_dublic(av) == 1 && ac != 2) {
+            free_list(b);
+            return (0);
+        }
+        if ((start = create_stack(av, ac)) == NULL)
+        {
+            free(start);
+            return (0);
+        }
 		if (ac == 2 && check_n_arg(start) == -1)
 		{
 			free_list(start);
@@ -512,8 +532,8 @@ int		main(int ac, char **av)
 		else if (how_list(start) < 70 && how_list(start) > 3)
 			start = many_sort(start, b);
 		print_stack(start, "a");
-		free_list(start);
-		free(b);
+		free_to_free(start);
 	}
+	free_to_free(b);
 	return (0);
 }
