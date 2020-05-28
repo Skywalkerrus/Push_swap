@@ -65,6 +65,20 @@ void	ss_push_swap(t_stack *a, t_stack *b)
 	//ft_putstr("ss\n");
 }
 
+void        print_stack_2(t_stack *a)
+{
+    char    *del;
+
+    while (a != NULL)
+    {
+        del = ft_itoa_2(a->value);
+        ft_putstr(del);
+        free(del);
+        ft_putstr(" ");
+        a = a->next;
+    }
+}
+
 void	    print_stack(t_stack *a, char *stack_name)
 {
 	ft_putstr("stack: ");
@@ -81,12 +95,7 @@ void	    print_stack(t_stack *a, char *stack_name)
 		ft_putstr(ft_itoa(a->value));
 		return;
 	}
-	while (a != NULL)
-	{
-		ft_putstr(ft_itoa(a->value));
-		ft_putstr(" ");
-		a = a->next;
-	}
+	print_stack_2(a);
 	ft_putstr("\n");
 }
 
@@ -405,6 +414,16 @@ t_stack		*analog_cr_stack(char	*str, t_stack	*a, int i)
 	return (start);
 }
 
+void    free_to_free(t_stack *a)
+{
+    if (a != NULL)
+    {
+        free_list(a);
+        free(a);
+    } else
+        return;
+}
+
 t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 {
 	t_stack		*start;
@@ -416,7 +435,8 @@ t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 		a->trig = 66;
 		if (i == 0)
 			start = a;
-		ne = (t_stack *)malloc(sizeof(t_stack));
+		if ((ne = (t_stack *)malloc(sizeof(t_stack))) == NULL)
+		    return (NULL);
 		if (av[i + 2] == NULL) {
 			a->next = NULL;
 			//free(a);
@@ -430,25 +450,25 @@ t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 		ne->next = NULL;
 		i++;
 		if (av[i] == NULL)
-			free_list(ne);
+			free_to_free(ne);
 	}
 	av[i] = 0;
 	return (start);
 }
 
-t_stack		*create_stack(char	**av, int ac)
-{
-	t_stack *a;
-	t_stack *ne;
-	t_stack	*r;
-	int		i;
+t_stack		*create_stack(char	**av, int ac) {
+    t_stack *a;
+    t_stack *ne;
+    t_stack *r;
+    int i;
 
-	i = 0;
-	ne = NULL;
-	a = (t_stack*)malloc(sizeof(t_stack));
-	a->trig = 10;
-	if (ac > 2)
-		return (cr_stack_n(a, av, ne, i));
+    i = 0;
+    ne = NULL;
+    if ((a = (t_stack *) malloc(sizeof(t_stack))) == NULL)
+        return (NULL);
+    a->trig = 10;
+    if (ac > 2)
+        return (cr_stack_n(a, av, ne, i));;
 	r = analog_cr_stack(av[1], a, i);
 	if (r == NULL)
 	{
@@ -484,16 +504,6 @@ t_stack     *kostyl_for_two(t_stack *a)
     if (a->value > a->next->value)
         a = sa(a);
     return (a);
-}
-
-void    free_to_free(t_stack *a)
-{
-    if (a != NULL)
-    {
-        free_list(a);
-        free(a);
-    } else
-        return;
 }
 
 int		main(int ac, char **av)
@@ -534,6 +544,9 @@ int		main(int ac, char **av)
 		print_stack(start, "a");
 		free_to_free(start);
 	}
-	free_to_free(b);
+	if (ac < 4)
+	    free_to_free(b);
+	else if (ac > 3)
+	    free_list(b);
 	return (0);
 }
