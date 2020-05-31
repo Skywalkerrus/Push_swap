@@ -121,6 +121,8 @@ t_stack		*pa(t_stack *a, t_stack *b)
 		c->pred = b;
 		b->next = a;
 	}
+	if (c->trig == 10)
+	    free(c);
 	//ft_putstr("pa\n");
 	return (c);
 }
@@ -148,6 +150,8 @@ t_stack		*pb(t_stack *a, t_stack *b)
 		b->value = a->value;
 		c->pred = b;
 	}
+	if (c->trig == 10)
+	    free(c);
 	//ft_putstr("pb\n");
 	return (c);
 }
@@ -437,7 +441,8 @@ t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 			start = a;
 		if ((ne = (t_stack *)malloc(sizeof(t_stack))) == NULL)
 		    return (NULL);
-		if (av[i + 2] == NULL) {
+		if (av[i + 2] == NULL)
+		{
 			a->next = NULL;
 			//free(a);
 			free_list(ne);
@@ -473,12 +478,6 @@ t_stack		*create_stack(char	**av, int ac) {
 	if (r == NULL)
 	{
 		ft_putstr("Error\n");
-		/*free_list(r);
-		//free(r);
-		free_list(a);
-		//free(a);
-		free_list(ne);
-		//free(ne);*/
 		return (NULL);
 	} else {
         return (r);
@@ -536,7 +535,7 @@ int		main(int ac, char **av)
 		if (how_list(start) == 2)
 		    start = kostyl_for_two(start);
 		else if (how_list(start) == 3)
-			start = sort_three_numb(start);
+            start = sort_three_numb(start);
 		else if (how_list(start) > 70)
 		    start = algo_two(start, b);
 		else if (how_list(start) < 70 && how_list(start) > 3)
