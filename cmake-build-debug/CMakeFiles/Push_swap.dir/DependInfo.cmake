@@ -4,10 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/skywalker/Рабочий стол/tt/Push_swap/check/src/actions.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/check/src/actions.c.o"
-  "/home/skywalker/Рабочий стол/tt/Push_swap/check/src/checker.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/check/src/checker.c.o"
-  "/home/skywalker/Рабочий стол/tt/Push_swap/check/src/cr_stack_for_one_arg.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/check/src/cr_stack_for_one_arg.c.o"
-  "/home/skywalker/Рабочий стол/tt/Push_swap/check/src/ft_atoi_mod.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/check/src/ft_atoi_mod.c.o"
   "/home/skywalker/Рабочий стол/tt/Push_swap/libft/ft_atoi.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_atoi.c.o"
   "/home/skywalker/Рабочий стол/tt/Push_swap/libft/ft_bzero.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_bzero.c.o"
   "/home/skywalker/Рабочий стол/tt/Push_swap/libft/ft_ctword.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_ctword.c.o"
@@ -74,6 +70,12 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/skywalker/Рабочий стол/tt/Push_swap/libft/ft_swap.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_swap.c.o"
   "/home/skywalker/Рабочий стол/tt/Push_swap/libft/ft_tolower.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_tolower.c.o"
   "/home/skywalker/Рабочий стол/tt/Push_swap/libft/ft_toupper.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/libft/ft_toupper.c.o"
+  "/home/skywalker/Рабочий стол/tt/Push_swap/ph/src/algo_two.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/algo_two.c.o"
+  "/home/skywalker/Рабочий стол/tt/Push_swap/ph/src/dop_func.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/dop_func.c.o"
+  "/home/skywalker/Рабочий стол/tt/Push_swap/ph/src/freesh.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/freesh.c.o"
+  "/home/skywalker/Рабочий стол/tt/Push_swap/ph/src/ft_atoi_mod.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/ft_atoi_mod.c.o"
+  "/home/skywalker/Рабочий стол/tt/Push_swap/ph/src/push_swap.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/push_swap.c.o"
+  "/home/skywalker/Рабочий стол/tt/Push_swap/ph/src/sort_five.c" "/home/skywalker/Рабочий стол/tt/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir/ph/src/sort_five.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

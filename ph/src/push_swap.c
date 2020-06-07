@@ -464,7 +464,6 @@ t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 t_stack		*create_stack(char	**av, int ac) {
     t_stack *a;
     t_stack *ne;
-    t_stack *r;
     int i;
 
     i = 0;
@@ -473,15 +472,15 @@ t_stack		*create_stack(char	**av, int ac) {
         return (NULL);
     a->trig = 10;
     if (ac > 2)
-        return (cr_stack_n(a, av, ne, i));;
-	r = analog_cr_stack(av[1], a, i);
-	if (r == NULL)
+    {
+        return ((cr_stack_n(a, av, ne, i)));
+    }
+	if ((analog_cr_stack(av[1], a, i)) == NULL)
 	{
 		ft_putstr("Error\n");
 		return (NULL);
-	} else {
-        return (r);
-    }
+	}
+	return (a);
 }
 
 int     mod_econom(char **av)
@@ -505,19 +504,33 @@ t_stack     *kostyl_for_two(t_stack *a)
     return (a);
 }
 
+int     find_symb(char *s, char e)
+{
+    int i;
+
+    i = 0;
+    while (s[i])
+    {
+        if (s[i] == e)
+            return (1);
+        i++;
+    }
+    return (0);
+}
+
 int		main(int ac, char **av)
 {
 	t_stack     *b;
 	t_stack     *start;
 
-	if (ac != 2 && mod_econom(av) == 1)
+	if ((ac == 2 && find_symb(av[1], ' ') == 0) || (ac != 2 && mod_econom(av) == 1))
         return (0);
 	if ((b = (t_stack*)malloc(sizeof(t_stack))) == NULL)
 	    return (0);
 	b->next = NULL;
 	b->trig = 10;
 	if (ac > 1) {
-        if (check_numb_dublic(av) == 1 && ac != 2) {
+        if ((check_numb_dublic(av) == 1 || check_numb_dublic(av) == -2) && ac != 2) {
             free_list(b);
             return (0);
         }

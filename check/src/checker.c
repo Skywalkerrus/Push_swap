@@ -240,7 +240,8 @@ t_stack     *chtec2(char    **av, int ac)
     b = (t_stack*)malloc(sizeof(t_stack));
     b->trig = 10;
     b->next = NULL;
-    a = create_stack(av, ac);
+    if ((a = create_stack(av, ac)) == NULL)
+        return (NULL);
     a->trig = 0;
     if (a)
     	a->pred = b;

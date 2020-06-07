@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/skywalker/Рабочий стол/tt/Push_swap/includes/push_swap.h
+../libft/libft.h
+/home/skywalker/Рабочий стол/tt/Push_swap/libft/libft.h
+stdio.h
+-
+struct.h
+/home/skywalker/Рабочий стол/tt/Push_swap/includes/struct.h
+
+/home/skywalker/Рабочий стол/tt/Push_swap/includes/struct.h
+
+/home/skywalker/Рабочий стол/tt/Push_swap/libft/libft.h
+stdlib.h
+-
+unistd.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+
+/home/skywalker/Рабочий стол/tt/Push_swap/ph/src/push_swap.c
+../../includes/push_swap.h
+/home/skywalker/Рабочий стол/tt/Push_swap/includes/push_swap.h
+stdio.h
+-
+

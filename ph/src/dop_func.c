@@ -57,7 +57,8 @@ int			check_numb_dublic(char	**av) // proverka na dublicaty
             {
                 ft_putstr("Error\n");
                 return (1);
-            }
+            } else if (tec == 0)
+                return (-2);
             i++;
         }
         j++;
@@ -72,6 +73,7 @@ int		check_on_char(char	*av) // proverka chisel na bykvi
     {
         ft_putstr("Error\n");
         return (1);
-    }
+    } else if (ft_atoi_mod(av) == -2)
+        return (1);
     return (0);
 }
