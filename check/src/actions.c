@@ -68,11 +68,14 @@ int	print_stack(t_stack *a, char *stack_name)
 		ft_putstr("\n");
 		return (1);
 	}
-	while (a != NULL)
+	while (a->trig != 10)
 	{
-		ft_putstr(ft_itoa(a->value));
+	    ft_putstr(ft_itoa(a->value));
 		ft_putstr(" ");
 		a = a->next;
+        if (a == NULL) {
+            break;
+        }
 	}
 	ft_putstr("\n");
     return (3);
@@ -261,7 +264,6 @@ t_stack		*create_stack(char	**av, int ac)
 {
 	t_stack *a;
 	t_stack *ne;
-	t_stack *r;
 	int		i;
 
 	i = 0;
@@ -270,11 +272,10 @@ t_stack		*create_stack(char	**av, int ac)
 	a->trig = 10;
 	if (ac > 2)
 		return (cr_stack_n(a, av, ne, i));
-	r = analog_cr_stack(av[1], a, i);
-	if (r == NULL)
+	if ((analog_cr_stack(av[1], a, i)) == NULL)
 	{
 		ft_putstr("Error\n");
 		return (NULL);
 	} else
-		return (r);
+		return (a);
 }
