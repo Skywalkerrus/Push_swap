@@ -44,17 +44,18 @@ t_stack		*analog_cr_stack_mod(int cunt_w, t_stack *a)
 	t_stack	*ne;
 
 	ne = NULL;
-	if (cunt_w == 0)
+	//printf("cunt_w: %d\n", cunt_w);
+	if (cunt_w == 2)
 	{
 		a->next = NULL;
 		a->trig = 10;
 	} else
 	{
-		ne = (t_stack *)malloc(sizeof(t_stack));
-		ne->trig = 10;
-		a->next = ne;
-		a = a->next;
-		a->next = NULL;
+	        ne = (t_stack *) malloc(sizeof(t_stack));
+	        ne->trig = 10;
+            a->next = ne;
+            a = a->next;
+            a->next = NULL;
 	}
 	return (a);
 }
@@ -82,7 +83,8 @@ t_stack		*analog_cr_stack(char	*str, t_stack	*a, int i)
 	cunt_w = ft_ctword(str, ' ') + 1;
 	while (str[i])
 	{
-		if (!start) start = a;
+		if (!start)
+		    start = a;
 		if (str[i] != ' ' && str[i] != '\t')
 		{
 			s2 = (char*) malloc(sizeof(char) * 100);

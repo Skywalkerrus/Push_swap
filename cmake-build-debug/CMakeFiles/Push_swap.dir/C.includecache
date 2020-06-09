@@ -10,6 +10,16 @@
 ../../includes/checker.h
 /home/skywalker/Рабочий стол/tt/Push_swap/includes/checker.h
 
+/home/skywalker/Рабочий стол/tt/Push_swap/check/src/checker.c
+stdio.h
+-
+../../includes/checker.h
+/home/skywalker/Рабочий стол/tt/Push_swap/includes/checker.h
+
+/home/skywalker/Рабочий стол/tt/Push_swap/check/src/cr_stack_for_one_arg.c
+../../includes/checker.h
+/home/skywalker/Рабочий стол/tt/Push_swap/includes/checker.h
+
 /home/skywalker/Рабочий стол/tt/Push_swap/includes/checker.h
 ../libft/libft.h
 /home/skywalker/Рабочий стол/tt/Push_swap/libft/libft.h
