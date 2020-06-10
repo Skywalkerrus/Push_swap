@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I"/home/skywalker/Рабочий стол/tt/Push_swap/." -I"/home/skywalker/Рабочий стол/tt/Push_swap/libft" 
+C_INCLUDES = -I"/home/skywalker/Рабочий стол/jopa/Push_swap/." -I"/home/skywalker/Рабочий стол/jopa/Push_swap/libft" 
 

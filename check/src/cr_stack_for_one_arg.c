@@ -20,9 +20,9 @@ int 		check_n_arg(t_stack	*start)
 	a = start;
 	if (a->next != NULL)
 		b = a->next;
-	while (a->trig != 10)
+	while (/*a->trig != 10*/a->next != NULL)
 	{
-		while (b->trig != 10)
+		while (/*b->trig != 10*/b->next != NULL)
 		{
 			if (a->value == b->value)
 			{
@@ -48,14 +48,14 @@ t_stack		*analog_cr_stack_mod(int cunt_w, t_stack *a)
 	if (cunt_w == 2)
 	{
 		a->next = NULL;
-		a->trig = 10;
+		a->trig = 0;
 	} else
 	{
-	        ne = (t_stack *) malloc(sizeof(t_stack));
-	        ne->trig = 10;
-            a->next = ne;
-            a = a->next;
-            a->next = NULL;
+	    ne = (t_stack *) malloc(sizeof(t_stack));
+	    ne->trig = 0;
+	    a->next = ne;
+	    a = a->next;
+	    a->next = NULL;
 	}
 	return (a);
 }
@@ -83,8 +83,10 @@ t_stack		*analog_cr_stack(char	*str, t_stack	*a, int i)
 	cunt_w = ft_ctword(str, ' ') + 1;
 	while (str[i])
 	{
-		if (!start)
+		if (!start){
 		    start = a;
+		    start->trig = 10;
+		}
 		if (str[i] != ' ' && str[i] != '\t')
 		{
 			s2 = (char*) malloc(sizeof(char) * 100);
@@ -92,7 +94,7 @@ t_stack		*analog_cr_stack(char	*str, t_stack	*a, int i)
 				return (NULL);
 			a->value = ft_atoi(s2);
 			free(s2);
-			a->trig = 66;
+			//a->trig = 0;
 			a = analog_cr_stack_mod(cunt_w--, a);
 		} else
 			i++;

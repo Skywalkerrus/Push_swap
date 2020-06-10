@@ -56,7 +56,7 @@ int	print_stack(t_stack *a, char *stack_name)
 	ft_putstr("stack: ");
 	ft_putstr(stack_name);
 	ft_putstr("\n");
-	if (a->trig == 10 && a->next == NULL)
+	if (a == NULL)
 	{
 		ft_putstr("\nstack is empty\n");
 		return (0);
@@ -68,7 +68,7 @@ int	print_stack(t_stack *a, char *stack_name)
 		ft_putstr("\n");
 		return (1);
 	}
-	while (a->trig != 10 || (a->trig == 10 && a->next != NULL))
+	while (a->trig != 10)
 	{
 	    ft_putstr(ft_itoa(a->value));
 		ft_putstr(" ");
@@ -259,7 +259,7 @@ t_stack		*cr_stack_n(t_stack *a, char	**av, t_stack *ne, int i)
 	return (start);
 }
 
-t_stack     *del(t_stack *a)
+/*t_stack     *del(t_stack *a)
 {
     t_stack     *s;
 
@@ -280,7 +280,7 @@ t_stack     *del(t_stack *a)
             break;
     }
     return (s);
-}
+}*/
 
 t_stack		*create_stack(char	**av, int ac)
 {

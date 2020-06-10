@@ -266,6 +266,30 @@ int     chtec(t_stack *a, t_stack *b, t_stack *s)
     return (0);
 }
 
+t_stack     *del(t_stack *a)
+{
+    t_stack     *s;
+
+    s = a;
+    while (a != NULL)
+    {
+        if (a->next != NULL)
+        {
+            if (a->next->trig == 10)
+            {
+                a->next = NULL;
+                a->trig = 66;
+                return (s);
+            }
+        }
+        if (a->next != NULL)
+            a = a->next;
+        else
+            break;
+    }
+    return (s);
+}
+
 int     blyat(char     **av, int ac)
 {
     t_stack *a;
@@ -274,11 +298,12 @@ int     blyat(char     **av, int ac)
 
     if ((a = chtec2(av, ac)) == NULL)
 		return (1);
-	if (ac == 2 && check_n_arg(a) == -1)
+	if (ac == 2 && check_n_arg(a) == -1) // zdes sega chinit
 	{
 		//free_list(a);
 		return (1);
 	}
+	//a = del(a);
     b = a->pred;
     s = a;
     if (chtec(a, b, s) == 1) {
