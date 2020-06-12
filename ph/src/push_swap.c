@@ -25,7 +25,7 @@ t_stack		*sa(t_stack *a)
 		c->next = a->next;
 		a->next = c;
 	}
-	//ft_putstr("sa\n");
+	ft_putstr("sa\n");
 	return (a);
 }
 
@@ -40,7 +40,7 @@ t_stack		*sb(t_stack *a)
 		c->next = a->next;
 		a->next = c;
 	}
-	//ft_putstr("sb\n");
+	ft_putstr("sb\n");
 	return (a);
 }
 
@@ -62,7 +62,7 @@ void	ss_push_swap(t_stack *a, t_stack *b)
 {
 	sa_sb_ss(a);
 	sa_sb_ss(b);
-	//ft_putstr("ss\n");
+	ft_putstr("ss\n");
 }
 
 void        print_stack_2(t_stack *a)
@@ -81,9 +81,10 @@ void        print_stack_2(t_stack *a)
 
 void	    print_stack(t_stack *a, char *stack_name)
 {
-	ft_putstr("stack: ");
-	ft_putstr(stack_name);
-	ft_putstr("\n");
+	//ft_putstr("stack: ");
+	//ft_putstr(stack_name);
+	//ft_putstr("\n");
+	ft_strlen(stack_name);
 	if (a->trig == 10)
 	{
 		ft_putstr("\nstack is empty\n");
@@ -123,7 +124,7 @@ t_stack		*pa(t_stack *a, t_stack *b)
 	}
 	if (c->trig == 10)
 	    free(c);
-	//ft_putstr("pa\n");
+	ft_putstr("pa\n");
 	return (c);
 }
 
@@ -152,7 +153,7 @@ t_stack		*pb(t_stack *a, t_stack *b)
 	}
 	if (c->trig == 10)
 	    free(c);
-	//ft_putstr("pb\n");
+	ft_putstr("pb\n");
 	return (c);
 }
 
@@ -171,7 +172,7 @@ t_stack		*ra(t_stack *a)
 		posl = posl->next;
 	posl->next = one;
 	one->next = NULL;
-	//ft_putstr("ra\n");
+	ft_putstr("ra\n");
 	return (two);
 }
 
@@ -190,7 +191,7 @@ t_stack		*rb(t_stack *a)
 		posl = posl->next;
 	posl->next = one;
 	one->next = NULL;
-	//ft_putstr("rb\n");
+	ft_putstr("rb\n");
 	return (two);
 }
 
@@ -220,7 +221,7 @@ t_stack		*rr(t_stack *a, t_stack *b)
 
 	c = ra_rb_rr(a);
 	c->pred = ra_rb_rr(b);
-	//ft_putstr("rr\n");
+	ft_putstr("rr\n");
 	return (c);
 }
 
@@ -241,7 +242,7 @@ t_stack		*rra(t_stack *a)
 		pred = pred->next;
 	posl->next = one;
 	pred->next = NULL;
-	//ft_putstr("rra\n");
+	ft_putstr("rra\n");
 	return (posl);
 }
 
@@ -262,7 +263,7 @@ t_stack		*rrb(t_stack *a)
 		pred = pred->next;
 	posl->next = one;
 	pred->next = NULL;
-	//ft_putstr("rrb\n");
+	ft_putstr("rrb\n");
 	return (posl);
 }
 
@@ -292,7 +293,7 @@ t_stack		*rrr(t_stack *a, t_stack *b)
 
 	c = rra_rrb_rrr(a);
 	c->pred = rra_rrb_rrr(b);
-	//ft_putstr("rrr\n");
+	ft_putstr("rrr\n");
 	return (c);
 }
 
@@ -553,12 +554,13 @@ int		main(int ac, char **av)
 		    start = algo_two(start, b);
 		else if (how_list(start) < 70 && how_list(start) > 3)
 			start = many_sort(start, b);
-		print_stack(start, "a");
-		free_to_free(start);
+		//print_stack(start, "a");
+		//free_to_free(start);
+
 	}
-	if (ac < 4)
+	/*if (ac < 4)
 	    free_to_free(b);
 	else if (ac > 3)
-	    free_list(b);
+	    free_list(b);*/
 	return (0);
 }

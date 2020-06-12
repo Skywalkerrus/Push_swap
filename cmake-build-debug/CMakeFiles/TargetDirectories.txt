@@ -1,3 +1,3 @@
-/home/skywalker/Рабочий стол/jopa/Push_swap/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/skywalker/Рабочий стол/jopa/Push_swap/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/skywalker/Рабочий стол/jopa/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir
+/home/skywalker/Рабочий стол/Push_swap/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/skywalker/Рабочий стол/Push_swap/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/skywalker/Рабочий стол/Push_swap/cmake-build-debug/CMakeFiles/Push_swap.dir

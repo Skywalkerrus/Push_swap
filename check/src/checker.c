@@ -139,16 +139,15 @@ void     check_numb_two(t_stack *a)
     s = a;
     if (s->next != NULL)
     	s2 = s->next;
-    while (s->trig != 10)
+    while (/*s->trig != 10*/s->next != NULL)
 	{
-    	while (s2->trig != 10)
+    	while (s2->next != NULL/*s2->trig != 10*/)
 		{
     		if (s->value > s2->value)
 			{
 				ft_putstr("KO\n");
 				return;
-			}
-    		if (s2->next != NULL)
+			} else if (s2->next != NULL)
     			s2 = s2->next;
 		}
 		if (s->next != NULL)
@@ -171,11 +170,6 @@ t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
 		str2[i] = str[i];
 		i++;
 	}
-	/*if (equal_sec(str2) == 95)
-	{
-		check_numb_two(a);
-		return (NULL);
-	}*/
 	if (equal(str2) == 0)
 	{
 		ft_putstr("Error\n");
@@ -183,7 +177,7 @@ t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
 		return (s);
 	}
 	else if (equal(str2) == 95) {
-		print_stack(a, "hui na");
+		//print_stack(a, "проверка сортировки");
 		check_numb_two(a);
 		return (NULL);
 	}
@@ -191,8 +185,8 @@ t_stack 	*line(char	*str, t_stack *a, t_stack *b, t_stack *s)
 	    int test_jopi = equal(str2);
         a = cast_de(test_jopi/*equal(str2)*/, a, b, s);
     }
-	print_stack(a, "a");
-	print_stack(a->pred, "b");
+	//print_stack(a, "a");
+	//print_stack(a->pred, "b");
 	return (a);
 }
 
